@@ -72,6 +72,7 @@ CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
 
 **Minimal Nginx config**
 
+```nginx
 events {}
 http {
   server {
@@ -92,13 +93,16 @@ http {
     }
   }
 }
+```
 
 Build and push:
 
+```bash
 docker build -t registry.example.com/laravel-demo:1.0 .
 docker push registry.example.com/laravel-demo:1.0
+```
 
-2) Write Kubernetes manifests (abbreviated)
+### 2) Write Kubernetes manifests (abbreviated)
 **Web Deployment and Service**
 
 ```yaml

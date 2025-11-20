@@ -1,6 +1,6 @@
 # **Ship Without Fire Drills: Canary, Blue-Green, and Rolling Deploys**
 
-TL;DR: Shipping to production is easy; shipping safely is hard. Progressive delivery strategies \- Rolling (Gradual), Canary, and Blue-Green \- constrain blast radius, create decision points, and give you measurable guardrails. This post explains why they matter, how each works, pros/cons, failure modes, and the key knobs you can tune. We also include concrete YAML snippets you can lift into your pipelines. At the end, we show how Skyhook.io integrates Argo Rollouts so teams can do this with a click.
+TL;DR: Shipping to production is easy; shipping safely is hard. Progressive delivery strategies - Rolling (Gradual), Canary, and Blue-Green - constrain blast radius, create decision points, and give you measurable guardrails. This post explains why they matter, how each works, pros/cons, failure modes, and the key knobs you can tune. We also include concrete YAML snippets you can lift into your pipelines. At the end, we show how Skyhook.io integrates Argo Rollouts so teams can do this with a click.
 
 ## **Why Progressive Delivery Matters**
 
@@ -53,7 +53,7 @@ Key knobs:
 
 Example (native Kubernetes Rolling):
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -101,7 +101,7 @@ When to use:
 
 Pros:
 
-* Precise traffic control (e.g., 2% \-\> 10% \-\> 25% \-\> 50% \-\> 100%)  
+* Precise traffic control (e.g., 2% -> 10% -> 25% -> 50% -> 100%)  
 * Built-in pauses, automated analysis, and instant rollback on metric breach  
 * Reduces blast radius to a measurable percentage from the start  
 * Provides early signal on performance and correctness before wide rollout
@@ -121,7 +121,7 @@ Key knobs:
 
 Example (Argo Rollouts Canary with analysis):
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -164,7 +164,7 @@ spec:
 
 Example (AnalysisTemplate with 99th percentile latency and error rate):
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -222,7 +222,7 @@ How it works:
 
 When to use:
 
-* Protocol or compatibility changes that demand clean switchover (e.g., gRPC \-\> HTTP/2, database schema migrations)  
+* Protocol or compatibility changes that demand clean switchover (e.g., gRPC -> HTTP/2, database schema migrations)  
 * Releases requiring database migrations executed separately using the expand-migrate-contract pattern  
 * Changes with zero tolerance for partial state inconsistency  
 * When you need smoke tests or backfills to run before any user traffic arrives
@@ -250,7 +250,7 @@ Important: Blue-Green deployments require careful handling of stateful systems. 
 
 Example (Argo Rollouts Blue-Green):
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -334,7 +334,7 @@ Blue-Green deployments:
 
 ## **Migration Path: From Rolling to Canary**
 
-If you're already using Rolling deployments today, canary is a natural next step. You keep the same container images and deployment process. The difference: add a traffic router (Nginx ingress or service mesh), define SLO analysis templates, and configure traffic steps (e.g., 5% \-\> 25% \-\> 50% \-\> 100%). Most teams can migrate from Rolling to Canary in 2-4 weeks.
+If you're already using Rolling deployments today, canary is a natural next step. You keep the same container images and deployment process. The difference: add a traffic router (Nginx ingress or service mesh), define SLO analysis templates, and configure traffic steps (e.g., 5% -> 25% -> 50% -> 100%). Most teams can migrate from Rolling to Canary in 2-4 weeks.
 
 ## **Putting It Together: A Pragmatic Release Train**
 
