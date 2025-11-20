@@ -1,26 +1,198 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-background: #F7F7F5;
+  /* Warm Alabaster */
+  --color-surface: #FFFFFF;
+  --color-ink-primary: #111111;
+  --color-ink-secondary: #4A4A4A;
+  --color-border: #E5E5E5;
+  --color-accent: #FF4F00;
+  /* International Orange */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --shadow-hard: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #F7F7F5;
+  --foreground: #111111;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Logo Marquee styles */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logos-scroll-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logos-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll-logos 45s linear infinite;
+}
+
+.logos-scroll:hover {
+  animation-play-state: paused;
+}
+
+.logos-set {
+  display: flex;
+  gap: 3rem;
+  padding-right: 3rem;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-ink-secondary);
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.logo-placeholder::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  background: currentColor;
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
+.logo-placeholder.has-logo::before {
+  display: none;
+}
+
+.logo-placeholder:hover {
+  opacity: 1;
+}
+
+.company-logo {
+  height: 32px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.7);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-placeholder:hover .company-logo {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.05);
+}
+
+/* Blog Content Styles */
+.blog-content-prose {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--ink-secondary);
+}
+
+.blog-content-prose h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content-prose h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content-prose p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-content-prose ul,
+.blog-content-prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.blog-content-prose ul {
+  list-style-type: disc;
+}
+
+.blog-content-prose ol {
+  list-style-type: decimal;
+}
+
+.blog-content-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-content-prose code {
+  background-color: var(--surface);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.blog-content-prose pre {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.blog-content-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.blog-content-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.blog-content-prose blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--ink-primary);
 }

@@ -1,0 +1,596 @@
+# Top menu
+
+| Home | Platform | Solutions | Resources | Docs | Pricing | About |
+| :---- | :---- | :---- | ----- | :---- | :---- | :---- |
+|  | Platform AI ready Build Deploy Run Grow Observe | Preview envs Rollout Self service portal Scaling  | Blog Status Security Changelog |  |  |  |
+
+**Call to actions:**  
+1\. Login  
+2\. Sign up  
+3\. Request a Demo  
+4\. Checkout demo environment
+
+# 
+
+# 
+
+# Home page
+
+| One-click Kubernetes Platform Developer platform without the hassle Build, run and release applications on a best-in-class platform. Skyhook automatically orchestrates, customizes and configures all the leading tools, and is as simple as checking a box. *Get a demo* 	*Start deploying*  |
+| :---- |
+
+| *“It’s like Vercel for Kubernetes” name, title* Used daily by: Update list: Gankster, Rio Digital Assets, Blitz, Brandbow, Novia101, Qualifire, UNIXi, Quack, Fullpath, Webrix. Remove Loora.  |
+| :---- |
+
+| Demo video |
+| :---- |
+
+| Instant developer platform with no lock-in or PaaS tradeoff  You’re one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.  The Skyhook approach: You own the platform stack. We build, orchestrate and manage it for you You retain the flexibility to change/extend any of the tools that make up the platform Mix and match the tools you love (link to integrations page) Works on AWS, Azure or GCP, or your own cloud  |
+| :---- |
+
+| FOR DEVELOPERS  A self-service interface for developers *Like an internal developer portal without the K8s platform setup*  A simple interface that meets developers where they are \-  CLI, API or UI. Leverage the K8s ecosystem, from preview environments to canary deployments, without developer K8s expertise. Set easy to follow golden paths, for best practices and standards alignment.  \[image: 2 images (1) show deploy screen (2) add a new service)   |
+| :---- |
+
+| FOR DEVOPS Your DevOps dreams come true The platform and tools you never had the time to set up. With all the control you need.  Great DevOps, ready to roll \[image: new sidebar\] An instant platform that would take weeks or months to create Integrates with the best tools you know and love Supports any language or framework An end to TicketOps, so you can focus on strategic projects Under the hood K8s for easy extensibility No vendor lock-in \- your cloud, your code, your platform Reusable self-service actions and visibility \[image: service catalog\] Self-service interfaces for build, run and deploy Service catalog Stay in control, easily apply guardrails and policies with Kyverno or OPA Vetted best practices that make sense for your organization Security code scanning Monitor, analyze and reduce cloud costs Kubernetes, solved  \[image: logos of tools?\] Any cloud: AWS, AKS, GKE or bring your own Make day-to-day operations accessible for all developers A one-line helm install and you’re all set Designed for scale, without compromising ease of use  |
+| :---- |
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get running and comes without the lock-in risk that’s inherent to PaaS or non-Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Start strong with monitoring, rollout strategies, ephemeral environments and secret management.  | No Lock-in Stay in control without being dependent on specific cloud providers or third-party tools. Unlike PaaS, you can easily migrate away. | Start and Scale Quickly Get started in minutes, not days, with our fully configured environment. Grows with your needs, regardless of engineering group size. |
+| :---- | :---- | :---- |
+| **Kubernetes-based** Simplify Kubernetes for developers and make  management easy for DevOps. | **The Best Tools** Skyhook has built-in support  for the top tools in the Kubernetes ecosystem, such as XXX, YY and ZZZ.. | **Flexible** With Kubernetes under the hood, all the ecosystem and advanced functionality is readily available when you need it |
+
+| Get AI-ready with the context needed for self-service (image: animation of agent retrieving data and acting upon it \- verifying new config correctness) Skyhook’s platform is set up to provide the right context, so you can set up AI-driven developer self-service quickly and easily.   |
+| :---- |
+
+| Powering the software development lifecycle, together Scale your applications with zero infrastructure friction and full observability Build Spin up services, environments, and infrastructure in seconds. Skyhook wires in your preferred dev tools and gives developers self-service without sacrificing control. Deploy Ship code with confidence using built-in CI/CD flows, preview environments, and automated rollouts. From dev to production—it just works. Run Skyhook handles the underlying platform operations so your apps stay healthy and performant. No YAML acrobatics or cluster babysitting required. Grow Whether you're launching a side project or managing enterprise workloads, Skyhook grows with you—across teams, environments, and clouds. Observe Get instant access to logs, metrics, traces, and more. Skyhook connects observability tools out of the box, so insights are just a click away.  |
+| :---- |
+
+## 
+
+## Kubernetes inside, abstracted
+
+Skyhook has the right balance between simplicity and flexibility, so you can provide the abstractions developers need with the control devops need.  When platform engineers need to go deeper and define advanced requirements, we make it easy.
+
+Up and running in no time 
+
+| 1: Connect to your cloud | 2: Automate deployments | 3: Scale and Optimize |
+| :---- | :---- | :---- |
+| Connect your existing clusters, or use skyhook to spin up production-grade clusters for you with the DevOps tools you need. | Deploy quickly and with confidence. Modern CI/CD best practices, with GitOps support, gradual and secure deployment pipelines and environment management.  | Effortlessly scale and optimize cost, incorporating advanced monitoring, and incident management systems. |
+
+You’re in great company  
+(testimonials)
+
+## Ready to roll?
+
+It’s quick and easy to get started
+
+(CTA)
+
+END
+
+# Platform page
+
+| Great devOps, ready to roll A Kubernetes platform that’s all set. Today Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed. CTA |
+| :---- |
+
+# What is Skyhook?
+
+Skyhook is all the automation and work you would do to deliver a kubernetes-based platform, available immediately, right in your cloud, on your terms, together with a developer interface. 
+
+It's a modern k8s-based internal developer platform that implements best practices and golden paths, by orchestrating the best-of-breed open source and enterprise tools in the industry.
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get running and doesn’t present the lock-in risk that’s inherent to PaaS or non-Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Start strong with monitoring, rollout strategies, ephemeral environments and secret management.  | No Lock-in Stay in control without being dependent on specific cloud providers or third-party tools. Unlike PaaS, you can easily migrate away. | Start and Scale Quickly Get started in minutes, not days, with our fully configured environment. Grows with your needs, regardless of engineering group size. |
+| :---- | :---- | :---- |
+| **Kubernetes-based** Simplify Kubernetes for developers and make  management easy for DevOps. | **The Best Tools** Skyhook has built-in support  for the top tools in the Kubernetes ecosystem, such as XXX, YY and ZZZ.. | **Flexible** With Kubernetes under the hood, all the ecosystem and advanced functionality is readily available when you need it |
+
+# Our platform covers the entire SDLC
+
+| Build | Deploy | Run | Grow | Observe |
+| :---- | :---- | :---- | :---- | :---- |
+
+Easy to get started and to migrate from  
+It’s easy to start using Skyhook and it’s also easy to stop using it since there is no PaaS lock-in.
+
+AI-ready  
+Skyhook’s platform is set up to provide the right context to be used by your MCP server, so you can set up ai-driven developer self-service quickly and easily. 
+
+# 
+
+# Build page
+
+## Build with Skyhook
+
+Take your code from repository to container image with unmatched speed and reliability. Leverage a Kubernetes-native pipeline that scales on demand, so every commit triggers a consistent build in an isolated environment. By automating builds, Skyhook ensures reproducible results and quick feedback for your developers. 
+
+## How It Works
+
+Connect Your Repo:   
+Link your Git repository (GitHub, GitLab, etc.) to Skyhook.  Commits can automatically trigger the build pipeline.
+
+Containerized Build Process:   
+Skyhook ensures the process end-to-end: compile code, run tests, and package your application with consistency across environments.
+
+Flexible Build Configuration:   
+Use your own Dockerfile or use the Skyhook defaults. Customize environment variables and dependencies as needed, since Skyhook supports any language or framework that runs in a container.
+
+Optimized Artifacts:   
+The pipeline produces an OCI-compliant container image (and other artifacts if configured) ready for deployment. Built images can be pushed to your preferred registry or stored securely within the platform for the Deploy stage.
+
+Feedback & Logs:   
+Developers get immediate feedback. Real-time logs and notifications inform you of success or failure. If something goes wrong, detailed logs in the web UI or CLI make troubleshooting straightforward.
+
+| Bulletproof CI:  The system can run multiple builds in parallel, auto-scaling build agents to meet your team’s demand. | Layer Caching:  Intelligent caching speeds up repeat builds by reusing unchanged layers (for example, skipping steps when dependencies haven’t changed). This dramatically cuts down build times for iterative development. | Security Scanning: (Optional) Integrate container scanning tools in the pipeline. Since builds are containerized, you can easily plug in vulnerability scanners or linters without modifying your base environment. |
+| :---- | :---- | :---- |
+| Multi-Language Support: Build applications in Node, Python, Java, Go, or any language. If it can run in a container, Skyhook can build it. No specialized or proprietary config required. | Configuration as Code: Define build steps and environment in a YAML config, or stick with convention over configuration for simple cases. Your build process lives alongside your code, versioned and auditable.  | Artifact Management: Store build outputs (images, binaries, reports) and track build history. Every build is tagged and timestamped, making it easy to trace which code went into which image. |
+
+# Deploy page
+
+Deploy with Skyhook
+
+Release your applications in a fast, repeatable, and worry-free process. Skyhook takes container images from the Build stage and launches them onto your Kubernetes cluster with minimal configuration. By automating the heavy lifting of container orchestration, Skyhook enables your team to deploy more often and more confidently, becoming a high-performing DevOps teams.
+
+How It Works
+
+Select an Image:   
+Choose the container image you want. Skyhook supports images from public or private registries, giving you full flexibility.
+
+Define Deployment Settings:   
+Specify how your application should run – number of replicas, CPU/memory limits, environment variables, and any required services (like load balancers or ingresses). 
+
+One-Click or CI-triggered Deploy:   
+Hit deploy in the dashboard or let Skyhook auto-deploy new images when they pass tests. Skyhook will create or update the Kubernetes Deployment and Service resources under the hood.
+
+Rolling Updates:   
+Skyhook updates your application using rolling updates by default. New pods come up before old ones are terminated, ensuring continuous service availability. If a new version fails health checks, the platform can halt or roll back the deployment automatically.
+
+Access & Networking:   
+Once running, your service is reachable via a stable endpoint. Skyhook can provision a DNS name and TLS certificate for public services, or restrict access for internal services. Configuration of port routing and network policies is handled seamlessly.
+
+| Zero-Downtime Deployments: Uses Kubernetes rollout mechanisms to update applications without interrupting service. Updates are applied gradually, and only healthy pods receive traffic. | Declarative Configuration: Everything about your deployment (replicas, environment vars, configs) can be defined in declarative files. Skyhook can sync with Git so your deployments are version-controlled.  | Canary & Blue-Green Support:  Gradually shift traffic between old and new versions or run two versions in parallel for testing. While the default is rolling updates, advanced teams can implement canary or blue-green strategies using Skyhook’s CLI and Kubernetes labels. |
+| :---- | :---- | :---- |
+| Configurable Environments: Deploy to multiple environments (dev, staging, prod) with the same process. You can promote a build through environments with one click, ensuring consistency from testing to production. | Integration Hooks:  Integrate with external CI/CD systems or pipelines. For example, use a GitHub Action or ArgoCD to trigger Skyhook deployments via API. Skyhook plays nicely with existing tools, so you’re not locked in. |  |
+
+# Run page
+
+Run with Skyhook  
+Keep your applications healthy, performant, and secure once they’re deployed. Skyhook’s Kubernetes-native runtime ensures your containers are managed by battle-tested orchestration logic – from automatic restarts on failure to intelligent load balancing. Get the reliability and resilience of Kubernetes without the manual overhead.
+
+How it works  
+Kubernetes Orchestration:   
+Skyhook creates Kubernetes resources (Deployments, Pods, Services, etc.) on the cluster. Kubernetes schedules your pods on available nodes, taking into account resource needs and optimizing binpacking.
+
+Health Management:   
+Each service can be configured with health checks (readiness and liveness probes). Skyhook will use these to let Kubernetes monitor the app’s health. If a container fails or becomes unresponsive, Kubernetes will mark it unhealthy and restart it or replace it automatically.
+
+Scaling & Load Balancing:   
+The platform distributes traffic across multiple instances of your service using Kubernetes Services or Ingress. You can also define autoscaling policies so the system adds or removes replicas based on demand.
+
+Secure Separation:   
+Each service runs in its own isolated environment, enforcing limits on CPU, memory, and network as you specified. Skyhook uses Kubernetes security best practices out of the box.
+
+Continuous Monitoring:   
+The runtime constantly collects metrics and status from your applications. Skyhook surfaces this information (like CPU usage, memory, restart counts) in the dashboard. This means you always know how your services are performing in real time.
+
+| Self-Healing: If a container crashes or a node goes offline, the container will restart or reschedule on another node automatically. Your services recover from failures without human intervention. | Traffic Management:  Built-in load balancing ensures even distribution of requests. You can also implement advanced traffic control (like network policies or service mesh integration) since everything runs on standard Kubernetes – it’s compatible with Istio, Linkerd, or any tool you choose to add. | Secrets & ConfigMaps: Manage configuration and secrets securely. Skyhook lets you inject configs or sensitive values (API keys, credentials) via Kubernetes Secrets and ConfigMaps, so they are available to the app at runtime but not baked into images or code. |
+| :---- | :---- | :---- |
+| High Availability: Deployments can be spread across multiple nodes for resilience. Even during node maintenance or outages, your app instances remain available on other nodes.   | Resource Quotas & Limits: Prevent any single service from hogging resources. Set CPU and memory limits for each application; Kubernetes will enforce these at runtime. This means more predictable performance and no noisy-neighbor issues in multi-tenant clusters. | Rolling Maintenance: Perform cluster or application maintenance with minimal disruption. For example, update the base image or apply security patches using rolling updates. Skyhook coordinates these changes using Kubernetes controllers to avoid downtime. |
+
+# 
+
+# 
+
+# Grow page
+
+# Grow with Skyhook
+
+Skyhook seamlessly scales your infrastructure and processes, so you can easily deal with more traffic, more services and more team members. Because Skyhook builds on Kubernetes, you can scale out across clusters or clouds confidently, knowing you won’t hit a proprietary ceiling or be stuck with vendor lock-in. 
+
+How it works
+
+Horizontal Scaling:   
+Increase the replica count of your services with a simple configuration change or let the system handle it automatically. When load drops, Skyhook can scale back down.
+
+Vertical Scaling:   
+Adjust resources allotted to each application. Through Skyhook, you can bump up CPU or memory limits if a service needs more horsepower. Kubernetes will reallocate and ensure the app gets the needed resources, allowing you to fine-tune performance as usage grows.
+
+Cluster Scaling & Multi-Cluster:   
+If one cluster runs out of capacity, Skyhook adds more nodes (in cloud environments) or easily connecting additional clusters. The platform isn’t tied to one cloud – you can grow from a single cluster to multiple clusters across regions or providers as demand requires.
+
+Service Discovery & Organization:   
+As you add more microservices or modules, Skyhook helps organize them. Built-in service discovery means new services can find each other without custom wiring, even as the ecosystem grows complex.
+
+| Automatic Pod Autoscaling: Leverage Kubernetes autoscaling to handle varying workloads. Define metrics (CPU, memory, or custom metrics) for your services, and Skyhook will automatically increase or decrease the number of pods to maintain performance.  | Multi-Region Deployments: Run your application closer to your users by deploying in multiple geographic regions. Skyhook supports configuring deployments in different regions and routing users accordingly, improving latency and redundancy for global scale. | Usage Analytics:  Track growth with built-in metrics on resource usage and application performance. Identify which services are nearing capacity or which times of day see peak traffic. These insights help with capacity planning and optimizing costs as you scale up. |
+| :---- | :---- | :---- |
+| Easy Cluster Expansion: When you need more compute power, add nodes to your cluster or attach a new cluster. Skyhook can deploy to multiple clusters from one control plane, allowing for hybrid or multi-cloud growth without changing your workflow. | Extensible Architecture: Skyhook is Kubernetes-native, meaning you can plug in custom operators, service meshes, or other CNCF ecosystem tools as you grow. The platform won’t box you in – it works with the broader cloud-native ecosystem. | Governance at Scale: Manage growing complexity with features like policy enforcement and auditing. Ensure that even as your team and infrastructure expand, everything stays compliant and under control through unified policies and logs. |
+
+Observe page  
+Observe with Skyhook  
+Skyhook has built-in observability from day one, so you can monitor, trace, and troubleshoot your applications with ease. Through a single pane of glass, you get live logs, metrics, and health checks for all your services. Skyhook’s Kubernetes-native approach means it taps into standard observability tools without proprietary lock-in.
+
+## How it works
+
+Centralized Logging:   
+Skyhook aggregates logs from all your application pods. View real-time streaming logs in the web console or CLI, filtered by service or severity. 
+
+Metrics & Dashboards:   
+The platform collects key metrics from Kubernetes and your containers (CPU, memory, requests, etc.). It presents these on intuitive dashboards so you can see at a glance how each service is performing. 
+
+Alerts & Notifications:   
+Define thresholds for critical metrics or error rates. Skyhook can integrate with alerting systems to notify your team when something’s amiss.
+
+Audit and History: Every deployment, configuration change, and alert is recorded. Get an audit trail, so you can review who changed what and when. This is crucial for debugging complex issues or satisfying compliance requirements in regulated industries.
+
+| Live Log Stream:  Access stdout/stderr logs from all pods in real time. Search and filter logs by keywords or service name. Developers can quickly locate error messages or exceptions without leaving the Skyhook interface. | Custom Metrics Support: Expose custom business or application metrics via endpoints (for instance, using Prometheus client libraries). Skyhook will scrape and display these metrics, letting you monitor application-level KPIs alongside system metrics. | Third-Party Integration: Skyhook’s use of standard protocols means you can pipe data to external systems. Send logs to an ELK stack, or feed metrics into Datadog – the data is yours, and integration is straightforward. |
+| :---- | :---- | :---- |
+| Built-in Monitoring Stack: Skyhook comes pre-integrated with a monitoring stack (built on popular open-source tools like Prometheus). It gathers container and node metrics automatically, so you have instant observability out-of-the-box. | Alert Rules Engine: Use a flexible rules engine to define alert conditions.  | Secure and Compliant: All telemetry data is transmitted securely and stored with best-practice retention policies. Role-based access ensures that sensitive logs (like user data in logs) are only visible to authorized personnel. These features help maintain compliance with standards like SOC 2 and GDPR when monitoring production systems. |
+
+# AI Agent page
+
+| The context you need for AI-readiness Skyhook’s platform is set up to provide the right context to be used by the Skyhook agent or your MCP server, so you can set up ai-driven developer self-service quickly and easily.  Hero Image/Video: same animation as that planned for the home page |
+| :---- |
+
+## Get AI-ready with the context needed for self-service
+
+Skyhook’s agent knows your stack, your standards and the golden paths enabled through your platform. But it does so much more than that:
+
+* Identifies potential issues or optimization opportunities before they occur.  
+* Instantly troubleshoot and resolve incidents with AI-powered recommendations.  
+* Automates repetitive tasks like log analysis, query execution, and deployment approvals.
+
+(image: animation of agent retrieving data and acting upon it \- verifying new config correctness)
+
+Chat with an agent, in context
+
+Skyhook’s agent provides developers and devops with the data they need. It’s an agent that already knows your entire environment. You don’t need to explain the architecture, the ports, the configurations. 
+
+Agents can do work, too
+
+Within the context provided by Skyhook, your standards and guardrails, agents can also perform actions, such as autoscaling, resolving incidents or optimizing resources.
+
+AI agent actions go through GitHub and are managed by GitHub permissions \- meaning that you know that RBAC and an audit trail are dealt with.
+
+# Solutions \- Preview Environments
+
+| One-click ephemeral environments   Preview Environments with Skyhook Test, iterate and collaborate using pre-production environments for every specific code branch or pull request. Image/Video: Video of creating new preview envs. |
+| :---- |
+
+## Preview environments made easy
+
+Skyhook automatically spins up a production-like environment for every pull request – no scripts, no waiting and full environment parity. It’s a Kubernetes-native approach solution that fits right into your workflow and makes preview environments dead simple for developers.
+
+Quick testing, feedback and collaboration
+
+Every feature branch or PR gets its own live environment in minutes for quick testing, feedback  and collaboration.  
+
+Each skyhook preview environment is an isolated clone of production and includes all the necessary apps, and services.
+
+## Kubernetes-native & flexible
+
+Skyhook runs on your Kubernetes clusters (any cloud or on-prem), tapping into the full power of K8s without the steep learning curve. Under the hood it provisions environments on Kubernetes, without any need for Kubernetes expertise. 
+
+## The preview environments you need, without the work
+
+Preview environments means that workflows can be easily promoted, but actually doing this requires devops effort you may not be able to support. Free your platform and ops people to focus on what matters most and leverage Skyhook’s preview environments. 
+
+The developer interface that makes preview environments easy
+
+Skyhook is an easy way to abstract and simplify self-service for developers. Using it you can build the internal developer platform that developers need. They can then focus on writing code rather than struggle with preview environments or the fact that it’s difficult to set them up.
+
+What makes us different
+
+Skyhook’s basic setup delivers a platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow. It’s a kubernetes platform that’s ready to roll,  without the lock-in of PaaS.
+
+How it works
+
+| Open a pull request or spin a new env through the UI | Your preview environment is deployed | Test, share, and merge |
+| :---- | :---- | :---- |
+| It’s as simple as that to kick off a new isolated environment with your required set of services.   | Skyhook automatically builds and deploys a complete, isolated environment for that PR on your Kubernetes cluster. It includes all the services, and configures your app needs to mirror production. | Each preview environment gets a unique URL, which can be shared with teammates or for QA. When you merge or close the PR, Skyhook tears down the environment automatically, freeing up resources. |
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get to work and doesn’t pose the lock-in risk that’s inherent in PaaS or non Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Do work right with monitoring, rollout strategies, ephemeral environments and secret management. | No Lock-in Retain full control with no dependencies on specific cloud providers or third-party tools. Migrating away is easy, unlike with PaaS | Start and scale quickly Get started in minutes, not days, with our fully configured environment. We grow with your needs, regardless of your engineering group size |
+| :---- | :---- | :---- |
+| **Kubernetes based** Simplify Kubernetes for developers and make its management easy for DevOps | **Best tools** Skyhook has built-in support for the top tools in the Kubernetes ecosystem | **Flexible** Because it’s just Kubernetes under the hood, all the advanced functionality is readily available when you need it |
+
+# 
+
+# 
+
+# Solutions \- rollout 
+
+| The rollout capabilities you need Minimize Deployment Risk with Rollout Strategies Control rollouts to minimize risk and ensure stability. Hero Image/Video: Image \- Canary rollout strategy visual showing traffic distribution.  |
+| :---- |
+
+Rollouts made easy 
+
+Skyhook uses traffic splitting to gradually increase traffic to new versions based on your requirements and user feedback. It also leverages automated rollbacks to instantly revert to the previous version if predefined thresholds are breached.
+
+Quick and controlled
+
+Skyhook lets you define rollout rules and policies for different environments and service types. It works seamlessly with tools like Argo Rollouts and Istio.
+
+## The rollout strategy you need, without the work
+
+Gradual, targeted and safe deployments are crucial for success, but actually doing this requires devops effort you may not be able to support. Free your platform and ops people to focus on what matters most and leverage Skyhook’s rollout strategies support. 
+
+A developer interface for easy canary deployments
+
+Skyhook is an easy way to abstract and simplify self-service for developers. Using it you can build the internal developer platform that will let developers focus on writing code rather than struggle rollout or the fact that it’s difficult to set them up.
+
+What makes us different
+
+Skyhook’s basic setup delivers a platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow. It’s a kubernetes platform that’s ready to roll,  without the lock-in of PaaS.
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get to work and doesn’t pose the lock-in risk that’s inherent in PaaS or non Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Do work right with monitoring, rollout strategies, ephemeral environments and secret management. | No Lock-in Retain full control with no dependencies on specific cloud providers or third-party tools. Migrating away is easy, unlike with PaaS | Start and scale quickly Get started in minutes, not days, with our fully configured environment. We grow with your needs, regardless of your engineering group size |
+| :---- | :---- | :---- |
+| **Kubernetes based** Simplify Kubernetes for developers and make its management easy for DevOps | **Best tools** Skyhook has built-in support for the top tools in the Kubernetes ecosystem | **Flexible** Because it’s just Kubernetes under the hood, all the advanced functionality is readily available when you need it |
+
+# Solutions \- developer self-service portal
+
+| Internal developer platform  An internal developer portal and platform, all in one Skyhook is your kubernetes-based platform. Its developer interface turns Skyhook into an internal developer portal too Image/Video: Microservice catalog? Self-service actions? |
+| :---- |
+
+## An effortless platform and an interface too
+
+Skyhook’s basic setup delivers a kubernetes platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow.
+
+A great developer experience for developers and devops 
+
+Create an interface that delivers self-service actions that are abstracted, standards-compliant and follow the right golden paths. 
+
+Skyhook provides both the actual underlying platform and the interface, saving the weeks or months it takes to build them. With a robust microservice catalog and self-service, you provide developers with all they need.
+
+What makes us different
+
+Skyhook’s basic setup delivers a platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow. It’s a kubernetes platform that’s ready to roll,  without the lock-in of PaaS.
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get to work and doesn’t pose the lock-in risk that’s inherent in PaaS or non Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Do work right with monitoring, rollout strategies, ephemeral environments and secret management. | No Lock-in Retain full control with no dependencies on specific cloud providers or third-party tools. Migrating away is easy, unlike with PaaS | Start and scale quickly Get started in minutes, not days, with our fully configured environment. We grow with your needs, regardless of your engineering group size |
+| :---- | :---- | :---- |
+| **Kubernetes based** Simplify Kubernetes for developers and make its management easy for DevOps | **Best tools** Skyhook has built-in support for the top tools in the Kubernetes ecosystem | **Flexible** Because it’s just Kubernetes under the hood, all the advanced functionality is readily available when you need it |
+
+# 
+
+# 
+
+# Solutions \- scaling
+
+| Right size your platform Scale up or down, seamlessly Handle traffic surges and evolving workloads with automated scaling solutions. Optimize resources and get rid of underutilization, without the toil. Image/Video:  Video showing scale change in UI of an env. |
+| :---- |
+
+## 
+
+# Autoscale efficiently
+
+Skyhook lets you easily define your replica counts, so you can sit back and watch auto-scaling work. You can define the guardrails to ensure that your platform scales according to your policies and processes, and schedule jobs to run when compute costs are more favorable. You can also ensure automatic scale down during off-peak hours to save costs.
+
+# Horizontal, vertical and event-driven scaling
+
+Using Skyhook, you can add or remove instances based on workload demands, adjust resources like CPU and memory dynamically and scale based on real-time triggers like queue depth or incoming requests.
+
+## Your scaling needs, without the work
+
+Instead of connecting tools and dealing with the cognitive load of Kubernetes and cloud platform, Skyhook lets you scale seamlessly with the devops effort. Free your platform and ops people to focus on what matters most and leverage Skyhook’s auto-scaling capabilities.
+
+A self-serve interface for a great developer experience
+
+Skyhook doesn’t just provide the platform and guardrails, it also provides the developer self-service interface that frees developers to code instead of struggling with platform issues.
+
+What makes us different
+
+Skyhook’s basic setup delivers a platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow. It’s a kubernetes platform that’s ready to roll,  without the lock-in of PaaS.
+
+# Why Choose Skyhook?
+
+It’s easy to try, easy to get to work and doesn’t pose the lock-in risk that’s inherent in PaaS or non Kubernetes platforms. 
+
+| Best Practices Out-of-the-Box Do work right with monitoring, rollout strategies, ephemeral environments and secret management. | No Lock-in Retain full control with no dependencies on specific cloud providers or third-party tools. Migrating away is easy, unlike with PaaS | Start and scale quickly Get started in minutes, not days, with our fully configured environment. We grow with your needs, regardless of your engineering group size |
+| :---- | :---- | :---- |
+| **Kubernetes based** Simplify Kubernetes for developers and make its management easy for DevOps | **Best tools** Skyhook has built-in support for the top tools in the Kubernetes ecosystem | **Flexible** Because it’s just Kubernetes under the hood, all the advanced functionality is readily available when you need it |
+
+END
+
+## 
+
+## Integration Logos:
+
+1. Repos:  
+   1. Github  
+   2. BitBucket  
+   3. GitLab  
+2. Cloud Providers   
+   1. GCP  
+   2. AWS  
+   3. Azure  
+3. Other \- Kubernetes ecosystem  
+   1. Kubernetes \- Emphasize  
+   2. Argo CD \- Emphasize  
+   3. HashiCorp  
+   4. Cert Manager \- If there’s enough room  
+   5. External Secrets Operator \- If there’s enough room  
+   6. Helm  
+   7. Kustomize  
+   8. Nginx  
+4. Observablilty  
+   1. Grafana  
+   2. Prometheus  
+   3. Open Telemetry  
+   4. Datadog  
+   5. Elastic
+
+Logos folder: [here](https://drive.google.com/drive/folders/1vVNF35ZF4d5Sqxjv7khPy4qVhAQbcXwx)
+
+Potential roadmap for integrations:
+
+**Service Management Module**  
+Autoscaling \- HPA, KEDA, Karpenter, VPA  
+Service Mesh \- Istio, Cilium, Linkerd  
+Ingress/Gateway \- Nginx Ingress, Traefik, ALB, Kong, HAProxy  
+Cost Optimization \- OpenCost, Cast AI, Finout  
+DNS \- ExternalDNS  
+Certificate Management \- Cert Manager
+
+**Integration & Delivery**  
+Kubernetes resource organization \- Kustomize, Helm  
+CI/CD \- GitHub Actions, GitLab, Bitbucket pipelines, Argo Workflows, CircleCI  
+Container Registry \- GCP/AWS/Azure native, Github Container Registry, Docker Hub  
+GitOps \- ArgoCD  
+Rollouts \- Argo Rollouts  
+Feature Flags & Experiments \- LaunchDarkly, OpenFeature
+
+**Development Workflow Tools**  
+Build \- Docker, Turborepo, Nx, Depot  
+Debugging \- mirrord, Telepresence  
+Code Scanning \- Kubescape, Trivy, Checkov, Snyk  
+Testing \- k6, Testkube
+
+**Monitoring & Observability**  
+(note \- some tools belong in multiple categories \- offer a suite of functionality)  
+Telemetry Collection \- OpenTelemetry  
+Metrics \- Prometheus, Datadog, VictoriaMetrics, Signoz  
+Alerting \- AlertManager, Grafana Alerting  
+Tracing \- Jaeger, Grafana Tempo  
+Dashboard \- Grafana, Kibana  
+Profiling \- Grafana Pyroscope, Parca  
+Logging \- Elastic, Loki  
+Errors/Crash reporting \- Sentry  
+Oncall \- PagerDuty, OpsGenie  
+Uptime Monitoring \- Uptime Robot, Uptime Kuma
+
+**Security & Compliance**  
+Secrets Management \- Sealed Secrets, External Secrets Operator, Hashicorp Vault, GCP Secret Manager, AWS Secret Manager  
+SBOM \- Syft, Snyk, Trivy  
+Binary Authorization \- Google Cloud Binary Authorization	  
+Policy-as-Code \- Kyverno, OPA
+
+Notes to Self: (roni) August 7
+
+In the product section, Skyhook has everything that Northflank has, except for \- databases, GPUs and managed clouds \- you can walk away any time, we don’t put ourselves at the center, we just help you manage
+
+In the product section, again, maybe we do \-build+release+run together
+
+August 17  
+Ai section needs work, also need to work on solution pages
+
+# Deleted pages:
+
+Development workflows page
+
+# Development workflows with Skyhook
+
+Leverage powerful tools for building, debugging, documenting, and testing, including dev and preview environments.  
+\[Image/Video: Vide showing static and preview envs\]
+
+* Dev Envs / Preview Envs:  
+  * Create isolated environments for development and testing to ensure code quality before deployment.  
+* Build:  
+  * Automate the process of compiling and packaging code for deployment, ensuring consistent and reliable builds.  
+* Debugging:  
+  * Quickly identify and fix issues in your code with advanced debugging tools integrated into the development process.  
+* Code Analysis & Scanning:  
+  * Automatically analyze and scan your code to detect security vulnerabilities and ensure adherence to coding standards.  
+* Testing:  
+  * Implement thorough testing processes to validate code functionality and performance before deployment.
+
+Delivery and integrations page
+
+# Integration and delivery with Skyhook
+
+Leverage GitOps, feature flags, rollout strategies, integration testing, and simplified container registry management for seamless deployments
+
+\[Image/Video: Video showing platform \- Batch Deployment\]
+
+* Continuous Integration & Deployment  
+  * Automate the build, test, and deploy process to deliver code changes quickly and reliably with minimal manual intervention. We support GitHub Actions, Argo Workflows, BitBucket Pipelines, and others.  
+* Rollout Strategies:  
+  * Deploy new features incrementally with blue-green, canary, or phased rollouts to minimize risk and ensure stability.  
+* GitOps:  
+  * Manage infrastructure and application deployments through Git, ensuring your production environment is always in sync with code.  
+* Feature Flags:  
+  * Enable or disable features in production instantly, allowing for controlled rollouts, A/B testing, and quick issue resolution.  
+* Experiments:  
+  * Test new features in a controlled environment to validate their impact before fully rolling them out to all users.  
+* Integration Testing:  
+  * Automatically test how different components work together to catch issues early and ensure seamless operation.  
+* Container Registry:  
+  * Store, manage, and deploy Docker images with ease, ensuring the correct versions of your containerized applications are always available.
+
+Service automation page
+
+## 
+
+# Service Automation with Skyhook
+
+Streamline service delivery and performance with a consolidated service catalog, autoscaling, service mesh, and cost management.  
+\[Image/Video: Video showing service catalog autoscaling, env variables/secrets\]
+
+* Service Catalog:  
+  * Centralize and manage all your services in a single, unified catalog for easy visibility and access.  
+* Autoscaling:  
+  * Automatically adjust resources to meet demand, ensuring optimal performance and cost-efficiency.  
+* Service Mesh:  
+  * Simplify and secure service-to-service communication with integrated traffic management and policy enforcement.  
+* Cost Optimization:  
+  * Monitor and manage cloud spending effectively to maximize efficiency and minimize unnecessary costs.
+
+Monitoring and observability page
+
+# Monitoring and Observability with Skyhook
+
+Utilize advanced metrics, logging, health checks, uptime monitoring, tracing, profiling, on-call management, and alerting.  
+\[Image/Video: Options: 1\. Image of observability \- either generic or of the addons section 2\. Service logging section and addons\]. 
+
+* Metrics:  
+  * Track and analyze key performance indicators to monitor system health and performance.  
+* Logging:  
+  * Capture detailed logs of system events to diagnose issues and understand system behavior.  
+* Health Checks:  
+  * Continuously monitor the health of services to ensure they are running smoothly and efficiently.  
+* Uptime Monitoring:  
+  * Keep an eye on system availability to ensure services remain operational and responsive.  
+* Tracing:  
+  * Follow the flow of requests through your system to identify bottlenecks and optimize performance.  
+* Profiling:  
+  * Analyze the performance of your application in detail to identify and resolve inefficiencies.  
+* Oncall Management:  
+  * Ensure rapid response to critical issues with organized on-call schedules and incident management.  
+* Alerting:  
+  * Receive real-time notifications of potential issues to proactively address problems before they escalate.
+
+Security page
+
+## Security with Skyhook
+
+Protect your systems with secrets management, RBAC, SBOM, and binary authorization. Image/Video: Options \- 1\. Generic security image 2\. Service secrets section
+
+Feature Details  
+Design: Pick an icon that matches the subfeature name
+
+* Secrets Management:  
+  * Securely store and manage sensitive information like API keys and passwords to protect your applications.  
+* RBAC (Role-Based Access Control):  
+  * Implement fine-grained access control to ensure users have the appropriate permissions based on their roles.  
+* SBOM (Software Bill of Materials):  
+  * Maintain a detailed inventory of all software components to ensure security and compliance throughout your supply chain.  
+* Binary Authorization:  
+  * Ensure that only trusted and verified code is deployed to production, preventing unauthorized changes.
+
+# 
+
+# 

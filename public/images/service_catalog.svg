@@ -1,0 +1,16 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#111" />
+  <rect x="50" y="50" width="200" height="200" rx="10" fill="#222" stroke="#333" />
+  <circle cx="150" cy="120" r="40" fill="#e34c26" />
+  <text x="150" y="200" font-family="sans-serif" fill="#fff" font-size="18" text-anchor="middle">HTML5 Service</text>
+  
+  <rect x="300" y="50" width="200" height="200" rx="10" fill="#222" stroke="#333" />
+  <circle cx="400" cy="120" r="40" fill="#68a063" />
+  <text x="400" y="200" font-family="sans-serif" fill="#fff" font-size="18" text-anchor="middle">Node.js API</text>
+
+  <rect x="550" y="50" width="200" height="200" rx="10" fill="#222" stroke="#333" />
+  <circle cx="650" cy="120" r="40" fill="#007acc" />
+  <text x="650" y="200" font-family="sans-serif" fill="#fff" font-size="18" text-anchor="middle">React App</text>
+
+  <text x="400" y="400" font-family="sans-serif" fill="#666" font-size="24" text-anchor="middle">Service Catalog Placeholder</text>
+</svg>

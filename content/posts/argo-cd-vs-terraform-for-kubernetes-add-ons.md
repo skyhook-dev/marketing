@@ -1,0 +1,148 @@
+# Managing Kubernetes Add-ons: Argo CD or Terraform?
+
+## When to use each and how to combine them
+**Meta description:** Hands-on comparison of Argo CD and Terraform for managing Kubernetes add-ons. Clear guidance on day 1 versus day 2, drift handling, upgrades, multi-cluster, and a proven hybrid workflow that many teams adopt.
+## Why this matters
+A big part of the magic of Kubernetes, and maybe the main reason it has exploded in popularity, is its extensibility through standardized APIs for resources and Custom Resource Definitions (CRDs). The ecosystem has exploded with tools or ”add-ons” like cert-manager, Argo Rollouts, External Secrets Operator, Loki, Prometheus, and Grafana, just to name a few, that significantly enhance the core Kubernetes capabilities. 
+These add-ons are not quite infrastructure, and not quite applications. Choose the wrong tool to manage them and you can end up fighting drift, breaking CI, or scrambling in production. Below you will see two of the most popular approaches to managing add-ons - Argo CD and Terraform - and why one is starting to pull away as the favorite among DevOps teams..
+## TLDR
+
+ Use Terraform to bootstrap cloud and cluster. Use Argo CD to operate in-cluster add-ons. Argo CD is natively designed for this, solving a lot of problems that Terraform is ill-suited to handle.
+## Key differences at a glance
+
+| Area | Argo CD | Terraform |
+| --- | --- | --- |
+| Primary lifecycle role | Day-2 app/add-on operations inside K8s | Day-1 cloud/K8s infra provisioning |
+| Scope | In-cluster Kubernetes resources and Helm charts via Git | Cloud infra plus Kubernetes via providers |
+| Operational model | Pull: continuous reconciliation and drift detection + auto-heal | Push: plan and apply on demand, drift ignored until next run |
+| Source of truth | Desired state in Git, live state in the Kubernetes API server | Desired state in Git (.tf), last known state in remote state (.tfstate) |
+| Centralization | Decentralized controllers per cluster, smaller blast radius | Centralized pipelines and shared state |
+| Typical ownership | Platform/DevOps for setup, then application teams | Platform/Infra teams (often too risky for non-experts) |
+| Visibility | Built-in UI and CLI show health, history, and diffs | CLI output unless paired with other tools |
+| Rollbacks | Built-in rollback to previous revisions | No native rollback—revert Git and re-apply |
+| Multi-cluster | ApplicationSet generators and App-of-Apps pattern | Workspaces, modules, and pipelines |
+| Failure modes to watch | Bad commit breaks sync but is easy to revert | State lock, provider errors, partial applies |
+| Best fit | Add-on upgrades, rollbacks, canary or blue/green releases | Bootstrapping clusters, VPCs, IAM, initial add-on install |
+## Argo CD in action
+
+```yaml
+# Minimal cert-manager Application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  source:
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: v1.15.0
+    helm:
+      values: |
+        installCRDs: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+```
+
+What you get
+	•	Immediate drift repair. If someone edits a resource with kubectl, Argo CD reverts it within seconds. 
+	•	Multi-cluster fan-out. ApplicationSet can generate identical apps for many clusters. 
+	•	Audit trail. Every change is a Git commit that can be rolled back with a click or PR revert. 
+## Terraform in action
+
+```hcl
+terraform {
+  required_providers {
+    helm        = { source = "hashicorp/helm",        version = "~> 2.13" }
+    kubernetes  = { source = "hashicorp/kubernetes",  version = "~> 2.29" }
+  }
+}
+
+provider "kubernetes" {
+  host                   = var.cluster_endpoint
+  cluster_ca_certificate = base64decode(var.cluster_ca)
+  token                  = var.cluster_token
+}
+
+provider "helm" {
+  kubernetes {
+    host                   = var.cluster_endpoint
+    cluster_ca_certificate = base64decode(var.cluster_ca)
+    token                  = var.cluster_token
+  }
+}
+
+resource "helm_release" "cert_manager" {
+  name             = "cert-manager"
+  repository       = "https://charts.jetstack.io"
+  chart            = "cert-manager"
+  version          = "v1.15.0"
+  namespace        = "cert-manager"
+  create_namespace = true
+
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
+}
+```
+
+What you get
+	•	One workflow for everything. The same tool provisions VPCs, EKS or GKE, and Helm charts. 
+	•	Predictable plans. terraform plan shows a diff before anything changes. 
+	•	Remote state backends. S3, GCS, or Terraform Cloud keep state consistent across teams. 
+Trade-off: drift inside the cluster is invisible until the next plan. Fixes may require a replace if resources diverged.
+Two real-world drift moments
+	•	Someone deletes the cert-manager webhook 
+	•	Argo CD: Application goes OutOfSync then heals automatically. 
+	•	Terraform: nothing happens until the next plan or scheduled run, then a replace may be required. 
+	•	External Secrets Operator changes a CRD schema between chart versions 
+	•	Argo CD: bump the chart version in Git, watch health, roll back instantly if custom resources fail to reconcile. 
+	•	Terraform: plan shows the Helm upgrade, but CRD behavior changes surface only at apply, sometimes with manual cleanup. 
+Use the right tool for the job
+Day 1 with Terraform
+	•	Provision VPC, cluster, node pools, IAM or OIDC roles. 
+	•	Install Argo CD. 
+	•	Output Argo CD URL and the bootstrap Git repo for later steps. 
+Day 2 with Argo CD
+	•	Manage every add-on as an Argo CD Application. 
+	•	Use PRs for upgrades and rollbacks. 
+	•	Watch diff and health views in daily stand-ups. 
+Quick decision checklist
+	•	Need to manage cloud primitives or create clusters. Choose Terraform. 
+	•	Need frequent add-on upgrades, rollbacks, and clear daily visibility. Choose Argo CD. 
+	•	Mixed needs. Bootstrap with Terraform, operate add-ons with Argo CD. 
+	•	Regulated environment with strict windows. Use Terraform plans for infra and PR reviews for Argo CD apps.  
+How we implemented this in Skyhook
+Skyhook ships with the hybrid model built in.
+Day 1 bootstrap
+	•	One-click Terraform module spins up VPC, cluster, node pools, and IAM or OIDC roles. 
+	•	Run the module via Skyhook or commit it to your Git repository so you keep ownership. 
+Day 2 and beyond
+	•	Skyhook installs and wires Argo CD automatically. 
+	•	From the Skyhook UI you pick add-ons such as cert-manager, Argo Rollouts, Loki, and others, and the platform opens a PR with the matching manifests in your repo. 
+	•	Updates, rollbacks, drift repair, and multi-cluster fan-out happen through Argo CD. Skyhook provides a single dashboard for health, history, and controls. 
+Setting up ArgoCD with Skyhook
+Deciding which clusters to install ArgoCD over:
+ 
+
+
+Managing Addons with Skyhook
+Just choose the addons you’d like to install:
+
+Managing Addons on Clusters with Skyhook
+As easy as clicking a checkbox:
+
+
+Result: you keep the power of Terraform and Argo CD, while avoiding the boilerplate and drift wars that usually come with a home-grown setup.
+Further reading
+	•	Argo CD App-of-Apps pattern: https://argo-cd.readthedocs.io/en/stable/operator-manual/app-of-apps/ 
+	•	CNCF GitOps Working Group best practices: https://opengitops.dev/
