@@ -1,9 +1,7 @@
-import ReactMarkdown from "react-markdown";
-import remarkBreaks from "remark-breaks";
-import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost } from "@/lib/blog";
+import { BlogPostContent } from "@/components/blog/BlogPostContent";
 
 type BlogPageProps = {
   params: Promise<{
@@ -48,8 +46,8 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         </Link>
       </div>
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-10">
-        <header className="space-y-6 text-center">
+      <article className="pt-6">
+        <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center mb-10">
           <div className="space-y-2 text-xs uppercase tracking-[0.3em] text-ink-secondary">
             <span>{post.category}</span>
             <span className="mx-2">•</span>
@@ -66,132 +64,19 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         </header>
 
         {post.image && (
-          <div className="border border-border shadow-hard">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-auto object-cover"
-            />
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div className="border border-border shadow-hard">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
         )}
 
-        <div className="blog-content-prose">
-          <ReactMarkdown
-            remarkPlugins={[remarkBreaks, remarkGfm]}
-            components={{
-              h1: (props) => (
-                <h2
-                  className="text-3xl font-semibold text-ink-primary mt-12 mb-6"
-                  {...props}
-                />
-              ),
-              h2: (props) => (
-                <h2
-                  className="text-2xl font-semibold text-ink-primary mt-12 mb-6"
-                  {...props}
-                />
-              ),
-              h3: (props) => (
-                <h3
-                  className="text-xl font-semibold text-ink-primary mt-8 mb-4"
-                  {...props}
-                />
-              ),
-              h4: (props) => (
-                <h4
-                  className="text-lg font-semibold text-ink-primary mt-6 mb-3"
-                  {...props}
-                />
-              ),
-              p: (props) => <p className="mb-6 text-lg leading-[1.8] text-ink-secondary" {...props} />,
-              ul: (props) => (
-                <ul
-                  className="list-disc pl-6 mb-6 space-y-2"
-                  {...props}
-                />
-              ),
-              ol: (props) => (
-                <ol
-                  className="list-decimal pl-6 mb-6 space-y-2"
-                  {...props}
-                />
-              ),
-              li: (props) => <li className="leading-[1.8] text-ink-secondary" {...props} />,
-              a: (props) => (
-                <a
-                  className="text-accent hover:underline underline-offset-4"
-                  target={props.href?.startsWith('http') ? '_blank' : undefined}
-                  rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  {...props}
-                />
-              ),
-              strong: (props) => <strong className="font-semibold text-ink-primary" {...props} />,
-              em: (props) => <em className="italic" {...props} />,
-              code: ({ className, children, ...props }) => {
-                const isInline = !className;
-                if (isInline) {
-                  return (
-                    <code
-                      className="bg-surface px-1.5 py-0.5 rounded text-sm font-mono text-ink-primary"
-                      {...props}
-                    >
-                      {children}
-                    </code>
-                  );
-                }
-                return (
-                  <code className={`${className} text-sm`} {...props}>
-                    {children}
-                  </code>
-                );
-              },
-              pre: (props) => (
-                <pre
-                  className="bg-ink-primary text-white border border-border rounded p-6 overflow-x-auto my-6 text-sm font-mono"
-                  {...props}
-                />
-              ),
-              blockquote: (props) => (
-                <blockquote
-                  className="border-l-4 border-accent pl-6 my-8 italic text-ink-primary text-xl"
-                  {...props}
-                />
-              ),
-              hr: () => <hr className="my-12 border-t border-border" />,
-              table: (props) => (
-                <div className="overflow-x-auto my-8">
-                  <table className="w-full border-collapse border border-border text-sm" {...props} />
-                </div>
-              ),
-              thead: (props) => <thead className="bg-surface" {...props} />,
-              tbody: (props) => <tbody {...props} />,
-              tr: (props) => <tr className="border-b border-border" {...props} />,
-              th: (props) => (
-                <th
-                  className="px-4 py-3 text-left font-semibold text-ink-primary border border-border"
-                  {...props}
-                />
-              ),
-              td: (props) => (
-                <td
-                  className="px-4 py-3 text-ink-secondary border border-border"
-                  {...props}
-                />
-              ),
-              img: (props) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  className="max-w-full h-auto my-6 border border-border shadow-hard"
-                  alt={props.alt || ''}
-                  {...props}
-                />
-              ),
-            }}
-          >
-            {post.content}
-          </ReactMarkdown>
-        </div>
+        <BlogPostContent post={post} />
       </article>
     </div>
   );
