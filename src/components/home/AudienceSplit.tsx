@@ -77,7 +77,7 @@ export function AudienceSplit() {
               <button
                 onClick={() => setActiveTab("developers")}
                 className={cn(
-                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg",
+                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg cursor-pointer",
                   activeTab === "developers"
                     ? "text-white"
                     : "text-ink-secondary hover:text-ink-primary"
@@ -88,7 +88,7 @@ export function AudienceSplit() {
               <button
                 onClick={() => setActiveTab("devops")}
                 className={cn(
-                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg",
+                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg cursor-pointer",
                   activeTab === "devops"
                     ? "text-white"
                     : "text-ink-secondary hover:text-ink-primary"
@@ -184,7 +184,7 @@ export function AudienceSplit() {
                         <button
                           onClick={() => setDevOpsTab(tab.id)}
                           className={cn(
-                            "w-full flex items-center justify-between py-5 text-left transition-colors",
+                            "w-full flex items-center justify-between py-5 text-left transition-colors cursor-pointer",
                             devOpsTab === tab.id ? "text-ink-primary" : "text-ink-secondary hover:text-ink-primary"
                           )}
                         >

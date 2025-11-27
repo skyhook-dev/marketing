@@ -113,7 +113,7 @@ export default function PricingPage() {
             />
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 ${
+              className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 cursor-pointer ${
                 !isYearly ? 'text-white' : 'text-ink-secondary hover:text-ink-primary'
               }`}
             >
@@ -121,7 +121,7 @@ export default function PricingPage() {
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 ${
+              className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 cursor-pointer ${
                 isYearly ? 'text-white' : 'text-ink-secondary hover:text-ink-primary'
               }`}
             >
