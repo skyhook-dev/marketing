@@ -60,7 +60,7 @@ export function Toggle({
           key={option.value}
           onClick={() => onChange(option.value)}
           className={cn(
-            "relative z-10 font-semibold rounded-lg transition-colors duration-200",
+            "relative z-10 font-semibold rounded-lg transition-colors duration-200 cursor-pointer",
             sizeStyles[size].button,
             value === option.value
               ? "text-white"
