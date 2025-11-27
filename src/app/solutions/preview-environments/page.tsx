@@ -1,4 +1,5 @@
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Badge } from "@/components/ui/Badge";
 import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { GitPullRequest, CheckCircle2, Globe, Box } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
@@ -12,10 +13,10 @@ export default function PreviewEnvironmentsPage() {
         {/* Hero - Above fold: Blur In */}
         <FadeIn direction="blur-in">
           <div className="mb-20 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20 mb-6">
+            <Badge variant="accent" className="mb-6">
               <GitPullRequest className="w-4 h-4" />
-              <span className="text-xs font-mono font-medium uppercase tracking-wide">Solution</span>
-            </div>
+              Solution
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
               One-click ephemeral environments
             </h1>
@@ -38,7 +39,7 @@ export default function PreviewEnvironmentsPage() {
               
               <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                          <Globe className="w-4 h-4 text-ink-primary" />
                       </div>
                       <div>
@@ -47,7 +48,7 @@ export default function PreviewEnvironmentsPage() {
                       </div>
                   </div>
                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                          <Box className="w-4 h-4 text-ink-primary" />
                       </div>
                       <div>
@@ -89,7 +90,7 @@ _Environment will auto-destroy on merge._`}
         {/* The work you skip */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-center">
              <FadeIn direction="up" className="order-2 lg:order-1">
-                 <BlueprintCard className="bg-white flex items-center justify-center min-h-[300px]">
+                 <BlueprintCard className="bg-surface flex items-center justify-center min-h-[300px]">
                      <div className="text-center">
                          <div className="inline-block p-4 bg-accent/10 rounded-full mb-4">
                              <CheckCircle2 className="w-12 h-12 text-accent" />
@@ -118,21 +119,21 @@ _Environment will auto-destroy on merge._`}
             </FadeIn>
             <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <FadeIn direction="up" className="bg-surface border border-border p-8 text-center">
-                    <div className="w-16 h-16 mx-auto bg-white border border-ink-primary shadow-hard flex items-center justify-center mb-6">
+                    <div className="w-16 h-16 mx-auto bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-6">
                         <GitPullRequest className="w-8 h-8 text-ink-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-ink-primary mb-4">Open a pull request</h3>
                     <p className="text-ink-secondary">It’s as simple as that to kick off a new isolated environment with your required set of services.</p>
                 </FadeIn>
                 <FadeIn direction="up" className="bg-surface border border-border p-8 text-center">
-                    <div className="w-16 h-16 mx-auto bg-white border border-ink-primary shadow-hard flex items-center justify-center mb-6">
+                    <div className="w-16 h-16 mx-auto bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-6">
                         <Box className="w-8 h-8 text-ink-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-ink-primary mb-4">Deployed automatically</h3>
                     <p className="text-ink-secondary">Skyhook automatically builds and deploys a complete, isolated environment for that PR on your Kubernetes cluster.</p>
                 </FadeIn>
                 <FadeIn direction="up" className="bg-surface border border-border p-8 text-center">
-                    <div className="w-16 h-16 mx-auto bg-white border border-ink-primary shadow-hard flex items-center justify-center mb-6">
+                    <div className="w-16 h-16 mx-auto bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-6">
                         <CheckCircle2 className="w-8 h-8 text-ink-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-ink-primary mb-4">Test, share, and merge</h3>

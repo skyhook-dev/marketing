@@ -24,7 +24,7 @@ export function AIAgent() {
 
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-white border border-ink-primary shadow-hard">
+                <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                   <Bot className="w-6 h-6 text-ink-primary" />
                 </div>
                 <div>
@@ -33,7 +33,7 @@ export function AIAgent() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-white border border-ink-primary shadow-hard">
+                <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                   <Sparkles className="w-6 h-6 text-ink-primary" />
                 </div>
                 <div>
@@ -45,7 +45,7 @@ export function AIAgent() {
           </FadeIn>
 
           <FadeIn delay={0.2} className="relative">
-            <BlueprintCard className="bg-white">
+            <BlueprintCard className="bg-surface">
               <div className="space-y-4">
                 {/* Chat Interface Mockup */}
                 <div className="flex gap-3">

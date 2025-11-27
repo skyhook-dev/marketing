@@ -1,6 +1,7 @@
 "use client";
 
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Button } from "@/components/ui/Button";
 import { Box, Layers, Play, TrendingUp, Activity, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ValuePropsGrid } from "@/components/shared/ValuePropsGrid";
@@ -57,12 +58,7 @@ export default function PlatformPage() {
             A Kubernetes platform that’s all set. Today Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed.
           </p>
           <div className="flex justify-center gap-4">
-            <Link
-              href="/demo"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-accent border border-black shadow-hard hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-            >
-              Get a demo
-            </Link>
+            <Button href="/demo">Get a demo</Button>
           </div>
         </div>
       </section>
@@ -84,23 +80,14 @@ export default function PlatformPage() {
                 </p>
               </div>
             </div>
-             {/* Diagram Placeholder */}
-            <BlueprintCard className="min-h-[300px] flex items-center justify-center bg-white">
-               <div className="text-center space-y-4 opacity-50">
-                <div className="font-mono text-xs uppercase tracking-widest">
-                  Platform Architecture
-                </div>
-                 <div className="w-full max-w-xs mx-auto border border-ink-primary p-4 rounded">
-                    <div className="flex justify-center gap-2 mb-4">
-                        <div className="w-8 h-8 border border-ink-primary rounded-full" />
-                        <div className="w-8 h-8 border border-ink-primary rounded-full" />
-                        <div className="w-8 h-8 border border-ink-primary rounded-full" />
-                    </div>
-                    <div className="h-px bg-ink-primary w-full mb-4" />
-                    <div className="text-xs font-mono">KUBERNETES</div>
-                 </div>
-              </div>
-            </BlueprintCard>
+             {/* Platform Architecture */}
+            <div className="rounded-lg overflow-hidden shadow-lg border border-border">
+              <img
+                src="/images/heroes/hero.png"
+                alt="Skyhook Platform Architecture"
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -125,7 +112,7 @@ export default function PlatformPage() {
               return (
                 <Link key={feature.id} href={feature.href} className="group">
                    <div className="h-full bg-background border border-border p-6 hover:border-accent transition-colors shadow-sm hover:shadow-md">
-                      <div className="w-12 h-12 bg-surface border border-ink-primary shadow-hard flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                         <Icon className="w-6 h-6 text-ink-primary" />
                       </div>
                       <h3 className="text-xl font-bold text-ink-primary mb-2 flex items-center gap-2">

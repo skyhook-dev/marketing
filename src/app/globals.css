@@ -1,19 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F7F7F5;
-  /* Warm Alabaster */
-  --color-surface: #FFFFFF;
-  --color-ink-primary: #111111;
-  --color-ink-secondary: #4A4A4A;
-  --color-border: #E5E5E5;
-  --color-accent: #FF4F00;
-  /* International Orange */
+  /* ========================================
+   * DESIGN TOKENS
+   * ======================================== */
 
-  --shadow-hard: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  /* Colors - Core Palette */
+  --color-background: #F7F7F5;  /* Warm Alabaster - page background */
+  --color-surface: #FFFFFF;      /* White - cards, inputs, elevated surfaces */
+  --color-ink-primary: #111111;  /* Near black - headings, primary text */
+  --color-ink-secondary: #4A4A4A; /* Dark gray - body text, secondary content */
+  --color-ink-tertiary: #6B6B6B; /* Medium gray - muted text, placeholders */
+  --color-border: #E5E5E5;       /* Light gray - borders, dividers */
+  --color-accent: #2D7AFF;       /* Coinbase Blue - primary actions, links */
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors - Semantic */
+  --color-success: #22C55E;      /* Green - success states, positive indicators */
+  --color-warning: #F59E0B;      /* Amber - warnings, caution */
+  --color-error: #EF4444;        /* Red - errors, destructive actions */
+
+  /* Shadows - Elevation Scale */
+  --shadow-hard: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-hero: 0 44px 64px 0 rgba(0, 0, 0, 0.11);
+  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  /* Border Radius - Consistent Scale */
+  --radius-sm: 0.375rem;   /* 6px - small elements, badges */
+  --radius-md: 0.5rem;     /* 8px - buttons, cards, inputs */
+  --radius-lg: 0.75rem;    /* 12px - larger cards */
+  --radius-xl: 1rem;       /* 16px - modals, large containers */
+  --radius-full: 9999px;   /* Pills, avatars */
+
+  /* Typography */
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
 }
 
 :root {
@@ -27,11 +47,258 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Common hover animations */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.2s ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 0 4px rgba(45, 122, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .hover-bright {
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+  .hover-bright:hover {
+    filter: brightness(1.05);
+    transform: translateY(-2px);
+  }
+
+  /* Consistent blur/glass effects */
+  .glass-subtle {
+    background: rgba(247, 247, 245, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .glass-medium {
+    background: rgba(247, 247, 245, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-strong {
+    background: rgba(247, 247, 245, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Consistent fade animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  .fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+  .fade-in-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+  }
+  .fade-in-blur {
+    animation: fadeInBlur 0.4s ease-out forwards;
+  }
+
+  /* ========================================
+   * DESIGN SYSTEM - Standardized Components
+   * ======================================== */
+
+  /* Card base - use for any card-like container */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: var(--shadow-hard);
+  }
+  .card-hoverable {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hoverable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Icon box - standardized icon containers */
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-hard);
+  }
+  .icon-box-sm { width: 2rem; height: 2rem; }     /* 32px */
+  .icon-box-md { width: 2.5rem; height: 2.5rem; } /* 40px */
+  .icon-box-lg { width: 3rem; height: 3rem; }     /* 48px */
+  .icon-box-xl { width: 4rem; height: 4rem; }     /* 64px */
+
+  .icon-box-default {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+  .icon-box-accent {
+    background-color: rgba(45, 122, 255, 0.1);
+  }
+
+  /* Badge/pill styles */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+  }
+  .badge-sm { padding: 0.25rem 0.625rem; font-size: 0.75rem; }
+  .badge-md { padding: 0.375rem 1rem; font-size: 0.875rem; }
+
+  .badge-default {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-ink-secondary);
+  }
+  .badge-accent {
+    background-color: rgba(45, 122, 255, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(45, 122, 255, 0.2);
+  }
+
+  /* Section containers */
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section-bg-primary { background-color: var(--color-background); }
+  .section-bg-secondary { background-color: var(--color-surface); }
+
+  /* Container widths */
+  .container-sm { max-width: 48rem; margin-left: auto; margin-right: auto; }
+  .container-md { max-width: 64rem; margin-left: auto; margin-right: auto; }
+  .container-lg { max-width: 80rem; margin-left: auto; margin-right: auto; }
+
+  /* Typography helpers */
+  .heading-xl {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--color-ink-primary);
+  }
+  .heading-lg {
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-primary);
+  }
+  .heading-md {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ink-primary);
+  }
+  .heading-sm {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink-primary);
+  }
+
+  .text-body {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-ink-secondary);
+  }
+  .text-small {
+    font-size: 0.875rem;
+    color: var(--color-ink-secondary);
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Status indicators - semantic colors */
+  .status-success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: rgb(22, 101, 52);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+  .status-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: rgb(146, 64, 14);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+  .status-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: rgb(153, 27, 27);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+  .status-info {
+    background-color: rgba(45, 122, 255, 0.1);
+    color: rgb(30, 64, 175);
+    border: 1px solid rgba(45, 122, 255, 0.2);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
   }
 }
 
@@ -40,6 +307,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }

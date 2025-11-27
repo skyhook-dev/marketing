@@ -15,13 +15,13 @@ export function BlueprintCard({
   return (
     <div
       className={cn(
-        "bg-surface border border-ink-primary shadow-hard transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] h-full flex flex-col",
+        "bg-surface border border-border rounded-lg shadow-hard h-full flex flex-col hover-lift",
         className
       )}
       {...props}
     >
       {title && (
-        <div className="border-b border-ink-primary p-3 bg-background/50">
+        <div className="border-b border-border p-3 bg-background/50 rounded-t-lg">
           <h3 className={cn(
             "text-sm font-medium",
             monoTitle ? "font-mono uppercase tracking-wide" : "font-sans"

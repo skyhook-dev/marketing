@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Check } from "lucide-react";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 
 export default function RequestDemo() {
   const [step, setStep] = useState(1);
@@ -40,9 +41,7 @@ export default function RequestDemo() {
   return (
     <div className="min-h-screen pt-24 pb-12 flex flex-col">
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center mb-16">
-        <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-accent uppercase bg-accent/10 rounded-full">
-          Request a Demo
-        </div>
+        <Badge variant="accent" className="mb-4">Request a Demo</Badge>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-ink-primary">
           See Skyhook in <span className="text-accent">action</span>
         </h1>
@@ -89,7 +88,7 @@ export default function RequestDemo() {
           </div>
 
           {/* Right Column: Form */}
-          <div className="bg-surface border border-border p-8 shadow-hard relative">
+          <div className="bg-surface border border-border p-8 rounded-lg shadow-hard relative">
             {step === 1 ? (
               <form onSubmit={handleEmailSubmit} className="space-y-6">
                 <div className="text-xs font-semibold tracking-wider text-ink-tertiary uppercase">
@@ -119,12 +118,9 @@ export default function RequestDemo() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-white px-6 py-3 text-lg font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all border border-black"
-                >
+                <Button type="submit" size="lg" className="w-full">
                   Next
-                </button>
+                </Button>
 
                 <p className="text-center text-sm text-ink-secondary">
                   We typically respond within 24 hours
@@ -255,12 +251,9 @@ export default function RequestDemo() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-white px-6 py-3 text-lg font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all border border-black"
-                >
+                <Button type="submit" size="lg" className="w-full">
                   Schedule Demo
-                </button>
+                </Button>
               </form>
             )}
           </div>

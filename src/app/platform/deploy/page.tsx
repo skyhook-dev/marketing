@@ -1,4 +1,5 @@
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Badge } from "@/components/ui/Badge";
 import { Layers, Container, Settings, Zap, Globe, ShieldCheck, GitMerge } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
 
@@ -10,10 +11,10 @@ export default function DeployPage() {
         {/* Header - Above fold: Blur In */}
         <FadeIn direction="blur-in">
           <div className="mb-20">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20 mb-6">
+            <Badge variant="accent" className="mb-6">
               <Layers className="w-4 h-4" />
-              <span className="text-xs font-mono font-medium uppercase tracking-wide">Platform Feature</span>
-            </div>
+              Platform Feature
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
               Deploy with Skyhook
             </h1>
@@ -30,7 +31,7 @@ export default function DeployPage() {
                  <h2 className="text-3xl font-bold text-ink-primary mb-8">How It Works</h2>
                  <div className="space-y-8">
                     <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                           <Container className="w-5 h-5 text-ink-primary" />
                        </div>
                        <div>
@@ -42,7 +43,7 @@ export default function DeployPage() {
                     </div>
 
                     <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                           <Settings className="w-5 h-5 text-ink-primary" />
                        </div>
                        <div>
@@ -54,7 +55,7 @@ export default function DeployPage() {
                     </div>
 
                     <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                           <Zap className="w-5 h-5 text-ink-primary" />
                        </div>
                        <div>
@@ -66,7 +67,7 @@ export default function DeployPage() {
                     </div>
 
                     <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                           <GitMerge className="w-5 h-5 text-ink-primary" />
                        </div>
                        <div>
@@ -78,7 +79,7 @@ export default function DeployPage() {
                     </div>
 
                     <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                           <Globe className="w-5 h-5 text-ink-primary" />
                        </div>
                        <div>

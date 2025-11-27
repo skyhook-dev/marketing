@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function DemoVideo() {
   return (
-    <section className="py-24 bg-surface border-b border-border">
+    <section className="py-24 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
@@ -18,18 +18,20 @@ export function DemoVideo() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="relative border border-ink-primary shadow-hard bg-background overflow-hidden">
-            <video
-              src="https://storage.googleapis.com/koala-site-video/koala-website-demo-v2-7.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              className="w-full h-auto"
-            >
-              Your browser does not support the video tag.
-            </video>
+          <div className="flex justify-center">
+            <div className="video-container relative overflow-hidden bg-surface w-full max-w-[1213px] aspect-[1213/656] rounded-2xl border border-border shadow-hero">
+              <video
+                src="https://storage.googleapis.com/koala-site-video/koala-website-demo-v2-7.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-full object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </FadeIn>
       </div>

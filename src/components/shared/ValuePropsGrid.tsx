@@ -1,4 +1,3 @@
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
 import {
   Shield,
@@ -6,9 +5,9 @@ import {
   Unlock,
   Wrench,
   Zap,
-  Settings
+  Settings,
+  LucideIcon,
 } from "lucide-react";
-import { LucideIcon } from "lucide-react";
 
 type ValueProp = {
   title: string;
@@ -61,7 +60,7 @@ export function ValuePropsGrid({
   className = "",
 }: ValuePropsGridProps) {
   return (
-    <section className={`py-24 bg-background border-b border-border ${className}`}>
+    <section className={`py-24 bg-surface border-b border-border ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-16 max-w-3xl">
@@ -74,26 +73,22 @@ export function ValuePropsGrid({
           </div>
         </FadeIn>
 
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
           {valueProps.map((prop) => {
             const Icon = prop.icon;
             return (
               <FadeIn key={prop.title}>
-                <BlueprintCard className="h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-accent/10 border border-accent/20 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-semibold text-ink-primary mb-2">
-                        {prop.title}
-                      </h3>
-                      <p className="text-sm text-ink-secondary leading-relaxed">
-                        {prop.description}
-                      </p>
-                    </div>
+                <div className="flex flex-col">
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                   </div>
-                </BlueprintCard>
+                  <h3 className="text-lg font-semibold text-ink-primary mb-2">
+                    {prop.title}
+                  </h3>
+                  <p className="text-sm text-ink-secondary leading-relaxed">
+                    {prop.description}
+                  </p>
+                </div>
               </FadeIn>
             );
           })}

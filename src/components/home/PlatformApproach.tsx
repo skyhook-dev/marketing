@@ -10,7 +10,7 @@ export function PlatformApproach() {
   ];
 
   return (
-    <section className="py-24 bg-background border-b border-border">
+    <section className="py-24 bg-surface border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
@@ -25,7 +25,7 @@ export function PlatformApproach() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="bg-surface border border-ink-primary shadow-hard p-8">
+            <div className="bg-surface border border-border rounded-lg shadow-hard p-8">
               <h3 className="text-lg font-semibold text-ink-primary mb-6">
                 The Skyhook approach
               </h3>
