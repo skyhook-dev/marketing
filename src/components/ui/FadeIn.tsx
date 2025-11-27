@@ -21,6 +21,9 @@ export function FadeIn({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
+  // Consistent blur value: 8px for all blur effects
+  const BLUR_AMOUNT = "8px";
+
   const getInitialVariant = (dir: string) => {
     switch (dir) {
         case "up": return { y: 24, x: 0, opacity: 0, filter: "blur(0px)" };
@@ -28,8 +31,8 @@ export function FadeIn({
         case "left": return { x: 24, y: 0, opacity: 0, filter: "blur(0px)" };
         case "right": return { x: -24, y: 0, opacity: 0, filter: "blur(0px)" };
         case "none": return { x: 0, y: 0, opacity: 0, filter: "blur(0px)" };
-        case "blur-in": return { opacity: 0, filter: "blur(10px)", y: 0, x: 0 };
-        case "slide-fade": return { opacity: 0, x: 20, filter: "blur(2px)", y: 0 };
+        case "blur-in": return { opacity: 0, filter: `blur(${BLUR_AMOUNT})`, y: 8, x: 0 };
+        case "slide-fade": return { opacity: 0, x: 20, filter: `blur(4px)`, y: 0 };
         default: return { y: 24, x: 0, opacity: 0, filter: "blur(0px)" };
     }
   };

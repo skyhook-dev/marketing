@@ -1,4 +1,5 @@
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Badge } from "@/components/ui/Badge";
 import { Book, Layout, Laptop } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,10 +12,10 @@ export default function ServiceCatalogPage() {
         {/* Hero - Above fold: Blur In */}
         <FadeIn direction="blur-in">
           <div className="mb-20 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20 mb-6">
+            <Badge variant="accent" className="mb-6">
               <Book className="w-4 h-4" />
-              <span className="text-xs font-mono font-medium uppercase tracking-wide">Solution</span>
-            </div>
+              Solution
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
                Internal developer platform
             </h1>
@@ -37,7 +38,7 @@ export default function ServiceCatalogPage() {
                 
                 <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                         <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                         <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                             <Layout className="w-5 h-5 text-ink-primary" />
                          </div>
                          <div>
@@ -46,7 +47,7 @@ export default function ServiceCatalogPage() {
                          </div>
                     </div>
                      <div className="flex items-start gap-4">
-                         <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                         <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                             <Laptop className="w-5 h-5 text-ink-primary" />
                          </div>
                          <div>

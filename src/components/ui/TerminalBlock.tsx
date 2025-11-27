@@ -16,7 +16,7 @@ export function TerminalBlock({
   return (
     <div 
       className={cn(
-        "bg-ink-primary text-white border border-ink-primary shadow-hard overflow-hidden",
+        "bg-ink-primary text-white rounded-lg shadow-hard overflow-hidden",
         className
       )}
       {...props}

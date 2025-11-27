@@ -74,9 +74,9 @@ export function SDLCPipeline() {
               const Icon = step.icon;
               return (
                 <FadeIn key={step.id} direction="right" delay={index * 0.1}>
-                  <div className="flex flex-col items-center text-center group">
-                    <div className="w-24 h-24 bg-surface border border-ink-primary shadow-hard flex items-center justify-center mb-6 transition-transform group-hover:-translate-y-1">
-                      <Icon className="w-8 h-8 text-ink-primary" strokeWidth={1.5} />
+                  <div className="flex flex-col items-center text-center group cursor-pointer">
+                    <div className="w-24 h-24 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-6 hover-lift">
+                      <Icon className="w-8 h-8 text-ink-primary group-hover:text-accent transition-colors" strokeWidth={1.5} />
                     </div>
                     <h3 className="text-lg font-semibold text-ink-primary mb-2">{step.label}</h3>
                     <p className="text-sm text-ink-secondary leading-relaxed px-2">

@@ -1,4 +1,5 @@
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Badge } from "@/components/ui/Badge";
 import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { Sparkles, Bot, Shield, MessageSquare, Zap } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,10 +12,10 @@ export default function AIReadyPage() {
         {/* Header - Above fold: Blur In */}
         <FadeIn direction="blur-in">
           <div className="mb-20 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20 mb-6">
+            <Badge variant="accent" className="mb-6">
               <Sparkles className="w-4 h-4" />
-              <span className="text-xs font-mono font-medium uppercase tracking-wide">Platform Feature</span>
-            </div>
+              Platform Feature
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
                The context you need for AI-readiness
             </h1>
@@ -26,7 +27,7 @@ export default function AIReadyPage() {
 
          {/* Hero Animation Placeholder - Above fold: Blur In */}
          <FadeIn direction="blur-in" delay={0.2}>
-           <div className="w-full h-auto bg-surface border border-ink-primary shadow-hard flex items-center justify-center mb-24 p-8">
+           <div className="w-full h-auto bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-24 p-8">
               <img 
                 src="/images/ai_agent_concept.svg" 
                 alt="AI Agent Concept" 

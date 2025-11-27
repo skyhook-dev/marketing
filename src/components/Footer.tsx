@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -7,19 +8,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="space-y-6">
-             <Link href="/" className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-accent" />
-              <span className="font-bold text-xl tracking-tight text-ink-primary">Skyhook</span>
+             <Link href="/" className="flex items-center">
+              <Logo className="h-10 w-auto text-ink-primary" />
             </Link>
-            
+
             <div className="space-y-4">
                <div className="flex items-center gap-3">
                  <span className="text-xs text-ink-tertiary font-semibold uppercase">Backed by</span>
-                 <div className="h-8 w-auto relative">
+                 <div className="h-10 w-auto relative">
                    <img src="/images/badges/yc_backed.png" alt="Y Combinator" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
                  </div>
                </div>
-               <div className="h-8 w-auto relative">
+               <div className="h-12 w-auto relative">
                   <img src="/images/badges/google_cloud_partner.png" alt="Google Cloud Partner" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
                </div>
             </div>

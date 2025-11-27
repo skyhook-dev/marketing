@@ -22,7 +22,7 @@ export default function SolutionsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-2 bg-surface border border-ink-primary shadow-hard">
+                  <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                     <GitPullRequest className="w-6 h-6 text-ink-primary" />
                   </div>
                   <h2 className="text-3xl font-semibold text-ink-primary">Preview Environments</h2>
@@ -83,7 +83,7 @@ export default function SolutionsPage() {
               </BlueprintCard>
               <div className="space-y-6 order-1 lg:order-2">
                 <div className="flex items-center gap-4">
-                  <div className="p-2 bg-surface border border-ink-primary shadow-hard">
+                  <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                     <ShieldCheck className="w-6 h-6 text-ink-primary" />
                   </div>
                   <h2 className="text-3xl font-semibold text-ink-primary">Rollout Strategies</h2>
@@ -114,7 +114,7 @@ export default function SolutionsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-2 bg-surface border border-ink-primary shadow-hard">
+                  <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                     <LayoutDashboard className="w-6 h-6 text-ink-primary" />
                   </div>
                   <h2 className="text-3xl font-semibold text-ink-primary">Service Catalog</h2>
@@ -178,7 +178,7 @@ export default function SolutionsPage() {
               </BlueprintCard>
               <div className="space-y-6 order-1 lg:order-2">
                 <div className="flex items-center gap-4">
-                  <div className="p-2 bg-surface border border-ink-primary shadow-hard">
+                  <div className="p-2 bg-surface border border-border rounded-lg shadow-hard">
                     <BarChart3 className="w-6 h-6 text-ink-primary" />
                   </div>
                   <h2 className="text-3xl font-semibold text-ink-primary">Auto-Scaling</h2>

@@ -1,13 +1,13 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 
 export default function Signup() {
   return (
     <div className="min-h-screen pt-24 pb-12 flex flex-col">
       {/* Hero Section */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center mb-16">
-        <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-accent uppercase bg-accent/10 rounded-full">
-          Get Started
-        </div>
+        <Badge variant="accent" className="mb-4">Get Started</Badge>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-ink-primary">
           Start your <span className="text-accent">Skyhook journey</span>
         </h1>
@@ -16,18 +16,12 @@ export default function Signup() {
           Start for free, no credit card required.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="https://app.skyhook.io"
-            className="bg-accent text-white px-6 py-3 text-lg font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all border border-black min-w-[200px]"
-          >
+          <Button href="https://app.skyhook.io" size="lg" external className="min-w-[200px]">
             Create Free Account
-          </Link>
-          <Link
-            href="https://github.com/login/oauth/authorize?client_id=skyhook"
-            className="bg-surface text-ink-primary px-6 py-3 text-lg font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all border border-black min-w-[200px]"
-          >
+          </Button>
+          <Button href="https://github.com/login/oauth/authorize?client_id=skyhook" variant="secondary" size="lg" external className="min-w-[200px]">
             Continue with GitHub
-          </Link>
+          </Button>
         </div>
         <p className="mt-4 text-sm text-ink-tertiary">
           By signing up, you agree to our <Link href="/terms" className="underline hover:text-ink-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-ink-primary">Privacy Policy</Link>.
@@ -62,15 +56,12 @@ export default function Signup() {
 
       {/* CTA Section */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
-        <div className="bg-surface border border-border p-12 shadow-hard">
+        <div className="bg-surface border border-border p-12 rounded-lg shadow-hard">
           <h2 className="text-3xl font-bold text-ink-primary mb-4">Need a custom plan?</h2>
           <p className="text-ink-secondary mb-8">Talk to our sales team about enterprise requirements.</p>
-          <Link
-            href="/demo"
-            className="inline-block bg-white text-ink-primary px-6 py-3 text-lg font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all border border-black"
-          >
+          <Button href="/demo" variant="secondary" size="lg">
             Request Demo
-          </Link>
+          </Button>
         </div>
       </section>
     </div>

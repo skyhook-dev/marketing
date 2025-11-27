@@ -1,4 +1,5 @@
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Badge } from "@/components/ui/Badge";
 import { GitMerge, Shuffle, CheckCircle2 } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,10 +12,10 @@ export default function RolloutStrategiesPage() {
         {/* Hero - Above fold: Blur In */}
         <FadeIn direction="blur-in">
           <div className="mb-20 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20 mb-6">
+            <Badge variant="accent" className="mb-6">
               <GitMerge className="w-4 h-4" />
-              <span className="text-xs font-mono font-medium uppercase tracking-wide">Solution</span>
-            </div>
+              Solution
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
               Minimize Deployment Risk
             </h1>
@@ -37,7 +38,7 @@ export default function RolloutStrategiesPage() {
                 
                 <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 bg-surface border border-ink-primary shadow-hard flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
                             <Shuffle className="w-5 h-5 text-ink-primary" />
                         </div>
                         <div>
@@ -73,7 +74,7 @@ export default function RolloutStrategiesPage() {
         {/* Section 2 */}
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-center">
              <FadeIn direction="up" className="order-2 lg:order-1">
-                <BlueprintCard className="bg-white p-8">
+                <BlueprintCard className="bg-surface p-8">
                     <div className="space-y-4">
                         <div className="flex items-center justify-between border-b border-border pb-2">
                             <span className="font-bold text-ink-primary">Deployment Strategy</span>
