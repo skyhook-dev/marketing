@@ -11,7 +11,7 @@ export function Hero() {
           <FadeInStagger className="space-y-8">
             <FadeIn>
               <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.1] text-ink-primary">
+                <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.1] text-red-600">
                   One-click <br />
                   <span className="text-ink-secondary">Kubernetes Platform</span>
                 </h1>
