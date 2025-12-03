@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
-import { GridPattern } from "@/components/ui/GridPattern";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
@@ -31,7 +30,6 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${dmMono.variable} antialiased bg-background text-foreground`}
       >
-        <GridPattern />
         <Nav />
         <main className="min-h-screen pt-16">
           {children}

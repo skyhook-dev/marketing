@@ -74,7 +74,7 @@ export function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -83,10 +83,10 @@ export function Nav() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-[width,height,top,border-radius]",
         scrolled
-          ? "glass-strong border-b border-border shadow-md h-16"
-          : "glass-subtle border-b border-transparent h-20"
+          ? "top-4 w-[calc(100%-2rem)] max-w-6xl rounded-2xl glass-strong border border-border shadow-lg backdrop-blur-xl h-16"
+          : "top-0 w-full glass-subtle border-b border-transparent h-20"
       )}
       onMouseLeave={() => setActiveDropdown(null)}
     >
@@ -96,7 +96,7 @@ export function Nav() {
           <div className="flex-shrink-0 z-50">
             <Link href="/" className="flex items-center group">
               <Logo className={cn(
-                "w-auto text-ink-primary transition-all duration-300",
+                "w-auto text-ink-primary transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
                 scrolled ? "h-6" : "h-7"
               )} />
             </Link>
@@ -113,17 +113,17 @@ export function Nav() {
                 >
                   <button
                     className={cn(
-                      "relative flex items-center gap-1 text-sm font-medium transition-colors py-2 outline-none group",
+                      "relative flex items-center gap-1 text-sm font-medium transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] py-2 outline-none group",
                       activeDropdown === key ? "text-ink-primary" : "text-ink-secondary hover:text-ink-primary"
                     )}
                   >
                     {section.label}
                     <ChevronDown className={cn(
-                      "w-4 h-4 transition-transform duration-200",
+                      "w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
                       activeDropdown === key ? "rotate-180 text-accent" : "opacity-60"
                     )} />
                     <span className={cn(
-                      "absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300",
+                      "absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
                       activeDropdown === key ? "w-full" : "w-0"
                     )} />
                   </button>
@@ -173,7 +173,7 @@ export function Nav() {
                   </div>
                 </div>
               ))}
-              
+
               <a href="https://docs.skyhook.io" target="_blank" rel="noopener noreferrer" className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group">
                 Docs
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />

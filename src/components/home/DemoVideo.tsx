@@ -4,14 +4,14 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function DemoVideo() {
   return (
-    <section className="py-24 bg-background border-b border-border">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-4">
+            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] mb-3">
               See Skyhook in action
             </h2>
-            <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
+            <p className="text-[18px] font-normal text-[#445166] leading-normal max-w-2xl mx-auto">
               Watch how Skyhook simplifies your Kubernetes workflow
             </p>
           </div>
