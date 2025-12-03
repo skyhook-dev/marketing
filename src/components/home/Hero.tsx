@@ -21,6 +21,7 @@ export function Hero() {
               </div>
             </FadeIn>
 
+
             <FadeIn delay={0.2}>
               <div className="flex flex-wrap gap-4">
                 <Button href="/demo">Get a demo</Button>
