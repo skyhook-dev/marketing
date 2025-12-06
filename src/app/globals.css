@@ -119,9 +119,9 @@ body {
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
   /* Consistent fade animations */
@@ -562,4 +562,30 @@ body {
   margin: 2rem 0;
   font-style: italic;
   color: var(--ink-primary);
+}
+
+/* Progress bar animation */
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* Animated gradient for CTA */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }

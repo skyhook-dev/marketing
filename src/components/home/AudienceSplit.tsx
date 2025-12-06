@@ -49,7 +49,6 @@ const developersBullets = [
 
 export function AudienceSplit() {
   const [openDrawer, setOpenDrawer] = useState<DrawerId>("platform");
-  const [progress, setProgress] = useState(0);
 
   // Auto-rotate drawers every 10 seconds
   useEffect(() => {
@@ -59,36 +58,14 @@ export function AudienceSplit() {
         const nextIndex = (currentIndex + 1) % devOpsDrawers.length;
         return devOpsDrawers[nextIndex].id;
       });
-      setProgress(0); // Reset progress when switching
     }, 10000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Progress bar animation
-  useEffect(() => {
-    setProgress(0);
-    const startTime = Date.now();
-    const duration = 10000;
-
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const newProgress = Math.min((elapsed / duration) * 100, 100);
-      setProgress(newProgress);
-
-      if (newProgress < 100) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    const animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [openDrawer]);
-
   const toggleDrawer = (id: DrawerId) => {
     if (openDrawer !== id) {
       setOpenDrawer(id);
-      setProgress(0);
     }
   };
 
@@ -96,12 +73,12 @@ export function AudienceSplit() {
 
   return (
     <section className="py-24 bg-background">
-      <div className="max-w-[1310px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[1310px] mx-auto">
         <FadeIn>
           {/* Top Block - For DevOps */}
           <div className="flex items-start gap-[102px] mb-24">
             {/* Left Side - Text Content */}
-            <div className="flex w-[532px] flex-col items-start">
+            <div className="flex w-[532px] flex-col items-start min-h-[600px]">
               {/* Badge */}
               <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
                 <span className="text-[#0051DD] text-base font-semibold leading-normal">
@@ -168,15 +145,18 @@ export function AudienceSplit() {
                       )}
                     </AnimatePresence>
 
-                    {/* Progress bar - only show on the open drawer */}
-                    {openDrawer === drawer.id && (
-                      <div className="w-full h-[2px] bg-gray-200 overflow-hidden">
+                    {/* Progress bar - always render container to prevent layout shift */}
+                    <div className="w-full h-[5px] overflow-hidden bg-transparent">
+                      {openDrawer === drawer.id && (
                         <div
-                          className="h-full bg-[#2D7AFF] transition-all duration-100 ease-linear"
-                          style={{ width: `${progress}%` }}
+                          key={`progress-${drawer.id}`}
+                          className="h-full bg-[#2D7AFF]"
+                          style={{
+                            animation: 'progressBar 10s linear forwards'
+                          }}
                         />
-                      </div>
-                    )}
+                      )}
+                    </div>
 
                     {/* Bottom border for closed drawers */}
                     {openDrawer === drawer.id && index < devOpsDrawers.length - 1 && (
@@ -194,7 +174,7 @@ export function AudienceSplit() {
                   key={openDrawer}
                   src={activeImage}
                   alt="DevOps visualization"
-                  className="w-[676px] h-[583px] object-contain absolute"
+                  className="w-auto h-auto max-w-full max-h-full object-contain absolute"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

@@ -3,31 +3,14 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import {
-  ChevronDown,
-  Sparkles,
-  Hammer,
-  Rocket,
-  Play,
-  TrendingUp,
-  Activity,
-  GitBranch,
-  Shuffle,
-  LayoutGrid,
-  Scale,
-  FileText,
-  Radio,
-  Shield,
-  Zap,
-  LucideIcon,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/Button";
 
 type NavItem = {
   name: string;
   href: string;
-  icon: LucideIcon;
+  icon: string; // Changed to string for SVG path
   external?: boolean;
 };
 
@@ -40,30 +23,30 @@ const navMap: Record<string, NavSection> = {
   platform: {
     label: "Platform",
     items: [
-      { name: "AI Ready", href: "/platform/ai-ready", icon: Sparkles },
-      { name: "Build", href: "/platform/build", icon: Hammer },
-      { name: "Deploy", href: "/platform/deploy", icon: Rocket },
-      { name: "Run", href: "/platform/run", icon: Play },
-      { name: "Grow", href: "/platform/grow", icon: TrendingUp },
-      { name: "Observe", href: "/platform/observe", icon: Activity },
+      { name: "AI Ready", href: "/platform/ai-ready", icon: "/images/navbar icons/ai-ready-nav.svg" },
+      { name: "Build", href: "/platform/build", icon: "/images/navbar icons/build-nav.svg" },
+      { name: "Deploy", href: "/platform/deploy", icon: "/images/navbar icons/deploy-nav.svg" },
+      { name: "Run", href: "/platform/run", icon: "/images/navbar icons/run-nav.svg" },
+      { name: "Grow", href: "/platform/grow", icon: "/images/navbar icons/grow-nav.svg" },
+      { name: "Observe", href: "/platform/observe", icon: "/images/navbar icons/observe-nav.svg" },
     ]
   },
   solutions: {
     label: "Solutions",
     items: [
-      { name: "Preview Environments", href: "/solutions/preview-environments", icon: GitBranch },
-      { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: Shuffle },
-      { name: "Service Catalog", href: "/solutions/service-catalog", icon: LayoutGrid },
-      { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: Scale },
+      { name: "Preview Environments", href: "/solutions/preview-environments", icon: "/images/navbar icons/preview-nav.svg" },
+      { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: "/images/navbar icons/rollout-nav.svg" },
+      { name: "Service Catalog", href: "/solutions/service-catalog", icon: "/images/navbar icons/catalog-nav.svg" },
+      { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: "/images/navbar icons/scaling-nav.svg" },
     ]
   },
   resources: {
     label: "Resources",
     items: [
-      { name: "Blog", href: "/blog", icon: FileText },
-      { name: "Status", href: "https://status.skyhook.io", icon: Radio, external: true },
-      { name: "Security", href: "https://trust.skyhook.io", icon: Shield, external: true },
-      { name: "Changelog", href: "/changelog", icon: Zap },
+      { name: "Blog", href: "/blog", icon: "/images/navbar icons/blog-nav.svg" },
+      { name: "Status", href: "https://status.skyhook.io", icon: "/images/navbar icons/status-nav.svg", external: true },
+      { name: "Security", href: "https://trust.skyhook.io", icon: "/images/navbar icons/security-nav.svg", external: true },
+      { name: "Changelog", href: "/changelog", icon: "/images/navbar icons/changelog-nav.svg" },
     ]
   }
 };
@@ -90,7 +73,10 @@ export function Nav() {
       )}
       onMouseLeave={() => setActiveDropdown(null)}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div className={cn(
+        "mx-auto h-full transition-all duration-500",
+        scrolled ? "max-w-7xl px-4 sm:px-6 lg:px-8" : "w-[1310px]"
+      )}>
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex-shrink-0 z-50">
@@ -137,15 +123,16 @@ export function Nav() {
                   )}>
                     <div className="flex flex-col gap-1">
                       {section.items.map((item) => {
-                        const Icon = item.icon;
                         const itemContent = (
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                              <Icon className="w-5 h-5 text-accent transition-colors" />
+                          <div className="flex items-center gap-[13px] w-full">
+                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-white transition-colors">
+                              <img src={item.icon} alt={item.name} className="w-5 h-5" />
                             </div>
-                            <span className="font-medium">{item.name}</span>
+                            <span className="font-normal text-[16px] leading-normal group-hover:text-white transition-colors">{item.name}</span>
                           </div>
                         );
+
+                        const hoverClasses = "group flex items-center p-[10px] gap-[13px] text-sm text-ink-secondary hover:text-white hover:bg-[#2D7BFF] rounded-[15px] transition-all duration-150";
 
                         return item.external ? (
                           <a
@@ -153,7 +140,7 @@ export function Nav() {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group px-3 py-3 text-sm text-ink-secondary hover:text-ink-primary hover:bg-background/50 rounded-lg transition-all duration-150 text-left"
+                            className={hoverClasses}
                             onClick={() => setActiveDropdown(null)}
                           >
                             {itemContent}
@@ -162,7 +149,7 @@ export function Nav() {
                           <Link
                             key={item.name}
                             href={item.href}
-                            className="group px-3 py-3 text-sm text-ink-secondary hover:text-ink-primary hover:bg-background/50 rounded-lg transition-all duration-150 text-left"
+                            className={hoverClasses}
                             onClick={() => setActiveDropdown(null)}
                           >
                             {itemContent}

@@ -51,7 +51,7 @@ export function ValuePropsGrid({
   className = "",
 }: ValuePropsGridProps) {
   return (
-    <section className={`py-24 bg-background ${className}`}>
+    <section className={`bg-background ${className}`}>
       <div className="max-w-[1310px] mx-auto">
         <FadeIn>
           <div className="flex flex-col items-start gap-[50px] p-[60px] rounded-2xl bg-[#F6FAFF]">
