@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface AccordionItem {
@@ -40,9 +40,13 @@ export function Accordion({
                 "hover:bg-white/5 transition-colors"
               )}
             >
-              <span className="flex-shrink-0 text-accent">
-                {isOpen ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-              </span>
+              <motion.span
+                className="flex-shrink-0 text-accent"
+                animate={{ rotate: isOpen ? 45 : 0 }}
+                transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Plus className="w-5 h-5" />
+              </motion.span>
               <h3 className="font-semibold text-ink-primary">
                 {item.title}
               </h3>
