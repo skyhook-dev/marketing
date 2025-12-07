@@ -13,40 +13,45 @@ export function PlatformApproach() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           {/* Title and Subtitle Container */}
-          <div className="flex flex-col items-center gap-10 max-w-[935px] mx-auto mb-10">
-            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
+          <div className="flex flex-col items-center gap-6 max-w-4xl mx-auto mb-16 text-center">
+            <h2 className="heading-lg">
               Instant developer platform with no lock-in or PaaS tradeoff
             </h2>
-            <p className="text-[18px] font-normal text-[#445166] leading-normal text-center">
-              You're one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
+            <p className="text-body text-lg text-cancel-balance">
+              You&apos;re one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
             </p>
           </div>
 
           {/* Skyhook Approach Image */}
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-16 relative">
+             {/* Subtle backdrop glow */}
+            <div className="absolute inset-0 bg-accent/5 blur-3xl rounded-full scale-95 -z-10" />
             <img
               src="/images/skyhook-approach.svg"
               alt="Skyhook Approach"
-              className="max-w-full h-auto"
+              className="max-w-full h-auto drop-shadow-lg"
             />
           </div>
 
           {/* The Skyhook Approach Section */}
-          <div className="flex flex-col items-start gap-8 max-w-[1310px] mx-auto">
-            <h3 className="text-[30px] font-semibold text-[#101927] leading-normal text-center w-full">
+          <div className="flex flex-col gap-8 max-w-7xl mx-auto">
+            <h3 className="heading-md text-center w-full">
               The Skyhook Approach
             </h3>
 
-            {/* Horizontal Boxes */}
-            <div className="flex gap-8 w-full">
+            {/* Bento Grid Layout - Premium Feel */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {approaches.map((approach, index) => (
                 <div
-                  key={index}
-                  className="flex flex-1 p-[30px_20px] items-start gap-2.5 rounded-xl bg-[#F6FAFF]"
+                    key={index}
+                    className="group flex flex-col items-center text-center md:items-start md:text-left p-6 rounded-xl bg-background border border-border shadow-sm hover:shadow-hard hover:border-accent/40 transition-all duration-300 ease-in-out hover:-translate-y-1"
                 >
-                  <p className="text-[#445166] text-center text-[18px] font-normal leading-normal">
+                    {/* Decorative dash - adds a 'tech' feel */}
+                    <div className="w-8 h-1 bg-accent/20 rounded-full mb-4 group-hover:bg-accent transition-colors duration-300" />
+                    
+                    <p className="text-ink-secondary text-lg font-medium leading-snug group-hover:text-ink-primary transition-colors">
                     {approach}
-                  </p>
+                    </p>
                 </div>
               ))}
             </div>
