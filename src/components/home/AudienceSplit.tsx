@@ -1,253 +1,237 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { TerminalBlock } from "@/components/ui/TerminalBlock";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { ChevronDown, Check } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-type DevOpsTab = "platform" | "selfservice" | "kubernetes";
+type DrawerId = "platform" | "selfservice" | "kubernetes";
 
-const devOpsTabs = [
-  { id: "platform" as const, label: "Great DevOps, ready to roll" },
-  { id: "selfservice" as const, label: "Reusable self-service actions" },
-  { id: "kubernetes" as const, label: "Kubernetes, solved" },
-];
-
-const devOpsContent: Record<DevOpsTab, { bullets: string[]; image: string; imageAlt: string }> = {
-  platform: {
+const devOpsDrawers = [
+  {
+    id: "platform" as const,
+    label: "Great DevOps, ready to roll",
     bullets: [
       "An instant platform that would take weeks or months to create",
       "Integrates with the best tools you know and love",
       "Supports any language or framework",
-      "An end to TicketOps, so you can focus on strategic projects",
-      "Under the hood K8s for easy extensibility",
-      "No vendor lock-in - your cloud, your code, your platform",
     ],
-    image: "/images/devops/sidebar.svg",
-    imageAlt: "Skyhook Sidebar",
+    image: "/images/for-devops/devops-1.svg"
   },
-  selfservice: {
+  {
+    id: "selfservice" as const,
+    label: "Reusable self-service actions",
     bullets: [
       "Self-service interfaces for build, run and deploy",
       "Service catalog",
-      "Stay in control, easily apply guardrails and policies with Kyverno or OPA",
-      "Vetted best practices that make sense for your organization",
-      "Security code scanning",
-      "Monitor, analyze and reduce cloud costs",
+      "Stay in control, easily apply guardrails and policies",
     ],
-    image: "/images/devops/service-catalog.svg",
-    imageAlt: "Service Catalog",
+    image: "/images/for-devops/devops-2.svg"
   },
-  kubernetes: {
+  {
+    id: "kubernetes" as const,
+    label: "Kubernetes, solved",
     bullets: [
       "Any cloud: AWS, AKS, GKE or bring your own",
       "Make day-to-day operations accessible for all developers",
       "A one-line helm install and you're all set",
-      "Designed for scale, without compromising ease of use",
     ],
-    image: "/images/devops/tools.svg",
-    imageAlt: "Kubernetes Tools",
+    image: "/images/for-devops/devops-3.svg"
   },
-};
+];
+
+const developersBullets = [
+  "Leverage the K8s ecosystem without expertise",
+  "Preview environments to canary deployments",
+  "Easy to follow golden paths",
+];
 
 export function AudienceSplit() {
-  const [activeTab, setActiveTab] = useState<"developers" | "devops">("developers");
-  const [devOpsTab, setDevOpsTab] = useState<DevOpsTab>("platform");
+  const [openDrawer, setOpenDrawer] = useState<DrawerId>("platform");
+
+  // Auto-rotate drawers every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOpenDrawer(current => {
+        const currentIndex = devOpsDrawers.findIndex(d => d.id === current);
+        const nextIndex = (currentIndex + 1) % devOpsDrawers.length;
+        return devOpsDrawers[nextIndex].id;
+      });
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const toggleDrawer = (id: DrawerId) => {
+    if (openDrawer !== id) {
+      setOpenDrawer(id);
+    }
+  };
+
+  const activeImage = devOpsDrawers.find(d => d.id === openDrawer)?.image || devOpsDrawers[0].image;
 
   return (
-    <section className="py-24 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Main Toggle */}
+    <section className="py-24 bg-background">
+      <div className="w-[1310px] mx-auto">
         <FadeIn>
-          <div className="flex justify-center mb-16">
-            <div className="relative inline-flex p-1.5 bg-background border border-border rounded-xl shadow-sm">
-              {/* Sliding background indicator */}
-              <motion.div
-                className="absolute inset-1.5 w-[calc(50%-3px)] bg-accent rounded-lg shadow-md"
-                initial={false}
-                animate={{
-                  left: activeTab === "developers" ? "6px" : "calc(50% - 3px)",
-                }}
-                transition={{ type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.25 }}
+          {/* Top Block - For DevOps */}
+          <div className="flex items-start gap-[102px] mb-24">
+            {/* Left Side - Text Content */}
+            <div className="flex w-[532px] flex-col items-start min-h-[600px]">
+              {/* Badge */}
+              <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
+                <span className="text-[#0051DD] text-base font-semibold leading-normal">
+                  For DevOps
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2 className="text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+                Every <span className="text-[#2D7AFF]">DevOps</span> dream come true
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-[18px] font-normal text-[#445166] leading-normal mb-5">
+                The platform and tools you never had the time to set up. With all the control you need.
+              </p>
+
+              {/* Drawers */}
+              <div className="w-full">
+                {devOpsDrawers.map((drawer, index) => (
+                  <div key={drawer.id} className="relative">
+                    <button
+                      onClick={() => toggleDrawer(drawer.id)}
+                      className={cn(
+                        "flex w-full justify-between items-center py-5 cursor-pointer transition-colors",
+                        openDrawer !== drawer.id && "border-b border-[#878F9E]"
+                      )}
+                    >
+                      <span className="text-[20px] font-semibold text-[#101927] leading-normal">
+                        {drawer.label}
+                      </span>
+                      <ChevronDown
+                        className={cn(
+                          "w-6 h-6 text-[#101927] transition-transform duration-300",
+                          openDrawer === drawer.id ? "rotate-180" : ""
+                        )}
+                      />
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {openDrawer === drawer.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col items-start gap-[13px] pt-2 pb-5">
+                            {drawer.bullets.map((bullet, bulletIndex) => (
+                              <div key={bulletIndex} className="flex items-start gap-3">
+                                <img
+                                  src="/images/check.svg"
+                                  alt="check"
+                                  className="w-5 h-5 flex-shrink-0 mt-0.5"
+                                />
+                                <span className="text-base font-normal text-[#445166] leading-normal">
+                                  {bullet}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Progress bar - always render container to prevent layout shift */}
+                    <div className="w-full h-[5px] overflow-hidden bg-transparent">
+                      {openDrawer === drawer.id && (
+                        <div
+                          key={`progress-${drawer.id}`}
+                          className="h-full bg-[#2D7AFF]"
+                          style={{
+                            animation: 'progressBar 10s linear forwards'
+                          }}
+                        />
+                      )}
+                    </div>
+
+                    {/* Bottom border for closed drawers */}
+                    {openDrawer === drawer.id && index < devOpsDrawers.length - 1 && (
+                      <div className="border-b border-[#878F9E]" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="flex-1 flex items-center justify-center relative h-[583px]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={openDrawer}
+                  src={activeImage}
+                  alt="DevOps visualization"
+                  className="w-auto h-auto max-w-full max-h-full object-contain absolute"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Bottom Block - For Developers */}
+          <div className="flex items-start gap-[102px]">
+            {/* Left Side - Image */}
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src="/images/for-dev/Dev-image.svg"
+                alt="Developer interface"
+                className="w-[676px] h-[583px]"
               />
-              <button
-                onClick={() => setActiveTab("developers")}
-                className={cn(
-                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg cursor-pointer",
-                  activeTab === "developers"
-                    ? "text-white"
-                    : "text-ink-secondary hover:text-ink-primary"
-                )}
-              >
-                For Developers
-              </button>
-              <button
-                onClick={() => setActiveTab("devops")}
-                className={cn(
-                  "relative z-10 px-10 py-4 text-lg font-semibold transition-colors duration-200 rounded-lg cursor-pointer",
-                  activeTab === "devops"
-                    ? "text-white"
-                    : "text-ink-secondary hover:text-ink-primary"
-                )}
-              >
-                For DevOps
-              </button>
+            </div>
+
+            {/* Right Side - Text Content */}
+            <div className="flex w-[532px] flex-col items-start">
+              {/* Badge */}
+              <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
+                <span className="text-[#0051DD] text-base font-semibold leading-normal">
+                  For Developers
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2 className="text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+                A self-service interface for <span className="text-[#2D7AFF]">Developers</span>
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-[18px] font-normal text-[#445166] leading-normal mb-5">
+                Like an internal developer portal without the K8s platform setup
+              </p>
+
+              {/* Bullets */}
+              <div className="flex flex-col gap-[13px]">
+                {developersBullets.map((bullet, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <img
+                      src="/images/check.svg"
+                      alt="check"
+                      className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    />
+                    <span className="text-base font-normal text-[#445166] leading-normal">
+                      {bullet}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </FadeIn>
-
-        <AnimatePresence mode="wait">
-          {activeTab === "developers" ? (
-            <motion.div
-              key="developers-section"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            >
-              {/* Content Side */}
-              <div className="space-y-8">
-                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary">
-                  A self-service interface for developers
-                </h2>
-                <p className="text-lg text-ink-secondary leading-relaxed">
-                  Like an internal developer portal without the K8s platform setup. A simple interface that meets developers where they are — CLI, API or UI.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 mt-2 bg-accent rounded-full" />
-                    <span className="text-ink-secondary">Leverage the K8s ecosystem without expertise</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 mt-2 bg-accent rounded-full" />
-                    <span className="text-ink-secondary">Preview environments to canary deployments</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 mt-2 bg-accent rounded-full" />
-                    <span className="text-ink-secondary">Easy to follow golden paths</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Visual Side */}
-              <div className="space-y-6">
-                <TerminalBlock
-                  filename="deploy.sh"
-                  code={`$ skyhook deploy --service=api
-> Building container... [DONE]
-> Pushing to registry... [DONE]
-> Deploying to staging... [DONE]
-> URL: https://api.staging.skyhook.io`}
-                />
-                <BlueprintCard title="Service Status" className="bg-surface">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium">API Service</span>
-                    <span className="px-2 py-0.5 text-xs status-success rounded">Healthy</span>
-                  </div>
-                  <div className="h-2 bg-border rounded-full overflow-hidden">
-                    <div className="h-full bg-success w-[98%]" />
-                  </div>
-                </BlueprintCard>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="devops-section"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* DevOps Header + Accordion + Image Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                {/* Left Side: Header + Accordion */}
-                <div className="flex flex-col">
-                  {/* DevOps Header */}
-                  <div className="mb-12">
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-4">
-                      Your DevOps dreams come true
-                    </h2>
-                    <p className="text-lg text-ink-secondary">
-                      The platform and tools you never had the time to set up. With all the control you need.
-                    </p>
-                  </div>
-
-                  {/* Accordion */}
-                  <div className="space-y-0">
-                    {devOpsTabs.map((tab) => (
-                      <div key={tab.id} className="border-t border-border">
-                        <button
-                          onClick={() => setDevOpsTab(tab.id)}
-                          className={cn(
-                            "w-full flex items-center justify-between py-5 text-left transition-colors cursor-pointer",
-                            devOpsTab === tab.id ? "text-ink-primary" : "text-ink-secondary hover:text-ink-primary"
-                          )}
-                        >
-                          <span className="text-xl font-semibold">{tab.label}</span>
-                          <ChevronDown
-                            className={cn(
-                              "w-6 h-6 transition-transform duration-300",
-                              devOpsTab === tab.id ? "rotate-180" : ""
-                            )}
-                          />
-                        </button>
-
-                        <AnimatePresence initial={false}>
-                          {devOpsTab === tab.id && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pb-6 pl-0">
-                                <ul className="space-y-3">
-                                  {devOpsContent[tab.id].bullets.map((bullet, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                      <span className="text-ink-secondary">{bullet}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ))}
-                    <div className="border-t border-border" />
-                  </div>
-                </div>
-
-                {/* Image Side - spans full height */}
-                <div className="relative hidden lg:flex items-center">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={devOpsTab + "-image"}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="w-full h-full rounded-xl overflow-hidden shadow-lg border border-border bg-surface flex items-center justify-center"
-                    >
-                      <img
-                        src={devOpsContent[devOpsTab].image}
-                        alt={devOpsContent[devOpsTab].imageAlt}
-                        className="w-full h-full object-cover"
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </section>
   );

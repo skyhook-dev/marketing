@@ -1,5 +1,4 @@
-import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
-import { Check } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function PlatformApproach() {
   const approaches = [
@@ -10,38 +9,49 @@ export function PlatformApproach() {
   ];
 
   return (
-    <section className="py-24 bg-surface border-b border-border">
+    <section className="py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeIn>
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary">
-                Instant developer platform with no lock-in or PaaS tradeoff
-              </h2>
-              <p className="text-lg text-ink-secondary leading-relaxed">
-                You're one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
-              </p>
-            </div>
-          </FadeIn>
+        <FadeIn>
+          {/* Title and Subtitle Container */}
+          <div className="flex flex-col items-center gap-10 max-w-[935px] mx-auto mb-10">
+            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
+              Instant developer platform with no lock-in or PaaS tradeoff
+            </h2>
+            <p className="text-[18px] font-normal text-[#445166] leading-normal text-center">
+              You're one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
+            </p>
+          </div>
 
-          <FadeIn delay={0.2}>
-            <div className="bg-surface border border-border rounded-lg shadow-hard p-8">
-              <h3 className="text-lg font-semibold text-ink-primary mb-6">
-                The Skyhook approach
-              </h3>
-              <ul className="space-y-4">
-                {approaches.map((approach, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 bg-accent/10 border border-accent/20 flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-accent" strokeWidth={2} />
-                    </div>
-                    <span className="text-ink-secondary">{approach}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Skyhook Approach Image */}
+          <div className="flex justify-center mb-10">
+            <img
+              src="/images/skyhook-approach.svg"
+              alt="Skyhook Approach"
+              className="max-w-full h-auto"
+            />
+          </div>
+
+          {/* The Skyhook Approach Section */}
+          <div className="flex flex-col items-start gap-8 max-w-[1310px] mx-auto">
+            <h3 className="text-[30px] font-semibold text-[#101927] leading-normal text-center w-full">
+              The Skyhook Approach
+            </h3>
+
+            {/* Horizontal Boxes */}
+            <div className="flex gap-8 w-full">
+              {approaches.map((approach, index) => (
+                <div
+                  key={index}
+                  className="flex flex-1 p-[30px_20px] items-start gap-2.5 rounded-xl bg-[#F6FAFF]"
+                >
+                  <p className="text-[#445166] text-center text-[18px] font-normal leading-normal">
+                    {approach}
+                  </p>
+                </div>
+              ))}
             </div>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

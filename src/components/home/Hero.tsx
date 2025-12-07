@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/Button";
 
 export function Hero() {
   return (
-    <section className="relative border-b border-border glass-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    <section className="relative bg-white">
+      <div className="w-[1310px] mx-auto py-24 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeInStagger className="space-y-8">
             <FadeIn>
@@ -20,6 +20,7 @@ export function Hero() {
                 </p>
               </div>
             </FadeIn>
+
 
             <FadeIn delay={0.2}>
               <div className="flex flex-wrap gap-4">
@@ -39,7 +40,7 @@ export function Hero() {
 
           <FadeIn delay={0.4} className="relative w-full hidden lg:block lg:scale-150 lg:origin-center">
             <img
-              src="/images/heroes/hero.png"
+              src="/images/heroes/hero-illustration.svg"
               alt="Skyhook Platform"
               className="w-full h-auto"
             />

@@ -15,28 +15,26 @@ export function Logos() {
   ];
 
   return (
-    <section className="border-b border-border bg-surface py-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-surface py-12 -mt-[60px]">
+      <div className="w-[1310px] mx-auto">
         <FadeIn>
-          <p className="text-center font-mono text-xs uppercase tracking-widest text-ink-secondary mb-8">
-            Used daily by engineering teams at
-          </p>
-
-          <div className="logos-scroll-container">
-            <div className="logos-scroll">
-              {[...Array(2)].map((_, index) => (
-                <div className="logos-set" key={index}>
-                  {companies.map((company) => (
-                    <div key={`${index}-${company.name}`} className="logo-placeholder has-logo">
-                      <img
-                        src={company.src}
-                        alt={company.name}
-                        className="company-logo"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
+          <div className="rounded-2xl border border-[#E6E8EC] bg-white p-8" style={{ boxShadow: '0 34px 56.8px 0 rgba(0, 0, 0, 0.06)' }}>
+            <div className="logos-scroll-container">
+              <div className="logos-scroll">
+                {[...Array(2)].map((_, index) => (
+                  <div className="logos-set" key={index}>
+                    {companies.map((company) => (
+                      <div key={`${index}-${company.name}`} className="logo-placeholder has-logo">
+                        <img
+                          src={company.src}
+                          alt={company.name}
+                          className="company-logo"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </FadeIn>

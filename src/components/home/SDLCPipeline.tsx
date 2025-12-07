@@ -1,18 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Layers, Play, TrendingUp, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 const steps = [
   {
     id: "build",
     label: "Build",
-    icon: Box,
-    image: "/images/sdlc/build.svg",
+    image: "/images/build.svg",
     bullets: [
       "Spin up services, environments, and infrastructure in seconds",
       "Wire in your preferred dev tools with zero configuration",
@@ -23,8 +20,7 @@ const steps = [
   {
     id: "deploy",
     label: "Deploy",
-    icon: Layers,
-    image: "/images/sdlc/deploy.svg",
+    image: "/images/deploy.svg",
     bullets: [
       "Ship code with confidence using built-in CI/CD flows",
       "Preview environments for every pull request",
@@ -35,8 +31,7 @@ const steps = [
   {
     id: "run",
     label: "Run",
-    icon: Play,
-    image: "/images/sdlc/run.svg",
+    image: "/images/run.svg",
     bullets: [
       "Skyhook handles underlying platform operations",
       "Keep your apps healthy and performant automatically",
@@ -47,8 +42,7 @@ const steps = [
   {
     id: "grow",
     label: "Grow",
-    icon: TrendingUp,
-    image: "/images/sdlc/grow.svg",
+    image: "/images/grow.svg",
     bullets: [
       "Launch a side project or manage enterprise workloads",
       "Scale seamlessly across teams and environments",
@@ -59,8 +53,7 @@ const steps = [
   {
     id: "observe",
     label: "Observe",
-    icon: Activity,
-    image: "/images/sdlc/observe.svg",
+    image: "/images/observe.svg",
     bullets: [
       "Instant access to logs, metrics, and traces",
       "Observability tools connected out of the box",
@@ -74,90 +67,44 @@ export function SDLCPipeline() {
   const [activeStep, setActiveStep] = useState(steps[0]);
 
   return (
-    <section className="py-24 bg-background border-b border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-background">
+      <div className="w-[1310px] mx-auto">
         <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-4">
+          {/* Header */}
+          <div className="flex flex-col items-center gap-3 mb-10">
+            <h2 className="text-[50px] font-semibold text-[#101927] text-center leading-[120%] tracking-normal max-w-[875px]">
               Powering the software development lifecycle, together
             </h2>
-            <p className="text-lg text-ink-secondary">
+            <p className="text-[18px] font-normal text-[#445166] text-center leading-normal">
               Scale your applications with zero infrastructure friction and full observability.
             </p>
           </div>
-        </FadeIn>
 
-        {/* Step selector - horizontal boxes with connecting line */}
-        <FadeIn>
-          <div className="relative mb-12">
-            {/* Animated Connecting Line */}
-            <div className="absolute top-14 left-0 right-0 hidden md:block" style={{ margin: '0 calc(10% + 3.5rem)' }}>
-              {/* Base line */}
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[2px] bg-border" />
-
-              {/* Animated glow + line using Framer Motion */}
-              <div className="absolute inset-x-0 h-[40px] top-1/2 -translate-y-1/2 overflow-hidden">
-                <motion.div
-                  className="absolute h-full"
-                  style={{
-                    width: '25%',
-                    background: `radial-gradient(ellipse 50% 50% at center, var(--color-accent) 0%, rgba(45, 122, 255, 0.4) 20%, rgba(45, 122, 255, 0.1) 40%, transparent 70%)`,
-                  }}
-                  animate={{
-                    x: ['-25%', '425%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                  }}
-                />
-              </div>
-
-              {/* Sharp line highlight on top */}
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[2px] overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-transparent via-accent to-transparent"
-                  style={{ width: '25%' }}
-                  animate={{
-                    x: ['-25%', '425%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-20 relative z-10">
+          {/* Navigation Pill */}
+          <div className="flex justify-center mb-[60px]">
+            <div className="inline-flex p-[6px] items-center gap-2 rounded-[100px] border border-[#D3E3FF] bg-[#F6FAFF]">
               {steps.map((step) => {
-                const Icon = step.icon;
                 const isActive = activeStep.id === step.id;
                 return (
                   <button
                     key={step.id}
                     onClick={() => setActiveStep(step)}
                     className={cn(
-                      "flex flex-col items-center justify-center w-28 h-28 rounded-xl border transition-all duration-300 cursor-pointer",
-                      "hover-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
-                      isActive
-                        ? "bg-accent border-accent shadow-lg"
-                        : "bg-surface border-border hover:border-accent/50"
+                      "relative flex w-[115px] py-[14px] px-[28px] justify-center items-center gap-2.5 rounded-[100px] cursor-pointer focus:outline-none transition-colors duration-200",
+                      !isActive && "hover:bg-[#EAF2FF]"
                     )}
                   >
-                    <Icon
-                      className={cn(
-                        "w-8 h-8 mb-2 transition-colors",
-                        isActive ? "text-white" : "text-ink-primary"
-                      )}
-                      strokeWidth={1.5}
-                    />
+                    {isActive && (
+                      <motion.div
+                        layoutId="activePill"
+                        className="absolute inset-0 bg-[#2D7AFF] rounded-[100px] shadow-[0px_7px_10px_0px_rgba(8,31,69,0.18)]"
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                      />
+                    )}
                     <span
                       className={cn(
-                        "text-sm font-semibold transition-colors",
-                        isActive ? "text-white" : "text-ink-primary"
+                        "relative z-10 text-[18px] font-medium leading-normal transition-colors duration-200",
+                        isActive ? "text-white" : "text-[#445166]"
                       )}
                     >
                       {step.label}
@@ -167,62 +114,54 @@ export function SDLCPipeline() {
               })}
             </div>
           </div>
-        </FadeIn>
 
-        {/* Content area - bullets left, image right */}
-        <FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left side - bullets */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-4"
-              >
-                <ul className="space-y-4">
+          {/* Content Area */}
+          <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
+            {/* Left Column - Bullets */}
+            <div className="flex flex-col gap-[33px] w-full flex-1">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeStep.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="flex flex-col gap-[33px]"
+                >
                   {activeStep.bullets.map((bullet, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.08 }}
-                      className="flex items-start gap-3"
-                    >
-                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2" />
-                      <span className="text-ink-secondary text-lg leading-relaxed">
+                    <div key={index} className="flex items-start gap-3">
+                      <img
+                        src="/images/check.svg"
+                        alt="check"
+                        className="w-5 h-5 flex-shrink-0 mt-1"
+                      />
+                      <span className="text-[16px] font-normal text-[#445166] leading-[139%]">
                         {bullet}
                       </span>
-                    </motion.li>
+                    </div>
                   ))}
-                </ul>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-            {/* Right side - image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="relative aspect-[3/2] rounded-xl overflow-hidden border border-border shadow-hard"
-              >
-                <Image
+            {/* Right Column - Image */}
+            <div className="flex justify-center items-center w-full lg:w-[639px] flex-shrink-0">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeStep.id}
                   src={activeStep.image}
-                  alt={`${activeStep.label} visualization`}
-                  fill
-                  className="object-cover"
+                  alt={activeStep.label}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="w-full h-auto"
                 />
-              </motion.div>
-            </AnimatePresence>
+              </AnimatePresence>
+            </div>
           </div>
         </FadeIn>
       </div>
-
     </section>
   );
 }

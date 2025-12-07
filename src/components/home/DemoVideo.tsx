@@ -4,14 +4,14 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function DemoVideo() {
   return (
-    <section className="py-24 bg-background border-b border-border">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-4">
+            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] mb-3">
               See Skyhook in action
             </h2>
-            <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
+            <p className="text-[18px] font-normal text-[#445166] leading-normal max-w-2xl mx-auto">
               Watch how Skyhook simplifies your Kubernetes workflow
             </p>
           </div>
@@ -19,18 +19,34 @@ export function DemoVideo() {
 
         <FadeIn delay={0.2}>
           <div className="flex justify-center">
-            <div className="video-container relative overflow-hidden bg-surface w-full max-w-[1213px] aspect-[1213/656] rounded-2xl border border-border shadow-hero">
-              <video
-                src="https://storage.googleapis.com/koala-site-video/koala-website-demo-v2-7.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
-                className="w-full h-full object-cover"
+            <div
+              className="flex flex-col justify-center items-center p-6 rounded-[18px] w-full max-w-[1211.164px]"
+              style={{
+                background: "linear-gradient(144deg, #2D7BFF 21.06%, rgba(255, 255, 255, 0.00) 82.81%), #A2C4FF",
+                boxShadow: "0px 55px 250px 0px rgba(45, 122, 255, 0.17)",
+                minHeight: "auto" // Allow height to be responsive
+              }}
+            >
+              <div
+                className="relative overflow-hidden bg-white rounded-[6px] w-full"
+                style={{
+                  maxWidth: "1157.977px",
+                  aspectRatio: "1157.977 / 622.816",
+                  boxShadow: "0px 9px 24px 0px rgba(45, 122, 255, 0.35)"
+                }}
               >
-                Your browser does not support the video tag.
-              </video>
+                <video
+                  src="https://storage.googleapis.com/koala-site-video/koala-website-demo-v2-7.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full h-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
         </FadeIn>
