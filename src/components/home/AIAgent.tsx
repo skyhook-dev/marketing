@@ -4,44 +4,41 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function AIAgent() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-surface border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           {/* Top Section */}
-          <div className="flex flex-col items-center gap-[14px] max-w-[768px] mx-auto mb-[34px]">
+          <div className="flex flex-col items-center gap-6 max-w-4xl mx-auto mb-16 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EAF2FF] border border-[#2D7AFF]/20">
-              <span className="text-[16px] font-semibold text-[#0051DD] leading-normal">
+             <div className="badge badge-accent mb-2">
                 AI-Ready Platform
-              </span>
-            </div>
+             </div>
 
             {/* Title */}
-            <h2 className="text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
+            <h2 className="heading-lg tracking-tight">
               Chat with your infrastructure
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[18px] font-normal text-[#445166] text-center leading-normal">
+            <p className="text-body text-lg text-cancel-balance">
               Skyhook's agent provides developers and DevOps with the context they need. It knows your stack, your standards, and your golden paths.
             </p>
           </div>
         </FadeIn>
       </div>
 
-      {/* Image Section - Outside the container */}
+      {/* Image Section - Centered with max constraint */}
       <FadeIn delay={0.2}>
-        <div className="flex flex-col items-center">
-          <img
-            src="/images/ai-agent.svg"
-            alt="AI Agent Interface"
-            className="w-[1685px] h-auto"
-          />
-          {/* Line attached to bottom of image */}
-          <div
-            className="w-full max-w-[1310px] border-t border-[#E5E5E5] mt-0"
-            style={{ height: 0, strokeWidth: '1px' }}
-          />
+        <div className="flex flex-col items-center w-full px-4 border-b border-border">
+          <div className="relative w-full max-w-[1400px]">
+             {/* Glow behind the interface */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-accent/5 blur-3xl rounded-full -z-10" />
+            <img
+                src="/images/ai-agent.svg"
+                alt="AI Agent Interface"
+                className="w-full h-auto drop-shadow-2xl"
+            />
+          </div>
         </div>
       </FadeIn>
     </section>
