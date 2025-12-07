@@ -22,6 +22,16 @@ export function Footer() {
                <div className="h-12 w-auto relative">
                   <img src="/images/badges/google_cloud_partner.png" alt="Google Cloud Partner" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
                </div>
+               <iframe
+                 src="https://status.skyhook.io/badge?theme=light"
+                 width="250"
+                 height="30"
+                 frameBorder="0"
+                 scrolling="no"
+                 className="block"
+                 style={{ colorScheme: 'normal' }}
+                 title="Skyhook Status"
+               />
             </div>
           </div>
 
@@ -62,9 +72,9 @@ export function Footer() {
                  </Link>
                </li>
                <li>
-                 <a href="https://status.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
+                 <Link href="/status" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
                    Status
-                 </a>
+                 </Link>
                </li>
                <li>
                  <a href="https://trust.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
