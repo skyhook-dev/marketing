@@ -44,7 +44,7 @@ const navMap: Record<string, NavSection> = {
     label: "Resources",
     items: [
       { name: "Blog", href: "/blog", icon: "/images/navbar icons/blog-nav.svg" },
-      { name: "Status", href: "https://status.skyhook.io", icon: "/images/navbar icons/status-nav.svg", external: true },
+      { name: "Status", href: "/status", icon: "/images/navbar icons/status-nav.svg" },
       { name: "Security", href: "https://trust.skyhook.io", icon: "/images/navbar icons/security-nav.svg", external: true },
       { name: "Changelog", href: "/changelog", icon: "/images/navbar icons/changelog-nav.svg" },
     ]
@@ -79,7 +79,10 @@ export function Nav() {
       )}>
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <div className="flex-shrink-0 z-50">
+          <div 
+            className="flex-shrink-0 z-50"
+            onMouseEnter={() => setActiveDropdown(null)}
+          >
             <Link href="/" className="flex items-center group">
               <Logo className={cn(
                 "w-auto text-ink-primary transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
@@ -161,15 +164,29 @@ export function Nav() {
                 </div>
               ))}
 
-              <a href="https://docs.skyhook.io" target="_blank" rel="noopener noreferrer" className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group">
+              <a 
+                href="https://docs.skyhook.io" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group"
+                onMouseEnter={() => setActiveDropdown(null)}
+              >
                 Docs
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
-              <Link href="/pricing" className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group">
+              <Link 
+                href="/pricing" 
+                className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group"
+                onMouseEnter={() => setActiveDropdown(null)}
+              >
                 Pricing
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
               </Link>
-              <Link href="/about" className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group">
+              <Link 
+                href="/about" 
+                className="relative text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors group"
+                onMouseEnter={() => setActiveDropdown(null)}
+              >
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
               </Link>
@@ -177,7 +194,10 @@ export function Nav() {
           </div>
 
           {/* CTAs */}
-          <div className="hidden md:flex items-center gap-4 z-50">
+          <div 
+            className="hidden md:flex items-center gap-4 z-50"
+            onMouseEnter={() => setActiveDropdown(null)}
+          >
             <Button
               href="https://app.skyhook.io"
               variant="ghost"

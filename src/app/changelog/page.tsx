@@ -1,5 +1,5 @@
 import { changelogUpdates } from "@content/changelog";
-import ReactMarkdown from "react-markdown";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default function ChangelogPage() {
   return (
@@ -80,7 +80,8 @@ export default function ChangelogPage() {
                               >
                                 <span className="text-accent mt-1.5 flex-shrink-0">•</span>
                                 <span className="[&_strong]:text-ink-primary [&_strong]:font-medium [&_a]:text-accent [&_a]:underline">
-                                  <ReactMarkdown
+                                  <MDXRemote
+                                    source={item}
                                     components={{
                                       p: ({ children }) => <>{children}</>,
                                       a: ({ href, children }) => (
@@ -89,9 +90,7 @@ export default function ChangelogPage() {
                                         </a>
                                       ),
                                     }}
-                                  >
-                                    {item}
-                                  </ReactMarkdown>
+                                  />
                                 </span>
                               </li>
                             ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
 
 export function DemoVideo() {
   return (
@@ -48,6 +49,18 @@ export function DemoVideo() {
                 </video>
               </div>
             </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.3}>
+          <div className="flex justify-center mt-10">
+            <Button
+              href="https://demo.skyhook.io"
+              size="lg"
+              external
+            >
+              Try Live Demo
+            </Button>
           </div>
         </FadeIn>
       </div>

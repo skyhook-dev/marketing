@@ -19,7 +19,7 @@ export function FadeIn({
   fullWidth = false 
 }: FadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-200px" });
 
   // Consistent blur value: 8px for all blur effects
   const BLUR_AMOUNT = "8px";
@@ -43,7 +43,7 @@ export function FadeIn({
       initial={getInitialVariant(direction)}
       animate={isInView ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" } : {}}
       transition={{
-        duration: 0.6,
+        duration: 0.9,
         delay: delay,
         ease: [0.22, 1, 0.36, 1], // Custom easing for a more "organic" feel
       }}
@@ -57,7 +57,7 @@ export function FadeIn({
 
 export function FadeInStagger({ children, className = "", faster = false }: { children: React.ReactNode; className?: string; faster?: boolean }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-200px" });
 
   return (
     <motion.div

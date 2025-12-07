@@ -1,25 +1,26 @@
-# Laravel to Kubernetes, Simplified with Skyhook
-
-## Introduction
+---
+title: "Laravel to Kubernetes, Simplified with Skyhook"
+date: November 2024
+author: Skyhook Team
+category: Engineering
+readTime: 7 min read
+image: >-
+  https://images.unsplash.com/photo-1667372393119-c81c0e28a7f9?auto=format&fit=crop&q=80&w=1000
+---
 
 Laravel is a PHP heavyweight, but running it in production usually means stitching together many moving parts: runtime, scaling, security, TLS, observability, and secrets. Kubernetes solves the runtime puzzle but introduces a new learning curve: container images, manifests, deployments, scaling, service discovery, and secrets management.
+
 Below are two ways to ship Laravel to Kubernetes:
 - The manual route: containerize the app, write YAML, own every knob.
-
 - The Skyhook route: let Skyhook automate Day 1 bootstrap and handle Day 2 operations for you.
 
 ## What you will build
 
 - Web app: Nginx with PHP-FPM serving Laravel
-
 - Queue workers: Horizon deployment
-
 - Scheduler: CronJob running php artisan schedule:run every minute
-
 - Database migrations: pre-deploy Job
-
 - Ingress with TLS via cert-manager
-
 - Autoscaling via HPA, logs to stdout, metrics to Prometheus
 
 ## Prerequisites
@@ -36,6 +37,7 @@ Below are two ways to ship Laravel to Kubernetes:
 ### 1) Containerize Laravel (PHP-FPM behind Nginx)
 
 PHP-FPM is not an HTTP server. Expose Nginx on port 80 and keep PHP-FPM internal.
+
 **Dockerfile (multi-stage)**
 
 ```dockerfile
@@ -103,6 +105,7 @@ docker push registry.example.com/laravel-demo:1.0
 ```
 
 ### 2) Write Kubernetes manifests (abbreviated)
+
 **Web Deployment and Service**
 
 ```yaml
@@ -277,12 +280,11 @@ You will still need to install and wire cert-manager, External Secrets, Promethe
 ## Option 2: Ship Laravel with Skyhook (recommended)
 
 Skyhook supports a hybrid workflow. You keep your repos and clusters. Skyhook automates Day 1 bootstrap and Day 2 operations.
+
 ### Day 1: Bootstrap with Terraform (one click)
 
 - Click Create Cluster in the Skyhook console and choose cloud and region.
-
 - Skyhook commits a ready made Terraform module to your infra repo and triggers CI.
-
 - Result: VPC, managed Kubernetes, node pools, OIDC, IAM roles, Argo CD, cert-manager, External Secrets, Grafana, Prometheus, and Loki.
 
 You can also bring your own Terraform and clusters.
@@ -291,15 +293,10 @@ You can also bring your own Terraform and clusters.
 ### Day 2: Deploy Laravel from the Skyhook UI
 
 - Create a Service by pointing Skyhook to your Git repo.
-
 - Build and push using your Dockerfile or Buildpacks. Skyhook handles registry credentials.
-
 - Environment variables and secrets mapped through your cloud secrets manager via External Secrets.
-
 - Add ons with a click such as cert-manager for automatic TLS, External Secrets for rotation, Redis or RabbitMQ charts for queues.
-
 - Deploy which generates an Github Actions flow or an Argo CD Application, commits it to your apps repo, and rolls it out.
-
 - Observe and scale a full open source observability setup with dashboards and autoscaling policies.
 
 You don’t have to deal with YAML and kubectl apply, but they’ll always be available for you if you want to dig in yourself. 
@@ -319,5 +316,3 @@ You don’t have to deal with YAML and kubectl apply, but they’ll always be av
 
 You can deploy Laravel on Kubernetes by hand, but teams usually rebuild the same pieces: web, workers, scheduler, migrations, TLS, secrets, and safe rollouts. Skyhook gives you those pieces out of the box, commits them to your Git repos, and lets you operate them from a single UI.
 Spin up a free Skyhook workspace, point it at your repo, and ship web, workers, scheduler, and migrations behind TLS in minutes.
-
-
