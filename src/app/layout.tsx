@@ -30,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${dmMono.variable} antialiased bg-background text-foreground`}
       >
-        <Nav />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+        <div className="relative w-full overflow-x-hidden">
+          <Nav />
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

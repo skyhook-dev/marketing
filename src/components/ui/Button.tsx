@@ -59,13 +59,14 @@ export function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={baseStyles}
+          onClick={onClick}
         >
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={baseStyles}>
+      <Link href={href} className={baseStyles} onClick={onClick}>
         {children}
       </Link>
     );
