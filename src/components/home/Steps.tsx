@@ -28,63 +28,58 @@ export function Steps() {
     <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="flex flex-col items-center gap-16 w-full">
+          <div className="inline-flex flex-col items-center gap-[54px] w-full">
             {/* Top Part */}
-            <div className="flex flex-col items-center gap-8 w-full">
-              {/* Kubernetes Inside Image - Add hover animation */}
-              <div className="hover-lift transition-transform duration-300">
-                <img
-                    src="/images/kubernetes-inside.svg"
-                    alt="Kubernetes Inside"
-                    className="w-auto h-auto drop-shadow-sm"
-                />
-              </div>
+            <div className="flex flex-col items-center gap-6 w-full">
+              {/* Kubernetes Inside Image */}
+              <img
+                src="/images/kubernetes-inside.svg"
+                alt="Kubernetes Inside"
+                className="w-auto h-auto"
+              />
 
               {/* Title and Subtitle */}
-              <div className="flex flex-col items-center gap-6 max-w-4xl text-center">
-                <h2 className="heading-lg tracking-tight">
+              <div className="flex flex-col items-center gap-3 w-full">
+                <h2 className="text-4xl md:text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
                   Kubernetes inside, abstracted
                 </h2>
-                <p className="text-body text-lg text-cancel-balance">
+                <p className="text-[18px] font-normal text-[#445166] text-center leading-normal max-w-4xl">
                   Skyhook has the right balance between simplicity and flexibility, so you can provide the abstractions developers need with the control devops need. When platform engineers need to go deeper and define advanced requirements, we make it easy.
                 </p>
               </div>
             </div>
 
             {/* Middle Part - Line */}
-            <div className="w-full max-w-xs border-t border-border" />
+            <div
+              className="w-[300px] border-t border-[#E5E5E5]"
+              style={{ height: 0, strokeWidth: '1px' }}
+            />
 
-            {/* Steps Section */}
-            <div className="flex flex-col items-center gap-12 w-full">
-                <h3 className="heading-md">
-                    Up and running in no time
-                </h3>
+            {/* Title */}
+            <h3 className="text-[30px] font-semibold text-[#101927] text-center leading-normal">
+              Up and running in no time
+            </h3>
 
-                {/* Bottom Part - 3 Boxes - Responsive Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 w-full">
-                {steps.map((step) => (
-                    <div
-                    key={step.id}
-                    className="flex flex-col items-center text-center gap-4 group"
-                    >
-                    <div className="transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1">
-                        <img
-                            src={step.image}
-                            alt={`Step ${step.id}`}
-                            className="w-16 h-16 md:w-20 md:h-20"
-                        />
-                    </div>
-                    <div className="space-y-3 w-full flex flex-col items-center">
-                        <h4 className="text-xl font-semibold text-ink-primary text-center">
-                            {step.title}
-                        </h4>
-                        <p className="text-body leading-relaxed text-center max-w-sm mx-auto">
-                            {step.description}
-                        </p>
-                    </div>
-                    </div>
-                ))}
+            {/* Bottom Part - 3 Boxes - Responsive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[50px] w-full justify-items-center">
+              {steps.map((step) => (
+                <div
+                  key={step.id}
+                  className="flex flex-col items-center gap-4 w-full max-w-[300px]"
+                >
+                  <img
+                    src={step.image}
+                    alt={`Step ${step.id}`}
+                    className="w-auto h-auto"
+                  />
+                  <h4 className="text-[18px] font-semibold text-[#101927] text-center leading-normal">
+                    {step.title}
+                  </h4>
+                  <p className="text-[16px] font-normal text-[#445166] text-center leading-[140%]">
+                    {step.description}
+                  </p>
                 </div>
+              ))}
             </div>
           </div>
         </FadeIn>
