@@ -51,12 +51,25 @@ export function ValuePropsGrid({
   className = "",
 }: ValuePropsGridProps) {
   return (
-    <section className={`bg-background ${className}`}>
+    <section className={`bg-background pt-24 ${className}`}>
       <div className="max-w-[1310px] mx-auto">
         <FadeIn>
-          <div className="flex flex-col items-start gap-[50px] p-[60px] rounded-2xl bg-[#F6FAFF]">
+          <div className="relative flex flex-col items-start gap-[50px] p-[60px] rounded-2xl bg-[#F6FAFF] overflow-hidden">
+            {/* Decorative gradient orbs */}
+            <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-48 -left-24 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Subtle dot pattern */}
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                backgroundImage: `radial-gradient(circle, #2D7AFF 1px, transparent 1px)`,
+                backgroundSize: '32px 32px'
+              }}
+            />
+
             {/* Header */}
-            <div className="flex flex-col items-start gap-3 self-stretch">
+            <div className="relative flex flex-col items-start gap-3 self-stretch">
               <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%]">
                 {title}
               </h2>
@@ -66,11 +79,11 @@ export function ValuePropsGrid({
             </div>
 
             {/* Grid */}
-            <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12 w-full">
+            <FadeInStagger className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12 w-full">
               {valueProps.map((prop) => (
                 <FadeIn key={prop.title}>
-                  <div className="flex flex-col items-start gap-4">
-                    <div className="flex items-center justify-center mb-2">
+                  <div className="group flex flex-col items-start gap-4 transition-all duration-300 hover:-translate-y-1">
+                    <div className="flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-105">
                       <img
                         src={prop.image}
                         alt={prop.title}

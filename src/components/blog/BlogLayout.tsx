@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 
 type TOCItem = {
   id: string;
@@ -20,30 +19,61 @@ function extractHeadings(content: string): TOCItem[] {
 
 export function BlogLayout({ children, headings }: { children: React.ReactNode; headings: TOCItem[] }) {
   const [activeId, setActiveId] = useState<string>("");
+  const [tocTop, setTocTop] = useState(96); // 24 * 4 = 96px (top-24)
+  const contentRef = useRef<HTMLDivElement>(null);
+  const tocRef = useRef<HTMLElement>(null);
 
+  // Handle TOC sticky positioning manually (works with Lenis)
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Handle bottom of page case - if we're at the bottom, select the last heading
+      if (!contentRef.current || !tocRef.current) return;
+
+      const contentRect = contentRef.current.getBoundingClientRect();
+      const tocHeight = tocRef.current.offsetHeight;
+      const topOffset = 96; // Distance from top when sticky
+
+      // Content top is above the sticky point - TOC should be sticky
+      if (contentRect.top <= topOffset) {
+        // Check if we'd go past the bottom of the content
+        const maxTop = contentRect.bottom - tocHeight;
+        if (maxTop < topOffset) {
+          // Pin to bottom of content area
+          setTocTop(maxTop);
+        } else {
+          // Stick to top
+          setTocTop(topOffset);
+        }
+      } else {
+        // Content hasn't scrolled up yet, TOC follows content
+        setTocTop(contentRect.top);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const detectActiveHeading = () => {
+      // 1. Handle bottom of page case
       if (
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 50
       ) {
         if (headings.length > 0) {
-          setActiveId(headings[headings.length - 1].id);
-          return;
+          return headings[headings.length - 1].id;
         }
       }
 
-      // 2. Standard tracking: Find the last heading that is above the "reading line".
-      // The user requested tracking the center of the viewport.
-      const offset = window.innerHeight / 2;
+      // 2. Find the last heading above the detection line (~40% from top)
+      const offset = window.innerHeight * 0.4;
       let currentActiveId = "";
 
       for (const heading of headings) {
         const element = document.getElementById(heading.id);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // If the heading is above the middle of the screen, it's the active candidate.
           if (rect.top < offset) {
             currentActiveId = heading.id;
           } else {
@@ -52,31 +82,17 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
         }
       }
 
-      // Only update if we found a candidate (or clear it if we are at the very top)
-      if (currentActiveId) {
-        setActiveId(currentActiveId);
-      } else if (window.scrollY < 100) {
-        // Optional: clear selection if at very top of page
-        setActiveId("");
-      }
+      // Default to first heading if none found
+      return currentActiveId || (headings.length > 0 ? headings[0].id : "");
     };
 
-    // Throttle slightly or just use rAF? plain listener is usually fine for modern browsers if logic is cheap.
-    // Let's use requestAnimationFrame for safety.
-    let ticking = false;
     const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const newActiveId = detectActiveHeading();
+      if (newActiveId) setActiveId(newActiveId);
     };
 
-    window.addEventListener("scroll", onScroll);
-    // Initial check
-    handleScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // Initial check
 
     return () => window.removeEventListener("scroll", onScroll);
   }, [headings]);
@@ -84,7 +100,8 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100;
+      // Scroll to put heading a bit above middle (~35% from top)
+      const offset = window.innerHeight * 0.35;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -92,53 +109,56 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
         top: offsetPosition,
         behavior: "smooth",
       });
+
+      // Immediately set active to avoid flicker
+      setActiveId(id);
     }
   };
 
   return (
-    <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" ref={contentRef}>
       {/* Main content */}
       <div className="min-w-0">
         {children}
       </div>
 
-      {/* TOC Sidebar - Absolute on XL screens */}
+      {/* TOC Sidebar - Fixed positioning that follows scroll */}
       {headings.length > 0 && (
-        <aside className="hidden xl:block absolute left-full top-0 h-full ml-12 w-64">
-          <div className="sticky top-24 pb-10">
-            <div className="border-b border-border pb-4 mb-4">
-              <h3 className="text-sm font-semibold text-ink-primary">
-                On this page
-              </h3>
-            </div>
-            <nav className="space-y-1 relative">
-              {headings.map((heading) => (
-                <button
-                  key={heading.id}
-                  onClick={() => scrollToHeading(heading.id)}
-                  className={`
-                    relative block w-full text-left text-sm py-1.5 transition-all duration-300 cursor-pointer
-                    ${heading.level === 3 ? "pl-4" : "pl-0"}
-                    ${
-                      activeId === heading.id
-                        ? "text-ink-primary font-semibold pl-3"
-                        : "text-ink-secondary hover:text-ink-primary hover:font-medium"
-                    }
-                  `}
-                >
-                  {/* Animated Border Marker */}
-                  {activeId === heading.id && (
-                    <motion.span
-                      layoutId="activeSection"
-                      className="absolute left-[-2px] top-0 bottom-0 w-[2px] bg-accent"
-                      transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                    />
-                  )}
-                  {heading.text}
-                </button>
-              ))}
-            </nav>
+        <aside
+          ref={tocRef}
+          className="hidden xl:block fixed w-64 left-[calc(50%+24rem+3rem)]"
+          style={{ top: `${tocTop}px` }}
+        >
+          <div className="border-b border-border pb-4 mb-4">
+            <h3 className="text-sm font-semibold text-ink-primary">
+              On this page
+            </h3>
           </div>
+          <nav className="space-y-1 relative">
+            {headings.map((heading) => (
+              <button
+                key={heading.id}
+                onClick={() => scrollToHeading(heading.id)}
+                className={`
+                  relative block w-full text-left text-sm py-1.5 transition-all duration-300 cursor-pointer
+                  ${heading.level === 3 ? "pl-4" : "pl-0"}
+                  ${
+                    activeId === heading.id
+                      ? "text-ink-primary font-semibold pl-3"
+                      : "text-ink-secondary hover:text-ink-primary hover:font-medium"
+                  }
+                `}
+              >
+                {/* Border Marker - simple opacity transition instead of layout animation */}
+                <span
+                  className={`absolute left-[-2px] top-0 bottom-0 w-[2px] bg-accent transition-opacity duration-150 ${
+                    activeId === heading.id ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+                {heading.text}
+              </button>
+            ))}
+          </nav>
         </aside>
       )}
     </div>

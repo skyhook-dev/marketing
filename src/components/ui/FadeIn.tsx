@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 interface FadeInProps {
@@ -71,6 +71,39 @@ export function FadeInStagger({ children, className = "", faster = false }: { ch
           },
         },
       }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Fades out content as it scrolls toward the top of the viewport
+export function FadeOnExit({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    // Track from when element's bottom hits viewport bottom, to when element's top hits viewport top
+    offset: ["start end", "end start"]
+  });
+
+  // Fade out as element exits top of viewport
+  // 0 = element just entered from bottom
+  // 0.5 = element is centered in viewport
+  // 1 = element has exited top
+  const opacity = useTransform(scrollYProgress, [0.75, 0.9], [1, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ opacity }}
       className={className}
     >
       {children}
