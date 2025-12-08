@@ -1,4 +1,4 @@
-import { FadeIn } from "@/components/ui/FadeIn";
+
 
 export function Logos() {
   const companies = [
@@ -15,29 +15,27 @@ export function Logos() {
   ];
 
   return (
-    <section className="bg-surface pb-12 pt-12 md:pt-0 -mt-12 md:-mt-[60px] relative z-20">
+    <section className="bg-surface pb-[25px] pt-[25px] md:pb-12 md:pt-0 -mt-12 md:-mt-[60px] relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn>
-          <div className="rounded-2xl border border-[#E6E8EC] bg-white p-6 md:p-8" style={{ boxShadow: '0 34px 56.8px 0 rgba(0, 0, 0, 0.06)' }}>
-            <div className="logos-scroll-container">
-              <div className="logos-scroll">
-                {[...Array(2)].map((_, index) => (
-                  <div className="logos-set" key={index}>
-                    {companies.map((company) => (
-                      <div key={`${index}-${company.name}`} className="logo-placeholder has-logo">
-                        <img
-                          src={company.src}
-                          alt={company.name}
-                          className="company-logo"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+        <div className="rounded-2xl border border-[#E6E8EC] bg-white p-6 md:p-8" style={{ boxShadow: '0 34px 56.8px 0 rgba(0, 0, 0, 0.06)' }}>
+          <div className="logos-scroll-container">
+            <div className="logos-scroll">
+              {[...Array(2)].map((_, index) => (
+                <div className="logos-set" key={index}>
+                  {companies.map((company) => (
+                    <div key={`${index}-${company.name}`} className="logo-placeholder has-logo">
+                      <img
+                        src={company.src}
+                        alt={company.name}
+                        className="company-logo"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
-        </FadeIn>
+        </div>
       </div>
     </section>
   );

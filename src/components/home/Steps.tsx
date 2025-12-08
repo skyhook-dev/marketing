@@ -25,25 +25,28 @@ const steps = [
 
 export function Steps() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-[25px] md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="inline-flex flex-col items-center gap-[54px] w-full">
             {/* Top Part */}
             <div className="flex flex-col items-center gap-6 w-full">
               {/* Kubernetes Inside Image */}
-              <img
-                src="/images/kubernetes-inside.svg"
-                alt="Kubernetes Inside"
-                className="w-auto h-auto"
-              />
+              <picture>
+                <source media="(max-width: 767px)" srcSet="/images/kubernetes-inside-mobile.svg" />
+                <img
+                  src="/images/kubernetes-inside.svg"
+                  alt="Kubernetes Inside"
+                  className="w-auto h-auto mx-auto"
+                />
+              </picture>
 
               {/* Title and Subtitle */}
               <div className="flex flex-col items-center gap-3 w-full">
-                <h2 className="text-4xl md:text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
+                <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
                   Kubernetes inside, abstracted
                 </h2>
-                <p className="text-[18px] font-normal text-[#445166] text-center leading-normal max-w-4xl">
+                <p className="text-[16px] md:text-[18px] font-normal text-[#445166] text-center leading-normal max-w-4xl">
                   Skyhook has the right balance between simplicity and flexibility, so you can provide the abstractions developers need with the control devops need. When platform engineers need to go deeper and define advanced requirements, we make it easy.
                 </p>
               </div>

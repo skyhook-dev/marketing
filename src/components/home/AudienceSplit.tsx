@@ -72,13 +72,13 @@ export function AudienceSplit() {
   const activeImage = devOpsDrawers.find(d => d.id === openDrawer)?.image || devOpsDrawers[0].image;
 
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-[25px] md:py-24 bg-background">
+      <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
         <FadeIn>
           {/* Top Block - For DevOps */}
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-[102px] mb-24">
             {/* Left Side - Text Content */}
-            <div className="flex w-full lg:w-[532px] flex-col items-center text-center lg:items-start lg:text-left min-h-[500px] lg:min-h-[600px]">
+            <div className="flex w-full lg:w-[532px] flex-col items-start text-left min-h-[500px] lg:min-h-[600px]">
               {/* Badge */}
               <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
                 <span className="text-[#0051DD] text-base font-semibold leading-normal">
@@ -87,12 +87,13 @@ export function AudienceSplit() {
               </div>
 
               {/* Title */}
-              <h2 className="text-4xl lg:text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+              {/* Title */}
+              <h2 className="text-[30px] lg:text-[50px] font-semibold text-[#101927] leading-[120%] lg:leading-[110%] mb-[7px]">
                 Every <span className="text-[#2D7AFF]">DevOps</span> dream come true
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[18px] font-normal text-[#445166] leading-normal mb-5">
+              <p className="text-[16px] lg:text-[18px] font-normal text-[#445166] leading-normal mb-5">
                 The platform and tools you never had the time to set up. With all the control you need.
               </p>
 
@@ -135,7 +136,7 @@ export function AudienceSplit() {
                                   alt="check"
                                   className="w-5 h-5 flex-shrink-0 mt-0.5"
                                 />
-                                <span className="text-base font-normal text-[#445166] leading-normal">
+                                <span className="text-base font-normal text-[#445166] leading-normal text-left">
                                   {bullet}
                                 </span>
                               </div>
@@ -168,13 +169,13 @@ export function AudienceSplit() {
             </div>
 
             {/* Right Side - Image */}
-            <div className="flex-1 flex items-center justify-center relative h-auto lg:h-[583px]">
+            <div className="flex-1 flex items-center justify-center relative w-full h-[300px] lg:h-[583px]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={openDrawer}
                   src={activeImage}
                   alt="DevOps visualization"
-                  className="w-auto h-auto max-w-full max-h-full object-contain absolute"
+                  className="w-auto h-full lg:h-auto max-w-full max-h-full object-contain relative lg:absolute"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -196,7 +197,7 @@ export function AudienceSplit() {
             </div>
 
             {/* Right Side - Text Content */}
-            <div className="flex w-full lg:w-[532px] flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="flex w-full lg:w-[532px] flex-col items-start text-left">
               {/* Badge */}
               <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
                 <span className="text-[#0051DD] text-base font-semibold leading-normal">
@@ -205,12 +206,13 @@ export function AudienceSplit() {
               </div>
 
               {/* Title */}
-              <h2 className="text-4xl lg:text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+              {/* Title */}
+              <h2 className="text-[30px] lg:text-[50px] font-semibold text-[#101927] leading-[120%] lg:leading-[110%] mb-[7px]">
                 A self-service interface for <span className="text-[#2D7AFF]">Developers</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[18px] font-normal text-[#445166] leading-normal mb-5">
+              <p className="text-[16px] lg:text-[18px] font-normal text-[#445166] leading-normal mb-5">
                 Like an internal developer portal without the K8s platform setup
               </p>
 

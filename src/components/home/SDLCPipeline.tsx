@@ -67,15 +67,15 @@ export function SDLCPipeline() {
   const [activeStep, setActiveStep] = useState(steps[0]);
 
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-[25px] md:py-24 bg-background">
+      <div className="w-full max-w-[1310px] mx-auto px-4 md:px-0">
         <FadeIn>
           {/* Header */}
-          <div className="flex flex-col items-center gap-3 mb-10">
-            <h2 className="text-3xl md:text-[50px] font-semibold text-[#101927] text-center leading-[120%] tracking-normal max-w-[875px]">
+          <div className="flex flex-col items-start md:items-center gap-3 mb-10">
+            <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] text-left md:text-center leading-[120%] tracking-normal max-w-[875px]">
               Powering the software development lifecycle, together
             </h2>
-            <p className="text-[18px] font-normal text-[#445166] text-center leading-normal">
+            <p className="text-[16px] md:text-[18px] font-normal text-[#445166] text-left md:text-center leading-normal">
               Scale your applications with zero infrastructure friction and full observability.
             </p>
           </div>
@@ -186,7 +186,7 @@ export function SDLCPipeline() {
                       className={cn("text-[#445166]", isActive && "text-[#2D7AFF]")}
                     >
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </motion.div>
                   </button>
@@ -202,11 +202,11 @@ export function SDLCPipeline() {
                         <div className="p-4 pt-0 bg-white">
                           {/* Image inside accordion */}
                           <div className="mb-4">
-                             <img
-                                src={step.image}
-                                alt={step.label}
-                                className="w-full h-auto"
-                              />
+                            <img
+                              src={step.image}
+                              alt={step.label}
+                              className="w-full h-auto"
+                            />
                           </div>
 
                           {/* Bullets */}

@@ -9,26 +9,29 @@ export function PlatformApproach() {
   ];
 
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-[25px] md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           {/* Title and Subtitle Container */}
           <div className="flex flex-col items-center gap-10 max-w-[935px] mx-auto mb-10">
-            <h2 className="text-4xl md:text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
+            <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
               Instant developer platform with no lock-in or PaaS tradeoff
             </h2>
-            <p className="text-[18px] font-normal text-[#445166] leading-normal text-center">
+            <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal text-center">
               You&apos;re one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
             </p>
           </div>
 
           {/* Skyhook Approach Image */}
           <div className="flex justify-center mb-10">
-            <img
-              src="/images/skyhook-approach.svg"
-              alt="Skyhook Approach"
-              className="max-w-full h-auto"
-            />
+            <picture>
+              <source media="(max-width: 767px)" srcSet="/images/skyhook-approach-mobile2.svg" />
+              <img
+                src="/images/skyhook-approach.svg"
+                alt="Skyhook Approach"
+                className="max-w-full h-auto"
+              />
+            </picture>
           </div>
 
           {/* The Skyhook Approach Section */}
@@ -38,7 +41,7 @@ export function PlatformApproach() {
             </h3>
 
             {/* Responsive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 w-full">
               {approaches.map((approach, index) => (
                 <div
                   key={index}

@@ -1,98 +1,105 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-surface border-t border-border pt-12 md:pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
-          {/* Brand Column - Spans full width on mobile for better logo spacing */}
-          <div className="col-span-2 md:col-span-1 space-y-6">
-             <Link href="/" className="flex items-center">
-              <Logo className="h-8 md:h-10 w-auto text-ink-primary" />
-            </Link>
+    <footer className="bg-surface pb-12">
+      <div className="w-full max-w-[1310px] mx-auto flex flex-col gap-[40px] md:gap-[60px] px-4 md:px-0">
+        {/* Top Border */}
+        <div className="w-full h-[1px] bg-[#E5E5E5]" />
 
-            <div className="space-y-4">
-               <div className="flex items-center gap-3">
-                 <span className="text-xs text-ink-tertiary font-semibold uppercase">Backed by</span>
-                 <div className="h-8 md:h-10 w-auto relative">
-                   <img src="/images/badges/yc-logo-transparent.png" alt="Y Combinator" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                 </div>
-               </div>
-               <div className="h-10 md:h-12 w-auto relative">
-                  <img src="/images/badges/google_cloud_partner.png" alt="Google Cloud Partner" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-               </div>
-               <iframe
-                 src="https://status.skyhook.io/badge?theme=light"
-                 width="250"
-                 height="30"
-                 frameBorder="0"
-                 scrolling="no"
-                 className="block max-w-full"
-                 style={{ colorScheme: 'normal' }}
-                 title="Skyhook Status"
-               />
+        {/* Logo and Pages */}
+        <div className="flex flex-col md:flex-row justify-between items-start w-full gap-10 md:gap-0">
+          {/* Logo */}
+          <Link href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="250" height="69" viewBox="0 0 250 69" fill="none">
+              <g clipPath="url(#clip0_251_33690)">
+                <path d="M79.5885 15.6836C80.4045 15.6836 81.05 16.3412 81.05 17.145V37.5445C81.05 47.8599 98.4169 46.8126 98.4169 37.5445V17.4861C98.4169 16.6823 99.0746 16.0246 99.8784 16.0246H105.298C106.114 16.0246 106.759 16.6701 106.759 17.4861V52.6218C106.759 57.4203 104.153 61.3784 102.412 63.2783C95.8472 70.415 85.2273 69.0267 76.9214 65.6775C76.3733 65.4583 76.0323 64.9224 76.0323 64.3378V58.3702C76.0323 57.6517 76.7874 57.1767 77.4329 57.4812C82.4018 59.8195 88.7348 62.3405 93.9107 59.8439C98.4169 57.676 98.7457 54.3269 98.7457 47.0805C97.0285 51.6962 91.9743 53.7423 87.2124 53.4256C81.1109 53.0359 72.6953 47.9208 72.6953 37.9342V17.1572C72.6953 16.3534 73.353 15.6958 74.1568 15.6958H79.5763L79.5885 15.6836Z" fill="#0C1C34" />
+                <path d="M120.334 0C121.15 0 121.796 0.657654 121.796 1.46145V20.3629L124.499 17.5496C132.44 10.693 146.506 16.8311 146.506 27.8772V50.6272C146.506 51.4432 145.849 52.0886 145.045 52.0886H140.332C139.504 52.0886 138.846 51.4188 138.858 50.5906C138.931 45.5973 139.041 29.6553 137.433 26.5985C134.096 20.2533 124.426 22.3724 122.307 28.3887C121.491 30.6905 121.333 52.0886 121.296 52.0886H114.915C114.099 52.0886 113.453 51.431 113.453 50.6272V1.46145C113.453 0.657654 114.111 0 114.915 0H120.334Z" fill="#0C1C34" />
+                <path d="M45.0123 0.671875V29.0971C45.0123 29.8401 45.6212 30.4612 46.218 30.0349C46.7051 29.6817 47.1192 29.1337 47.5211 28.7196C51.2478 24.8955 54.7553 20.3162 58.3237 16.2729C58.6038 15.9562 59.0179 15.7736 59.4563 15.7857L66.2399 15.9562C67.4821 15.9928 68.1276 17.4664 67.2994 18.392L55.2546 31.947C54.7796 32.4828 54.7553 33.2866 55.2181 33.8469L68.4442 50.0325C69.2237 50.9946 68.5417 52.4317 67.3116 52.4317H60.5767C60.1383 52.4317 59.7242 52.2368 59.4441 51.8958L47.6429 37.5492C47.4724 37.3422 47.241 37.1839 46.9974 37.0986C46.0475 36.7698 45.0366 37.4761 45.0366 38.4748V50.9702C45.0366 51.7862 44.379 52.4317 43.5752 52.4317H38.4966C37.6928 52.4317 37.0352 51.774 37.0352 50.9702V2.13333C37.0352 1.32953 37.6928 0.671875 38.4966 0.671875H45.0488H45.0123Z" fill="#0C1C34" />
+                <path d="M224.282 0.671875C225.086 0.671875 225.744 1.32953 225.744 2.13333V29.1702C225.744 29.767 226.328 30.1811 226.888 29.974C227.022 29.9253 227.144 29.8401 227.242 29.7304L238.982 16.3703C239.262 16.0415 239.676 15.8588 240.102 15.871L246.667 15.9806C247.909 16.005 248.567 17.4542 247.763 18.4042L235.949 32.2393C235.487 32.7873 235.487 33.5789 235.937 34.127L249.127 50.0203C249.919 50.9702 249.237 52.4195 247.994 52.4195H241.296C240.858 52.4195 240.443 52.2246 240.163 51.8836L228.35 37.5249C228.179 37.3178 227.96 37.1595 227.704 37.0742C226.754 36.7332 225.744 37.4396 225.744 38.4504V50.9459C225.744 51.7619 225.086 52.4073 224.282 52.4073H219.204C218.4 52.4073 217.742 51.7497 217.742 50.9459V2.13333C217.742 1.32953 218.4 0.671875 219.204 0.671875H224.282Z" fill="#0C1C34" />
+                <path d="M7.7717 41.0728C7.82041 41.2068 8.39281 42.79 8.86779 43.6426C11.2792 48.0147 22.7638 47.9051 23.4823 42.7535C23.9086 39.6966 21.4119 38.8076 19.0249 38.1499C12.083 36.2379 1.14644 37.066 0.963759 26.8237C0.695826 11.6002 28.6218 10.1874 30.8505 24.8507C30.9723 25.6667 30.3024 26.3609 29.4743 26.3609H24.8098C24.2861 26.3609 23.8111 26.0808 23.5189 25.6423C21.2658 22.2566 18.0506 20.7952 13.8124 21.3797C9.02611 22.0374 7.19929 27.1525 12.6189 29.1985C19.1832 31.6708 30.887 30.4408 31.9466 39.928C33.8465 56.9783 1.81627 57.9526 0.00163539 42.5221C-0.0957948 41.7183 0.574038 41.0607 1.37784 41.0607H7.75952L7.7717 41.0728Z" fill="#0C1C34" />
+                <path d="M176.903 51.0749C159.792 61.2686 143.63 40.2724 155.955 25.6944C165.211 15.659 180.532 20.8837 183.138 33.9759C183.418 34.9989 183.966 36.8379 184.247 37.8366C188.217 50.2955 205.036 47.4822 205.413 34.5727C205.852 25.3777 195.183 18.8255 188.058 25.536L186.39 27.0949L180.654 20.6767C186.353 15.0379 194.379 12.8823 201.845 16.2558C212.818 21.0299 216.399 35.9245 209.481 45.4362C200.566 58.2239 181.665 54.6555 177.219 39.9557C176.915 38.9692 176.391 37.1059 176.087 36.1072L175.441 33.9394C173.651 27.9231 165.808 25.7431 161.655 30.7607C155.846 37.2886 162.434 48.8949 170.947 44.5471L172.969 43.451L176.915 51.0993L176.903 51.0749Z" fill="#0C1C34" />
+              </g>
+              <defs>
+                <clipPath id="clip0_251_33690">
+                  <rect width="249.47" height="68.4082" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </Link>
+
+          {/* Pages */}
+          <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-[85px]">
+            {/* Company Column */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[#101927] font-['DM_Sans'] text-[18px] font-semibold leading-normal">Company</h4>
+              <div className="flex flex-col gap-3">
+                <Link href="/pricing" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Pricing</Link>
+                <Link href="/blog" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Blog</Link>
+                <a href="mailto:contact@skyhook.io" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Contact Us</a>
+              </div>
             </div>
-          </div>
 
-          {/* Company */}
-          <div className="col-span-1">
-            <h4 className="font-semibold text-ink-primary mb-4 text-base md:text-lg">Company</h4>
-            <ul className="space-y-2 md:space-y-3">
-              <li>
-                <Link href="/pricing" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a href="mailto:contact@skyhook.io" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="col-span-1">
-             <h4 className="font-semibold text-ink-primary mb-4 text-base md:text-lg">Resources</h4>
-             <ul className="space-y-2 md:space-y-3">
-               <li>
-                 <a href="https://docs.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                   Documentation
-                 </a>
-               </li>
-               <li>
-                 <Link href="/changelog" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                   Changelog
-                 </Link>
-               </li>
-               <li>
-                 <Link href="/status" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                   Status
-                 </Link>
-               </li>
-               <li>
-                 <a href="https://trust.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-sm text-ink-secondary hover:text-ink-primary hover:underline decoration-1 underline-offset-4 transition-colors">
-                   Trust Center
-                 </a>
-               </li>
-             </ul>
-          </div>
-
-          {/* SOC2 - Spans full width on mobile to sit comfortably at bottom */}
-          <div className="col-span-2 md:col-span-1 pt-4 md:pt-0">
-             <div className="h-20 md:h-24 w-auto relative">
-                <img src="/images/badges/soc2.png" alt="AICPA SOC 2" className="h-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-             </div>
+            {/* Resources Column */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[#101927] font-['DM_Sans'] text-[18px] font-semibold leading-normal">Resources</h4>
+              <div className="flex flex-col gap-3">
+                <a href="https://docs.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Documentation</a>
+                <Link href="/changelog" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Changelog</Link>
+                <Link href="/status" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Status</Link>
+                <a href="https://trust.skyhook.io" target="_blank" rel="noopener noreferrer" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Trust Center</a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 text-left">
+        {/* Partners and Badges */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-[31px]">
+          {/* Backed By YC */}
+          <div className="flex h-[30px] items-center gap-3">
+            <span className="text-[#101927] font-['DM_Sans'] text-[18px] font-medium leading-normal">Backed By</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <g clipPath="url(#clip0_251_33703)">
+                <path d="M30 0H0V30H30V0Z" fill="#FB651E" />
+                <path d="M13.9891 16.9626L8.83984 7.31641H11.1931L14.2221 13.421C14.2687 13.5297 14.3231 13.6424 14.3852 13.7589C14.4474 13.8754 14.5017 13.9957 14.5483 14.12C14.5794 14.1666 14.6027 14.2093 14.6182 14.2482C14.6338 14.287 14.6493 14.3219 14.6648 14.353C14.7425 14.5083 14.8124 14.6598 14.8745 14.8074C14.9367 14.9549 14.991 15.0908 15.0376 15.2151C15.1619 14.951 15.2978 14.6676 15.4454 14.3647C15.593 14.0618 15.7444 13.7472 15.8997 13.421L18.9753 7.31641H21.1655L15.9696 17.0791V23.3002H13.9891V16.9626Z" fill="white" />
+              </g>
+              <defs>
+                <clipPath id="clip0_251_33703">
+                  <rect width="30" height="30" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+
+          {/* Separator */}
+          <div className="hidden md:block w-0 h-[32.684px] border-l border-[#E5E5E5]" />
+
+          {/* Google Cloud Partner */}
+          <div className="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="30" viewBox="0 0 38 30" fill="none">
+              <path d="M23.6548 8.26145H24.7918L28.0323 5.02097L28.1915 3.64518C26.3351 2.00669 24.0917 0.868492 21.6731 0.338098C19.2546 -0.192296 16.7407 -0.0973739 14.3691 0.613898C11.9974 1.32517 9.84621 2.62931 8.1187 4.40313C6.39119 6.17694 5.1444 8.36187 4.49609 10.7515C4.8571 10.6035 5.257 10.5796 5.63311 10.6833L12.1141 9.6145C12.1141 9.6145 12.4438 9.06873 12.6144 9.10284C14.003 7.57773 15.9221 6.64109 17.9788 6.48468C20.0355 6.32826 22.0742 6.96389 23.6775 8.26145H23.6548Z" fill="#EA4335" />
+              <path d="M32.6491 10.7512C31.9043 8.00832 30.375 5.54249 28.2489 3.65625L23.7008 8.2043C24.6487 8.9788 25.4083 9.95842 25.9224 11.0693C26.4365 12.1801 26.6916 13.3932 26.6684 14.6171V15.4243C27.2 15.4243 27.7264 15.529 28.2175 15.7325C28.7086 15.9359 29.1548 16.234 29.5306 16.6099C29.9065 16.9858 30.2047 17.432 30.4081 17.9231C30.6115 18.4142 30.7162 18.9406 30.7162 19.4721C30.7162 20.0037 30.6115 20.53 30.4081 21.0211C30.2047 21.5122 29.9065 21.9584 29.5306 22.3343C29.1548 22.7102 28.7086 23.0083 28.2175 23.2118C27.7264 23.4152 27.2 23.5199 26.6684 23.5199H18.5729L17.7656 24.3385V29.1936L18.5729 30.0009H26.6684C28.9291 30.0185 31.1354 29.3079 32.9609 27.9744C34.7865 26.6409 36.1343 24.7552 36.8051 22.5963C37.4758 20.4374 37.4339 18.1199 36.6854 15.9867C35.937 13.8535 34.5217 12.0178 32.6491 10.7512Z" fill="#4285F4" />
+              <path d="M10.4692 29.9503H18.5647V23.4693H10.4692C9.89242 23.4692 9.32241 23.3451 8.79778 23.1055L7.66076 23.4579L4.39753 26.6984L4.11328 27.8354C5.94323 29.2173 8.17615 29.9602 10.4692 29.9503Z" fill="#34A853" />
+              <path d="M10.4659 8.93366C8.27235 8.94676 6.13771 9.64464 4.36008 10.9298C2.58245 12.215 1.25061 14.0233 0.550566 16.1021C-0.149476 18.1809 -0.182755 20.4265 0.455376 22.5252C1.09351 24.6238 2.37118 26.4708 4.10995 27.8081L8.80581 23.1122C8.20907 22.8426 7.68664 22.4323 7.28335 21.9164C6.88007 21.4004 6.60797 20.7944 6.49039 20.1502C6.37282 19.506 6.41329 18.8429 6.60833 18.2178C6.80337 17.5927 7.14715 17.0243 7.61018 16.5613C8.07321 16.0982 8.64167 15.7544 9.26677 15.5594C9.89187 15.3644 10.555 15.3239 11.1991 15.4415C11.8433 15.559 12.4494 15.8311 12.9653 16.2344C13.4812 16.6377 13.8915 17.1601 14.1611 17.7569L18.857 13.061C17.8714 11.7725 16.6011 10.7295 15.1454 10.0135C13.6897 9.29744 12.0881 8.92788 10.4659 8.93366Z" fill="#FBBC05" />
+            </svg>
+            <span className="text-[#101927] font-['DM_Sans'] text-[18px] font-medium leading-normal">Google Cloud Partner</span>
+          </div>
+
+          {/* Separator */}
+          <div className="hidden md:block w-0 h-[32.684px] border-l border-[#E5E5E5]" />
+
+          {/* SOC Image */}
+          <div className="relative" style={{ width: '65.122px', height: '64.759px' }}>
+            <img
+              src="/images/badges/soc2.png"
+              alt="AICPA SOC 2"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-[#E5E5E5] pt-8 text-left">
           <p className="text-sm text-ink-tertiary">
             &copy; {new Date().getFullYear()} Skyhook. All rights reserved.
           </p>
