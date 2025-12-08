@@ -389,7 +389,7 @@ export function Nav() {
             <div className="mt-8 space-y-3 pt-6 border-t border-border">
               <Button
                 href="https://app.skyhook.io"
-                variant="outline"
+                variant="secondary"
                 size="lg"
                 className="w-full justify-center"
                 external
