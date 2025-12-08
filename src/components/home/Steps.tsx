@@ -40,7 +40,7 @@ export function Steps() {
 
               {/* Title and Subtitle */}
               <div className="flex flex-col items-center gap-3 w-full">
-                <h2 className="text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
+                <h2 className="text-4xl md:text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
                   Kubernetes inside, abstracted
                 </h2>
                 <p className="text-[18px] font-normal text-[#445166] text-center leading-normal max-w-4xl">
@@ -60,12 +60,12 @@ export function Steps() {
               Up and running in no time
             </h3>
 
-            {/* Bottom Part - 3 Boxes */}
-            <div className="flex justify-center items-start gap-[50px] flex-wrap">
+            {/* Bottom Part - 3 Boxes - Responsive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[50px] w-full justify-items-center">
               {steps.map((step) => (
                 <div
                   key={step.id}
-                  className="flex flex-col items-center gap-4 w-[300px]"
+                  className="flex flex-col items-center gap-4 w-full max-w-[300px]"
                 >
                   <img
                     src={step.image}

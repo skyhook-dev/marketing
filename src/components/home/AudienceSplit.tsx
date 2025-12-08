@@ -73,12 +73,12 @@ export function AudienceSplit() {
 
   return (
     <section className="py-24 bg-background">
-      <div className="w-[1310px] mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           {/* Top Block - For DevOps */}
-          <div className="flex items-start gap-[102px] mb-24">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-[102px] mb-24">
             {/* Left Side - Text Content */}
-            <div className="flex w-[532px] flex-col items-start min-h-[600px]">
+            <div className="flex w-full lg:w-[532px] flex-col items-center text-center lg:items-start lg:text-left min-h-[500px] lg:min-h-[600px]">
               {/* Badge */}
               <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
                 <span className="text-[#0051DD] text-base font-semibold leading-normal">
@@ -87,7 +87,7 @@ export function AudienceSplit() {
               </div>
 
               {/* Title */}
-              <h2 className="text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+              <h2 className="text-4xl lg:text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
                 Every <span className="text-[#2D7AFF]">DevOps</span> dream come true
               </h2>
 
@@ -145,7 +145,7 @@ export function AudienceSplit() {
                       )}
                     </AnimatePresence>
 
-                    {/* Progress bar - always render container to prevent layout shift */}
+                    {/* Progress bar */}
                     <div className="w-full h-[5px] overflow-hidden bg-transparent">
                       {openDrawer === drawer.id && (
                         <div
@@ -168,7 +168,7 @@ export function AudienceSplit() {
             </div>
 
             {/* Right Side - Image */}
-            <div className="flex-1 flex items-center justify-center relative h-[583px]">
+            <div className="flex-1 flex items-center justify-center relative h-auto lg:h-[583px]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={openDrawer}
@@ -185,18 +185,18 @@ export function AudienceSplit() {
           </div>
 
           {/* Bottom Block - For Developers */}
-          <div className="flex items-start gap-[102px]">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-[102px]">
             {/* Left Side - Image */}
             <div className="flex-1 flex items-center justify-center">
               <img
                 src="/images/for-dev/Dev-image.svg"
                 alt="Developer interface"
-                className="w-[676px] h-[583px]"
+                className="w-full h-auto max-w-[676px] lg:h-[583px] lg:w-[676px]"
               />
             </div>
 
             {/* Right Side - Text Content */}
-            <div className="flex w-[532px] flex-col items-start">
+            <div className="flex w-full lg:w-[532px] flex-col items-center text-center lg:items-start lg:text-left">
               {/* Badge */}
               <div className="flex px-[19px] py-2.5 justify-center items-center gap-2.5 rounded-full bg-[#E6F0FF] mb-5">
                 <span className="text-[#0051DD] text-base font-semibold leading-normal">
@@ -205,7 +205,7 @@ export function AudienceSplit() {
               </div>
 
               {/* Title */}
-              <h2 className="text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
+              <h2 className="text-4xl lg:text-[50px] font-semibold text-[#101927] leading-[110%] mb-[7px]">
                 A self-service interface for <span className="text-[#2D7AFF]">Developers</span>
               </h2>
 

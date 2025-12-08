@@ -14,11 +14,11 @@ export function PlatformApproach() {
         <FadeIn>
           {/* Title and Subtitle Container */}
           <div className="flex flex-col items-center gap-10 max-w-[935px] mx-auto mb-10">
-            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
+            <h2 className="text-4xl md:text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
               Instant developer platform with no lock-in or PaaS tradeoff
             </h2>
             <p className="text-[18px] font-normal text-[#445166] leading-normal text-center">
-              You're one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
+              You&apos;re one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
             </p>
           </div>
 
@@ -37,12 +37,12 @@ export function PlatformApproach() {
               The Skyhook Approach
             </h3>
 
-            {/* Horizontal Boxes */}
-            <div className="flex gap-8 w-full">
+            {/* Responsive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {approaches.map((approach, index) => (
                 <div
                   key={index}
-                  className="flex flex-1 p-[30px_20px] items-start gap-2.5 rounded-xl bg-[#F6FAFF]"
+                  className="flex p-[30px_20px] items-start gap-2.5 rounded-xl bg-[#F6FAFF]"
                 >
                   <p className="text-[#445166] text-center text-[18px] font-normal leading-normal">
                     {approach}

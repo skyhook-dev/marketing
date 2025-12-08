@@ -15,10 +15,10 @@ export function Logos() {
   ];
 
   return (
-    <section className="bg-surface py-12 -mt-[60px]">
-      <div className="w-[1310px] mx-auto">
+    <section className="bg-surface pb-12 pt-12 md:pt-0 -mt-12 md:-mt-[60px] relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="rounded-2xl border border-[#E6E8EC] bg-white p-8" style={{ boxShadow: '0 34px 56.8px 0 rgba(0, 0, 0, 0.06)' }}>
+          <div className="rounded-2xl border border-[#E6E8EC] bg-white p-6 md:p-8" style={{ boxShadow: '0 34px 56.8px 0 rgba(0, 0, 0, 0.06)' }}>
             <div className="logos-scroll-container">
               <div className="logos-scroll">
                 {[...Array(2)].map((_, index) => (

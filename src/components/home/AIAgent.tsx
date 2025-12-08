@@ -23,20 +23,22 @@ export function AIAgent() {
 
             {/* Subtitle */}
             <p className="text-[18px] font-normal text-[#445166] text-center leading-normal">
-              Skyhook's agent provides developers and DevOps with the context they need. It knows your stack, your standards, and your golden paths.
+              Skyhook&apos;s agent provides developers and DevOps with the context they need. It knows your stack, your standards, and your golden paths.
             </p>
           </div>
         </FadeIn>
       </div>
 
-      {/* Image Section - Outside the container */}
+      {/* Image Section */}
       <FadeIn delay={0.2}>
-        <div className="flex flex-col items-center">
-          <img
-            src="/images/ai-agent.svg"
-            alt="AI Agent Interface"
-            className="w-[1685px] h-auto"
-          />
+        <div className="flex flex-col items-center w-full px-4">
+          <div className="w-full max-w-[1400px]">
+            <img
+              src="/images/ai-agent.svg"
+              alt="AI Agent Interface"
+              className="w-full h-auto"
+            />
+          </div>
           {/* Line attached to bottom of image */}
           <div
             className="w-full max-w-[1310px] border-t border-[#E5E5E5] mt-0"
