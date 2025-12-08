@@ -86,28 +86,15 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
       return currentActiveId || (headings.length > 0 ? headings[0].id : "");
     };
 
-    // Debounce to only update after scroll settles (works well with Lenis)
-    let scrollTimeout: NodeJS.Timeout;
     const onScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const newActiveId = detectActiveHeading();
-        if (newActiveId) {
-          setActiveId(newActiveId);
-        }
-      }, 50); // Short debounce - updates 50ms after scroll stops
+      const newActiveId = detectActiveHeading();
+      if (newActiveId) setActiveId(newActiveId);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // Initial check
 
-    // Initial check
-    const initialId = detectActiveHeading();
-    if (initialId) setActiveId(initialId);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(scrollTimeout);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, [headings]);
 
   const scrollToHeading = (id: string) => {

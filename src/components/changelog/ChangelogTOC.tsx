@@ -69,23 +69,15 @@ export function ChangelogTOC({ items }: { items: TOCItem[] }) {
       return currentActiveId || (items.length > 0 ? items[0].id : "");
     };
 
-    let scrollTimeout: NodeJS.Timeout;
     const onScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const newActiveId = detectActiveSection();
-        if (newActiveId) setActiveId(newActiveId);
-      }, 50);
+      const newActiveId = detectActiveSection();
+      if (newActiveId) setActiveId(newActiveId);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    const initialId = detectActiveSection();
-    if (initialId) setActiveId(initialId);
+    onScroll(); // Initial check
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(scrollTimeout);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, [items]);
 
   const scrollToSection = (id: string) => {
