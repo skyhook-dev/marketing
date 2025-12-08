@@ -1,7 +1,13 @@
 import { changelogUpdates } from "@content/changelog";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { ChangelogTOC } from "@/components/changelog/ChangelogTOC";
 
 export default function ChangelogPage() {
+  const tocItems = changelogUpdates.map((update) => ({
+    label: update.label,
+    id: update.label.toLowerCase().replace(/\s+/g, "-"),
+  }));
+
   return (
     <div className="bg-background min-h-screen py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,25 +27,7 @@ export default function ChangelogPage() {
 
         <div className="flex gap-8 lg:gap-12">
           {/* Left TOC */}
-          <aside className="hidden md:block w-48 flex-shrink-0">
-            <nav className="sticky top-8">
-              <h2 className="text-xs uppercase tracking-[0.2em] text-ink-secondary font-semibold mb-4">
-                Jump to
-              </h2>
-              <ul className="space-y-2">
-                {changelogUpdates.map((update) => (
-                  <li key={update.label}>
-                    <a
-                      href={`#${update.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm text-ink-secondary hover:text-ink-primary transition-colors block py-1"
-                    >
-                      {update.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
+          <ChangelogTOC items={tocItems} />
 
           {/* Main content */}
           <div className="flex-1 max-w-3xl">
@@ -67,7 +55,7 @@ export default function ChangelogPage() {
                       {update.sections.map((section) => (
                         <article
                           key={section.title}
-                          className="bg-surface border border-border rounded-lg p-6 space-y-4"
+                          className="bg-surface border border-border rounded-lg p-6 space-y-4 hover-lift"
                         >
                           <h3 className="text-base font-semibold text-ink-primary">
                             {section.title}
