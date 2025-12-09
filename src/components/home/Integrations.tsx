@@ -42,14 +42,14 @@ const integrationCategories = [
 
 export function Integrations() {
   return (
-    <section className="py-24 bg-background border-b border-border">
+    <section className="py-[25px] md:py-24 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-4">
+            <h2 className="text-[30px] md:text-4xl font-semibold tracking-tight text-[#101927] md:text-ink-primary leading-[120%] md:leading-tight mb-4">
               Integrates with the tools you love
             </h2>
-            <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
+            <p className="text-[16px] md:text-lg text-[#445166] md:text-ink-secondary leading-normal max-w-2xl mx-auto">
               Skyhook has built-in support for the top tools in the Kubernetes ecosystem. Mix and match to build your perfect platform.
             </p>
           </div>

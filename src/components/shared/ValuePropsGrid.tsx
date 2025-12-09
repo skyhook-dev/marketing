@@ -51,16 +51,16 @@ export function ValuePropsGrid({
   className = "",
 }: ValuePropsGridProps) {
   return (
-    <section className={`bg-background ${className}`}>
+    <section className={`bg-background py-[25px] md:py-[100px] ${className}`}>
       <div className="max-w-[1310px] mx-auto">
         <FadeIn>
-          <div className="flex flex-col items-start gap-[50px] p-[60px] rounded-2xl bg-[#F6FAFF]">
+          <div className="flex flex-col items-start gap-[50px] p-[30px] md:p-[60px] rounded-2xl bg-[#F6FAFF]">
             {/* Header */}
             <div className="flex flex-col items-start gap-3 self-stretch">
-              <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%]">
+              <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] leading-[120%] text-left w-full">
                 {title}
               </h2>
-              <p className="text-[18px] font-normal text-[#445166] leading-normal">
+              <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal text-left w-full">
                 {subtitle}
               </p>
             </div>

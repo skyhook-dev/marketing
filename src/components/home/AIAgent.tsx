@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function AIAgent() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-[25px] md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           {/* Top Section */}
@@ -17,12 +17,12 @@ export function AIAgent() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
+            <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] text-center leading-[120%]">
               Chat with your infrastructure
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[18px] font-normal text-[#445166] text-center leading-normal">
+            <p className="text-[16px] md:text-[18px] font-normal text-[#445166] text-center leading-normal">
               Skyhook&apos;s agent provides developers and DevOps with the context they need. It knows your stack, your standards, and your golden paths.
             </p>
           </div>
@@ -32,12 +32,15 @@ export function AIAgent() {
       {/* Image Section */}
       <FadeIn delay={0.2}>
         <div className="flex flex-col items-center w-full px-4">
-          <div className="w-full max-w-[1400px]">
-            <img
-              src="/images/ai-agent.svg"
-              alt="AI Agent Interface"
-              className="w-full h-auto"
-            />
+          <div className="flex justify-center w-full">
+            <picture>
+              <source media="(max-width: 767px)" srcSet="/images/ai-agent-mobile.svg" />
+              <img
+                src="/images/ai-agent.svg"
+                alt="AI Agent Interface"
+                className="h-auto max-w-none"
+              />
+            </picture>
           </div>
           {/* Line attached to bottom of image */}
           <div

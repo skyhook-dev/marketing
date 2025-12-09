@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/Button";
 
 export function DemoVideo() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-[25px] md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-[50px] font-semibold text-[#101927] leading-[120%] mb-3">
+            <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] leading-[120%] mb-3">
               See Skyhook in action
             </h2>
-            <p className="text-[18px] font-normal text-[#445166] leading-normal max-w-2xl mx-auto">
+            <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal max-w-2xl mx-auto">
               Watch how Skyhook simplifies your Kubernetes workflow
             </p>
           </div>
