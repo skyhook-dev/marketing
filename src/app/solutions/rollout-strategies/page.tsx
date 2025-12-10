@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { GitMerge, Shuffle, CheckCircle2 } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Rollout Strategies",
+  description: "Minimize deployment risk with canary, blue-green, and rolling deployments. Skyhook provides automated rollback and traffic shifting for safe releases.",
+};
 
 export default function RolloutStrategiesPage() {
   return (

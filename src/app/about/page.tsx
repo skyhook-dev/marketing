@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { IconBox } from "@/components/ui/IconBox";
 import { Code2, Globe, Heart } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn about Skyhook's mission to make platform engineering accessible to everyone. We help developers deploy without complexity and give DevOps the control they need.",
+};
 
 export default function AboutPage() {
   return (

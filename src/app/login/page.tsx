@@ -1,4 +1,14 @@
+import { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Sign in to your Skyhook account. Access your Kubernetes deployments, manage services, and monitor your applications.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function Login() {
   return (

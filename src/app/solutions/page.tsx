@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { GitPullRequest, ShieldCheck, LayoutDashboard, BarChart3 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Solutions",
+  description: "Explore Skyhook solutions: preview environments, rollout strategies, service catalog, and auto-scaling. Everything you need to build, deploy, and scale on Kubernetes.",
+};
 
 export default function SolutionsPage() {
   return (

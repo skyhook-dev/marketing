@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Play, Activity, ShieldCheck, RefreshCw, Network, Lock, Server, Scale } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Run",
+  description: "Run production workloads on Kubernetes with Skyhook. Health checks, resource management, networking, and security policies out of the box.",
+};
 
 export default function RunPage() {
   return (

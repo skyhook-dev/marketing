@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Box, GitBranch, Container, Settings, FileText, Zap, Layers, ShieldCheck } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Build",
+  description: "Build container images from your code with Skyhook. Automated CI pipelines, multi-architecture builds, and secure image registries for Kubernetes deployments.",
+};
 
 export default function BuildPage() {
   return (

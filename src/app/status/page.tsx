@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Status",
+  description: "Check Skyhook platform status and uptime. Real-time system health, incident history, and scheduled maintenance updates.",
+};
+
 export default function StatusPage() {
   return (
     <div className="min-h-screen pt-16 overflow-hidden">

@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { TrendingUp, Server, Maximize, Globe, ArrowUpRight, Network } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Grow",
+  description: "Scale your Kubernetes infrastructure seamlessly with Skyhook. Multi-cluster management, autoscaling, and capacity planning for growing teams.",
+};
 
 export default function GrowPage() {
   return (

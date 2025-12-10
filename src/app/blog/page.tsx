@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { getAllBlogPosts } from "@/lib/blog";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Insights on Kubernetes, platform engineering, DevOps tooling, and how teams are using Skyhook to ship faster and more reliably.",
+};
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
@@ -25,7 +31,7 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`}
               className="block group"
             >
-              <BlueprintCard className="h-full p-0 overflow-hidden transition-all duration-200 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <BlueprintCard className="h-full p-0 overflow-hidden">
                 <div className="p-4">
                   {post.image && (
                     <div className="relative w-full h-48 overflow-hidden border-b border-border mb-4">

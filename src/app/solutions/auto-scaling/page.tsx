@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Scale, TrendingUp } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Auto Scaling",
+  description: "Right-size your Kubernetes infrastructure automatically. Skyhook handles horizontal and vertical pod autoscaling, plus cluster autoscaling for optimal cost and performance.",
+};
 
 export default function AutoScalingPage() {
   return (
