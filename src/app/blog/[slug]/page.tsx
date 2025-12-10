@@ -1,11 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBlogPost } from "@/lib/blog";
+import { getBlogPost, getAllBlogPosts } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { BlogLayout } from "@/components/blog/BlogLayout";
+
+// Pre-generate all blog post pages at build time
+export async function generateStaticParams() {
+  const posts = getAllBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 type BlogPageProps = {
   params: Promise<{
