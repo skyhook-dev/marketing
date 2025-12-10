@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // "/solutions/service-catalog",
     // "/solutions/auto-scaling",
     "/pricing",
+    "/careers",
     "/blog",
     "/changelog",
     "/demo",

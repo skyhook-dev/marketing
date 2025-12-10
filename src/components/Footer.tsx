@@ -25,6 +25,7 @@ export function Footer() {
               <h4 className="text-[#101927] font-['DM_Sans'] text-[18px] font-semibold leading-normal">Company</h4>
               <div className="flex flex-col gap-3">
                 <Link href="/pricing" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Pricing</Link>
+                <Link href="/careers" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Careers</Link>
                 <Link href="/blog" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Blog</Link>
                 <a href="mailto:contact@skyhook.io" className="text-[#445166] font-['DM_Sans'] text-[14px] font-normal leading-normal hover:text-[#101927]">Contact Us</a>
               </div>
