@@ -120,7 +120,7 @@ export function SDLCPipeline() {
             {/* Desktop Content Area */}
             <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
               {/* Left Column - Bullets */}
-              <div className="flex flex-col gap-[33px] w-full flex-1">
+              <div className="flex flex-col gap-[40px] w-full flex-1 max-w-[550px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeStep.id}
@@ -128,16 +128,16 @@ export function SDLCPipeline() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="flex flex-col gap-[33px]"
+                    className="flex flex-col gap-[40px]"
                   >
                     {activeStep.bullets.map((bullet, index) => (
-                      <div key={index} className="flex items-start gap-3">
+                      <div key={index} className="flex items-start gap-4">
                         <img
                           src="/images/check.svg"
                           alt="check"
-                          className="w-5 h-5 flex-shrink-0 mt-1"
+                          className="w-6 h-6 flex-shrink-0 mt-1"
                         />
-                        <span className="text-[16px] font-normal text-[#445166] leading-[139%]">
+                        <span className="text-[20px] font-normal text-[#445166] leading-[150%]">
                           {bullet}
                         </span>
                       </div>

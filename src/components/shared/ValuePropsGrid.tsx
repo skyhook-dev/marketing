@@ -9,32 +9,32 @@ type ValueProp = {
 const valueProps: ValueProp[] = [
   {
     title: "Best Practices Out-of-the-Box",
-    description: "Do work right with monitoring, rollout strategies, ephemeral environments and secret management.",
+    description: "Start strong with monitoring, rollout strategies, ephemeral environments and secret management.",
     image: "/images/shield.svg",
   },
   {
     title: "No Lock-in",
-    description: "Retain full control with no dependencies on specific cloud providers or third-party tools. Migrating away is easy, unlike with PaaS.",
+    description: "Stay in control without being dependent on specific cloud providers or third-party tools. Unlike PaaS, you can easily migrate away.",
     image: "/images/lock.svg",
   },
   {
     title: "Start and scale quickly",
-    description: "Get started in minutes, not days, with our fully configured environment. We grow with your needs, regardless of your engineering group size.",
+    description: "Get started in minutes, not days, with our fully configured environment. Grows with your needs, regardless of engineering group size.",
     image: "/images/bolt.svg",
   },
   {
     title: "Kubernetes based",
-    description: "Simplify Kubernetes for developers and make its management easy for DevOps.",
+    description: "Simplify Kubernetes for developers and make management easy for DevOps.",
     image: "/images/kubernetes.svg",
   },
   {
-    title: "Best tools",
-    description: "Skyhook has built-in support for the top tools in the Kubernetes ecosystem.",
+    title: "The Best tools",
+    description: "Skyhook has built-in support for the top tools in the Kubernetes ecosystem, such as ArgoCD, Kyverno, Grafana and many more.",
     image: "/images/wrench.svg",
   },
   {
     title: "Flexible",
-    description: "Because it's just Kubernetes under the hood, all the advanced functionality is readily available when you need it.",
+    description: "With Kubernetes under the hood, all the ecosystem and advanced functionality is readily available when you need it.",
     image: "/images/balls.svg",
   },
 ];

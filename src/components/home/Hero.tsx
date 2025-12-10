@@ -11,12 +11,15 @@ export function Hero() {
           <FadeInStagger className="space-y-8">
             <FadeIn>
               <div className="space-y-4 flex flex-col items-start text-left">
+                <h5 className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
+                  One-click Kubernetes Platform
+                </h5>
                 <h1 className="text-[36px] md:text-6xl font-semibold tracking-tight leading-[120%] md:leading-[1.1] text-[#101927]">
-                  One-click <br />
-                  <span className="text-[#445166] md:text-ink-secondary">Kubernetes Platform</span>
+                  Developer Platform <br />
+                  <span className="text-[#445166] md:text-ink-secondary">without the hassle</span>
                 </h1>
                 <p className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
-                  Developer platform without the hassle. Build, run and release applications on a best-in-class platform. Skyhook automatically orchestrates, customizes and configures all the leading tools.
+                  Build, run and release applications on a best-in-class platform. Skyhook automatically orchestrates, customizes and configures all the leading tools, and is as simple as checking a box.
                 </p>
               </div>
             </FadeIn>
