@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Book, Layout, Laptop } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Service Catalog",
+  description: "Build your internal developer platform with Skyhook's service catalog. Give developers self-service access to deploy and manage services on Kubernetes.",
+};
 
 export default function ServiceCatalogPage() {
   return (

@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Layers, Container, Settings, Zap, Globe, ShieldCheck, GitMerge } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Deploy",
+  description: "Deploy to Kubernetes with confidence. Skyhook handles rollout strategies, environment management, and GitOps workflows for fast, reliable releases.",
+};
 
 export default function DeployPage() {
   return (

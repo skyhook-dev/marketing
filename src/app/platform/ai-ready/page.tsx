@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { Sparkles, Bot, Shield, MessageSquare, Zap } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "AI Ready",
+  description: "Make your Kubernetes platform AI-ready with Skyhook. Structured context for AI agents, MCP server integration, and intelligent automation.",
+};
 
 export default function AIReadyPage() {
   return (

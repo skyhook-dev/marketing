@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Activity, FileText, Bell, Eye, BarChart, Shield } from "lucide-react";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Observe",
+  description: "Monitor your Kubernetes applications with Skyhook. Centralized logging, metrics, tracing, and alerting to keep your services healthy and performant.",
+};
 
 export default function ObservePage() {
   return (

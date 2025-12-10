@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import { changelogUpdates } from "@content/changelog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ChangelogTOC } from "@/components/changelog/ChangelogTOC";
+
+export const metadata: Metadata = {
+  title: "Changelog",
+  description: "Stay up to date with Skyhook product updates: major features, improvements, bug fixes, and infrastructure upgrades across the platform.",
+};
 
 export default function ChangelogPage() {
   const tocItems = changelogUpdates.map((update) => ({

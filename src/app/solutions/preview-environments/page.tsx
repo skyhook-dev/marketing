@@ -1,9 +1,15 @@
+import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { GitPullRequest, CheckCircle2, Globe, Box } from "lucide-react";
 import { ValueProps } from "@/components/home/ValueProps";
 import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Preview Environments",
+  description: "Spin up isolated preview environments for every pull request. Test changes in production-like conditions before merging with Skyhook's automated preview deployments.",
+};
 
 export default function PreviewEnvironmentsPage() {
   return (
