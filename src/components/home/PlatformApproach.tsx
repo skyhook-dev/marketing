@@ -2,7 +2,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function PlatformApproach() {
   const approaches = [
-    "You own the platform stack. We build, orchestrate and manage it for you",
+    "You own the platform stack. Skyhook builds, orchestrates and manages it for you",
     "You retain the flexibility to change/extend any of the tools that make up the platform",
     "Mix and match the tools you love",
     "Works on AWS, Azure or GCP, or your own cloud",
