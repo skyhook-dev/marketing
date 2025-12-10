@@ -25,7 +25,7 @@ export function Hero() {
             <FadeIn delay={0.2}>
               <div className="flex flex-wrap gap-4">
                 <Button href="/demo" className="max-md:px-4 max-md:py-2 max-md:text-sm">Get a demo</Button>
-                <Button href="/signup" variant="secondary" className="max-md:px-4 max-md:py-2 max-md:text-sm">Start deploying</Button>
+                <Button href="https://app.skyhook.io" variant="secondary" className="max-md:px-4 max-md:py-2 max-md:text-sm" external>Start deploying</Button>
               </div>
             </FadeIn>
 

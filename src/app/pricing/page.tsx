@@ -21,7 +21,7 @@ const tiers = [
       "Self-onboarding"
     ],
     cta: "Get Started",
-    ctaLink: "/signup",
+    ctaLink: "https://app.skyhook.io",
     highlight: false
   },
   {
