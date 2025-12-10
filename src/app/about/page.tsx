@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { BlueprintCard } from "@/components/ui/BlueprintCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { IconBox } from "@/components/ui/IconBox";
 import { Code2, Globe, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -42,9 +41,13 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <BlueprintCard className="min-h-[300px] flex items-center justify-center bg-surface">
-            <div className="text-6xl animate-bounce">🚀</div>
-          </BlueprintCard>
+          <div className="rounded-lg overflow-hidden shadow-hard">
+            <img
+              src="/images/k8s-rocket-cityscape.jpeg"
+              alt="Kubernetes rocket launching over cityscape"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
 
@@ -56,9 +59,9 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <BlueprintCard title="Developer First">
             <div className="space-y-4">
-              <IconBox size="md">
-                <Code2 className="w-5 h-5 text-ink-primary" />
-              </IconBox>
+              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <Code2 className="w-5 h-5 text-accent" />
+              </div>
               <p className="text-ink-secondary">
                 We design every feature with the developer experience in mind. If it's not intuitive, it's not finished.
               </p>
@@ -67,20 +70,20 @@ export default function AboutPage() {
 
           <BlueprintCard title="Open Standards">
             <div className="space-y-4">
-              <IconBox size="md">
-                <Globe className="w-5 h-5 text-ink-primary" />
-              </IconBox>
+              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <Globe className="w-5 h-5 text-accent" />
+              </div>
               <p className="text-ink-secondary">
                 We build on top of open source giants like Kubernetes, Argo, and Prometheus. No proprietary lock-in.
               </p>
             </div>
           </BlueprintCard>
 
-          <BlueprintCard title="Transparency">
+          <BlueprintCard title="Transparency & Trust">
             <div className="space-y-4">
-              <IconBox size="md">
-                <Heart className="w-5 h-5 text-ink-primary" />
-              </IconBox>
+              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <Heart className="w-5 h-5 text-accent" />
+              </div>
               <p className="text-ink-secondary">
                 We are open about how our platform works, our pricing, and our roadmap. Trust is earned.
               </p>
@@ -91,15 +94,22 @@ export default function AboutPage() {
 
       {/* CTA */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <BlueprintCard className="bg-ink-primary text-white border-ink-primary">
+        <BlueprintCard
+          className="text-white border-transparent overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #2D7AFF 0%, #1E5FD9 50%, #2D7AFF 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'gradientShift 8s ease infinite'
+          }}
+        >
           <div className="py-12 px-6">
             <h2 className="text-3xl font-semibold mb-4 text-white">Join us on our journey</h2>
-            <p className="text-gray-300 mb-8 text-lg">We're always looking for talented individuals to join our team.</p>
+            <p className="text-white/90 mb-8 text-lg">We're always looking for talented individuals to join our team.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/careers" variant="secondary">
+              <Button href="/careers" className="bg-white text-[#2D7AFF] hover:bg-white/90">
                 View Careers
               </Button>
-              <Button href="mailto:hello@skyhook.io" variant="ghost" className="text-white border border-white/30 hover:bg-white/10 hover:text-white" external>
+              <Button href="mailto:hello@skyhook.io" variant="ghost" className="bg-white/10 text-white border-white/20 hover:bg-white/20" external>
                 Contact Us
               </Button>
             </div>
