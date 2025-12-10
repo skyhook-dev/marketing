@@ -9,7 +9,7 @@ const steps = [
   {
     id: "build",
     label: "Build",
-    image: "/images/build.svg",
+    image: "/images/sdlc/build.svg",
     bullets: [
       "Spin up services, environments, and infrastructure in seconds",
       "Wire in your preferred dev tools with zero configuration",
@@ -20,7 +20,7 @@ const steps = [
   {
     id: "deploy",
     label: "Deploy",
-    image: "/images/deploy.svg",
+    image: "/images/sdlc/deploy.svg",
     bullets: [
       "Ship code with confidence using built-in CI/CD flows",
       "Preview environments for every pull request",
@@ -31,7 +31,7 @@ const steps = [
   {
     id: "run",
     label: "Run",
-    image: "/images/run.svg",
+    image: "/images/sdlc/run.svg",
     bullets: [
       "Skyhook handles underlying platform operations",
       "Keep your apps healthy and performant automatically",
@@ -42,7 +42,7 @@ const steps = [
   {
     id: "grow",
     label: "Grow",
-    image: "/images/grow.svg",
+    image: "/images/sdlc/grow.svg",
     bullets: [
       "Launch a side project or manage enterprise workloads",
       "Scale seamlessly across teams and environments",
@@ -53,7 +53,7 @@ const steps = [
   {
     id: "observe",
     label: "Observe",
-    image: "/images/observe.svg",
+    image: "/images/sdlc/observe.svg",
     bullets: [
       "Instant access to logs, metrics, and traces",
       "Observability tools connected out of the box",
