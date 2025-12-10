@@ -29,10 +29,11 @@ export function CTA() {
                 Request a Demo
               </Button>
               <Button
-                href="/signup"
+                href="https://app.skyhook.io"
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto bg-white/10 text-white border-white/20 hover:bg-white/20"
+                external
               >
                 Start deploying
               </Button>

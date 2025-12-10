@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function Login() {
@@ -18,9 +17,9 @@ export default function Login() {
         </div>
         <p className="mt-8 text-sm text-ink-secondary">
           Don't have an account?{" "}
-          <Link href="/signup" className="text-accent hover:underline">
+          <a href="https://app.skyhook.io" className="text-accent hover:underline">
             Sign up
-          </Link>
+          </a>
         </p>
       </section>
     </div>
