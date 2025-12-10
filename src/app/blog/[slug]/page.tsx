@@ -4,6 +4,7 @@ import { getBlogPost } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { BlogLayout } from "@/components/blog/BlogLayout";
 
 type BlogPageProps = {
@@ -30,14 +31,17 @@ export async function generateMetadata({ params }: BlogPageProps) {
 }
 
 function extractHeadings(content: string) {
+    // First, remove code blocks to avoid matching comments as headings
+    const contentWithoutCodeBlocks = content.replace(/```[\s\S]*?```/g, '');
+
     const headingRegex = /^(#{1,3})\s+(.+)$/gm;
     const headings = [];
     let match;
-  
-    while ((match = headingRegex.exec(content)) !== null) {
+
+    while ((match = headingRegex.exec(contentWithoutCodeBlocks)) !== null) {
       const level = match[1].length;
       let text = match[2].trim();
-      
+
       // Clean up markdown syntax from the text
       // Remove links: [text](url) -> text
       text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
@@ -52,13 +56,13 @@ function extractHeadings(content: string) {
         .replace(/[^a-z0-9\s-]/g, "") // Remove non-alphanumeric characters (except spaces and dashes)
         .trim()
         .replace(/\s/g, "-");  // Replace each space with a dash (do not collapse)
-  
+
       // Skip the main title (first h1)
       if (level === 1 && headings.length === 0) continue;
-  
-      headings.push({ id, text, level });
+
+      headings.push({ id, text: match[2].trim(), level });
     }
-  
+
     return headings;
   }
 
@@ -119,10 +123,11 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
         <BlogLayout headings={headings}>
             <div className="prose prose-lg prose-headings:font-semibold prose-headings:text-ink-primary prose-p:text-ink-secondary prose-a:text-accent prose-strong:text-ink-primary max-w-none">
-                <MDXRemote 
+                <MDXRemote
                     source={post.content}
                     options={{
                         mdxOptions: {
+                            remarkPlugins: [remarkGfm],
                             rehypePlugins: [
                                 [rehypePrettyCode, {
                                     theme: "github-dark",
