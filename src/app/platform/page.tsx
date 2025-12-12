@@ -55,7 +55,7 @@ export default function PlatformPage() {
             <span className="text-ink-secondary">ready to roll</span>
           </h1>
           <p className="text-xl text-ink-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            A Kubernetes platform that’s all set. Today Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed.
+            {"A Kubernetes platform that's all set. Today Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed."}
           </p>
           <div className="flex justify-center gap-4">
             <Button href="/demo">Get a demo</Button>
@@ -76,7 +76,7 @@ export default function PlatformPage() {
                   Skyhook is all the automation and work you would do to deliver a kubernetes-based platform, available immediately, right in your cloud, on your terms, together with a developer interface.
                 </p>
                 <p>
-                  It's a modern k8s-based internal developer platform that implements best practices and golden paths, by orchestrating the best-of-breed open source and enterprise tools in the industry.
+                  {"It's a modern k8s-based internal developer platform that implements best practices and golden paths, by orchestrating the best-of-breed open source and enterprise tools in the industry."}
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function PlatformPage() {
 
       {/* Why Choose Skyhook? */}
       <ValuePropsGrid
-        subtitle="It's easy to try, easy to get running and doesn't present the lock-in risk that's inherent to PaaS or non-Kubernetes platforms."
+        subtitle={"It's easy to try, easy to get running and doesn't present the lock-in risk that's inherent to PaaS or non-Kubernetes platforms."}
       />
 
       {/* Our platform covers the entire SDLC */}

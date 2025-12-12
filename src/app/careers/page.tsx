@@ -92,7 +92,7 @@ function JobCard({ job, isExpanded, onToggle }: {
 
               {/* Responsibilities */}
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-ink-primary mb-3">What You'll Do</h4>
+                <h4 className="text-lg font-semibold text-ink-primary mb-3">{"What You'll Do"}</h4>
                 <div className="space-y-4">
                   {job.content.responsibilities.map((section) => (
                     <div key={section.title}>
@@ -111,7 +111,7 @@ function JobCard({ job, isExpanded, onToggle }: {
 
               {/* Requirements */}
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-ink-primary mb-3">What You've Done</h4>
+                <h4 className="text-lg font-semibold text-ink-primary mb-3">{"What You've Done"}</h4>
                 <ul className="list-disc list-inside space-y-1">
                   {job.content.requirements.map((req, i) => (
                     <li key={i} className="text-ink-secondary text-sm leading-relaxed">
@@ -177,7 +177,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInStagger className="text-center max-w-3xl mx-auto">
             <FadeIn>
-              <Badge variant="accent" className="mb-6">We're Hiring</Badge>
+              <Badge variant="accent" className="mb-6">{"We're Hiring"}</Badge>
             </FadeIn>
             <FadeIn>
               <h1 className="text-4xl md:text-6xl font-semibold text-ink-primary tracking-tight mb-6">
@@ -205,7 +205,7 @@ export default function CareersPage() {
               More than just a job
             </h2>
             <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
-              We're building something meaningful, and we want you to be part of it.
+              {"We're building something meaningful, and we want you to be part of it."}
             </p>
           </FadeIn>
 
@@ -242,7 +242,7 @@ export default function CareersPage() {
               Find your next role
             </h2>
             <p className="text-lg text-ink-secondary max-w-2xl mx-auto">
-              We're looking for talented people to join our growing team.
+              {"We're looking for talented people to join our growing team."}
             </p>
           </FadeIn>
 
@@ -283,10 +283,10 @@ export default function CareersPage() {
               }}
             >
               <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-                Don't see the right role?
+                {"Don't see the right role?"}
               </h2>
               <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-                We're always looking for exceptional people. Send us your resume and tell us how you'd like to contribute.
+                {"We're always looking for exceptional people. Send us your resume and tell us how you'd like to contribute."}
               </p>
               <Button
                 href="mailto:careers@skyhook.io"

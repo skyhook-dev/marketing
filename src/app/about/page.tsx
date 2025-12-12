@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="text-center max-w-3xl mx-auto">
           <Badge className="mb-8">About Us</Badge>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-8">
-            We're building the <span className="text-accent">future of DevOps</span>
+            {"We're building the"} <span className="text-accent">future of DevOps</span>
           </h1>
           <p className="text-xl text-ink-secondary leading-relaxed">
             Skyhook was founded by engineers who were tired of spending more time configuring Kubernetes than writing code.
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <div className="prose prose-lg text-ink-secondary">
               <p>
                 We believe that developers should be able to deploy and manage their applications without needing a PhD in Kubernetes.
-                At the same time, we believe that DevOps teams shouldn't be buried under a mountain of tickets.
+                {"At the same time, we believe that DevOps teams shouldn't be buried under a mountain of tickets."}
               </p>
               <p>
                 Skyhook bridges the gap. We provide a platform that gives developers the autonomy they crave, while giving Ops the control and visibility they need.
@@ -63,7 +63,7 @@ export default function AboutPage() {
                 <Code2 className="w-5 h-5 text-accent" />
               </div>
               <p className="text-ink-secondary">
-                We design every feature with the developer experience in mind. If it's not intuitive, it's not finished.
+                {"We design every feature with the developer experience in mind. If it's not intuitive, it's not finished."}
               </p>
             </div>
           </BlueprintCard>
@@ -104,7 +104,7 @@ export default function AboutPage() {
         >
           <div className="py-12 px-6">
             <h2 className="text-3xl font-semibold mb-4 text-white">Join us on our journey</h2>
-            <p className="text-white/90 mb-8 text-lg">We're always looking for talented individuals to join our team.</p>
+            <p className="text-white/90 mb-8 text-lg">{"We're always looking for talented individuals to join our team."}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/careers" className="bg-white text-[#2D7AFF] hover:bg-white/90">
                 View Careers
