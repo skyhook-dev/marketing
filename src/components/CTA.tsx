@@ -18,7 +18,7 @@ export function CTA() {
               Ready to roll?
             </h2>
             <p className="text-[16px] md:text-[18px] font-normal text-white/90 text-center leading-normal mb-10">
-              It&apos;s quick and easy to get started.
+              {"It's quick and easy to get started."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button

@@ -62,7 +62,7 @@ export default function RequestDemo() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Column: Benefits */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-ink-primary">What you&apos;ll get</h2>
+            <h2 className="text-2xl font-bold text-ink-primary">{"What you'll get"}</h2>
             <div className="space-y-6">
               {[
                 {
@@ -314,10 +314,10 @@ export default function RequestDemo() {
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-ink-primary">
-                  You&apos;re all set!
+                  {"You're all set!"}
                 </h3>
                 <p className="text-ink-secondary">
-                  We&apos;ve sent a calendar invite to <span className="font-medium text-ink-primary">{formData.email}</span>.
+                  {"We've sent a calendar invite to"} <span className="font-medium text-ink-primary">{formData.email}</span>.
                   Looking forward to showing you what Skyhook can do!
                 </p>
                 <div className="pt-4">
