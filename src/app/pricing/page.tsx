@@ -217,10 +217,10 @@ export default function PricingPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <BlueprintCard title="Fully customizable environments">
-            We believe that you should have full control of your environment. You're always able to customize every part of your environment and easily add and switch between cloud providers.
+            We believe that you should have full control of your environment. You&apos;re always able to customize every part of your environment and easily add and switch between cloud providers.
           </BlueprintCard>
           <BlueprintCard title="Professional Support">
-            We're here for you every step of the way to make sure that you're able to fully utilize the most out of Skyhook.
+            We&apos;re here for you every step of the way to make sure that you&apos;re able to fully utilize the most out of Skyhook.
           </BlueprintCard>
           <BlueprintCard title="Use your own cloud">
             We support AWS, GCP and Azure in all available regions. Use Skyhook to quickly setup your Kubernetes deployment on your own cloud environment.
@@ -258,7 +258,7 @@ export default function PricingPage() {
             </svg>
           </div>
           <h3 className="text-xl font-semibold text-ink-primary mb-2">Still have questions?</h3>
-          <p className="text-ink-secondary mb-6">Can't find the answer you're looking for? We're here to help.</p>
+          <p className="text-ink-secondary mb-6">Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help.</p>
           <Button href="mailto:contact@skyhook.io" external>
             Get in touch
           </Button>

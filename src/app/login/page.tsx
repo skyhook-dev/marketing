@@ -26,7 +26,7 @@ export default function Login() {
           </Button>
         </div>
         <p className="mt-8 text-sm text-ink-secondary">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <a href="https://app.skyhook.io" className="text-accent hover:underline">
             Sign up
           </a>
