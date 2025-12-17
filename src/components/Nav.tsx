@@ -21,26 +21,27 @@ type NavSection = {
 };
 
 const navMap: Record<string, NavSection> = {
-  // platform: {
-  //   label: "Platform",
-  //   items: [
-  //     { name: "AI Ready", href: "/platform/ai-ready", icon: "/images/navbar icons/ai-ready-nav.svg" },
-  //     { name: "Build", href: "/platform/build", icon: "/images/navbar icons/build-nav.svg" },
-  //     { name: "Deploy", href: "/platform/deploy", icon: "/images/navbar icons/deploy-nav.svg" },
-  //     { name: "Run", href: "/platform/run", icon: "/images/navbar icons/run-nav.svg" },
-  //     { name: "Grow", href: "/platform/grow", icon: "/images/navbar icons/grow-nav.svg" },
-  //     { name: "Observe", href: "/platform/observe", icon: "/images/navbar icons/observe-nav.svg" },
-  //   ]
-  // },
-  // solutions: {
-  //   label: "Solutions",
-  //   items: [
-  //     { name: "Preview Environments", href: "/solutions/preview-environments", icon: "/images/navbar icons/preview-nav.svg" },
-  //     { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: "/images/navbar icons/rollout-nav.svg" },
-  //     { name: "Service Catalog", href: "/solutions/service-catalog", icon: "/images/navbar icons/catalog-nav.svg" },
-  //     { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: "/images/navbar icons/scaling-nav.svg" },
-  //   ]
-  // },
+  platform: {
+    label: "Platform",
+    items: [
+      { name: "Platform Overview", href: "/platform", icon: "/images/navbar icons/platform-nav.svg" },
+      { name: "AI Ready", href: "/platform/ai-ready", icon: "/images/navbar icons/ai-ready-nav.svg" },
+      { name: "Build", href: "/platform/build", icon: "/images/navbar icons/build-nav.svg" },
+      { name: "Deploy", href: "/platform/deploy", icon: "/images/navbar icons/deploy-nav.svg" },
+      { name: "Run", href: "/platform/run", icon: "/images/navbar icons/run-nav.svg" },
+      { name: "Grow", href: "/platform/grow", icon: "/images/navbar icons/grow-nav.svg" },
+      { name: "Observe", href: "/platform/observe", icon: "/images/navbar icons/observe-nav.svg" },
+    ]
+  },
+  solutions: {
+    label: "Solutions",
+    items: [
+      { name: "Preview Environments", href: "/solutions/preview-environments", icon: "/images/navbar icons/preview-nav.svg" },
+      { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: "/images/navbar icons/rollout-nav.svg" },
+      { name: "Service Catalog", href: "/solutions/service-catalog", icon: "/images/navbar icons/catalog-nav.svg" },
+      { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: "/images/navbar icons/scaling-nav.svg" },
+    ]
+  },
   resources: {
     label: "Resources",
     items: [
