@@ -1,174 +1,243 @@
 import { Metadata } from "next";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { Badge } from "@/components/ui/Badge";
-import { TrendingUp, Server, Maximize, Globe, ArrowUpRight, Network } from "lucide-react";
-import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Grow",
-  description: "Scale your Kubernetes infrastructure seamlessly with Skyhook. Multi-cluster management, autoscaling, and capacity planning for growing teams.",
+   title: "Grow",
+   description: "Scale your applications and team with Skyhook. Auto-scaling, cost optimization, and insights to grow efficiently on Kubernetes.",
 };
 
+const bentoItems = [
+   {
+      image: "/images/platform/grow/grow-illus-1.svg",
+      title: "Auto-Scaling",
+      description: "Automatically scale your applications based on demand. Skyhook uses Kubernetes Horizontal Pod Autoscaler to add or remove replicas as needed."
+   },
+   {
+      image: "/images/platform/grow/grow-illus-2.svg",
+      title: "Cost Optimization",
+      description: "Monitor and optimize your cloud costs. Skyhook provides insights into resource usage and helps you right-size your deployments."
+   },
+   {
+      image: "/images/platform/grow/grow-illus-3.svg",
+      title: "Performance Insights",
+      description: "Get detailed metrics and analytics about your applications. Understand usage patterns and optimize for better performance."
+   },
+   {
+      image: "/images/platform/grow/grow-illus-4.svg",
+      title: "Team Collaboration",
+      description: "Enable your team to work together efficiently. Skyhook provides role-based access control and audit trails for all actions."
+   }
+];
+
+const features = [
+   {
+      icon: "/images/platform/grow/grow-icon-1.svg",
+      title: "Horizontal Scaling",
+      description: "Scale out by adding more instances of your application. Kubernetes distributes load across all replicas automatically."
+   },
+   {
+      icon: "/images/platform/grow/grow-icon-2.svg",
+      title: "Resource Optimization",
+      description: "Right-size your deployments based on actual usage. Avoid over-provisioning and reduce cloud costs while maintaining performance."
+   },
+   {
+      icon: "/images/platform/grow/grow-icon-3.svg",
+      title: "Usage Analytics",
+      description: "Track application usage, request patterns, and resource consumption. Make data-driven decisions about scaling and optimization."
+   },
+   {
+      icon: "/images/platform/grow/grow-icon-4.svg",
+      title: "Team Management",
+      description: "Manage team access with role-based permissions. Control who can deploy, scale, and manage different environments."
+   },
+   {
+      icon: "/images/platform/grow/grow-icon-5.svg",
+      title: "Audit Logging",
+      description: "Complete audit trail of all platform actions. Track who did what and when for compliance and debugging."
+   },
+   {
+      icon: "/images/platform/grow/grow-icon-6.svg",
+      title: "Multi-Environment",
+      description: "Manage multiple environments (dev, staging, prod) from a single platform. Promote changes through environments with confidence."
+   }
+];
+
 export default function GrowPage() {
-  return (
-    <div className="min-h-screen bg-background py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header - Above fold: Blur In */}
-        <FadeIn direction="blur-in">
-          <div className="mb-20">
-            <Badge variant="accent" className="mb-6">
-              <TrendingUp className="w-4 h-4" />
-              Platform Feature
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-              Grow with Skyhook
-            </h1>
-            <p className="text-xl text-ink-secondary max-w-3xl leading-relaxed">
-              Skyhook seamlessly scales your infrastructure and processes, so you can easily deal with more traffic, more services and more team members. Because Skyhook builds on Kubernetes, you can scale out across clusters or clouds confidently, knowing you won’t hit a proprietary ceiling or be stuck with vendor lock-in.
-            </p>
-          </div>
-        </FadeIn>
+   return (
+      <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+         {/* Background Decoration */}
+         <div
+            className="absolute z-0 pointer-events-none"
+            style={{
+               width: '2529.492px',
+               height: '1026.095px',
+               transform: 'rotate(17.015deg)',
+               borderRadius: '2529.492px',
+               background: '#2D7AFF',
+               filter: 'blur(302px)',
+               top: '-220px',
+               left: '50%',
+               marginLeft: '-1265px',
+               opacity: '0.1'
+            }}
+         />
+         <div className="relative z-10">
+            {/* Hero Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-48 pb-0">
+               <div className="flex flex-col lg:flex-row items-start gap-10">
+                  {/* Left Side */}
+                  <div className="flex flex-col items-start gap-3 flex-1">
+                     <h1
+                        className="text-[#101927] font-semibold leading-[120%] text-[36px] md:text-[60px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Grow with Skyhook
+                     </h1>
+                     <p
+                        className="text-[#445166] font-normal leading-normal text-[18px] md:text-[20px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Scale your applications and team efficiently. Skyhook provides the tools and insights you need to grow without the complexity.
+                     </p>
 
-        {/* How It Works - Below fold: Slide Up */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-           <div className="space-y-12">
-              <FadeIn direction="up">
-                 <h2 className="text-3xl font-bold text-ink-primary mb-8">How It Works</h2>
-                 <div className="space-y-8">
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <ArrowUpRight className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Horizontal Scaling</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Increase the replica count of your services with a simple configuration change or let the system handle it automatically. When load drops, Skyhook can scale back down.
-                          </p>
-                       </div>
-                    </div>
+                     {/* CTAs */}
+                     <div className="flex gap-4 mt-4">
+                        <Button href="/demo">Get a demo</Button>
+                        <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+                     </div>
+                  </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Maximize className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Vertical Scaling</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Adjust resources allotted to each application. Through Skyhook, you can bump up CPU or memory limits if a service needs more horsepower. Kubernetes will reallocate and ensure the app gets the needed resources, allowing you to fine-tune performance as usage grows.
-                          </p>
-                       </div>
-                    </div>
+                  {/* Right Side - Image */}
+                  <div className="flex items-center justify-center">
+                     <img
+                        src="/images/platform/grow/grow-header.svg"
+                        alt="Grow Header"
+                        className="h-auto"
+                     />
+                  </div>
+               </div>
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Server className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Cluster Scaling & Multi-Cluster</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             If one cluster runs out of capacity, Skyhook adds more nodes (in cloud environments) or easily connecting additional clusters. The platform isn’t tied to one cloud – you can grow from a single cluster to multiple clusters across regions or providers as demand requires.
-                          </p>
-                       </div>
-                    </div>
+            {/* Line separator */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
+               <div
+                  style={{
+                     width: '100%', maxWidth: '1310px',
+                     height: '0',
+                     strokeWidth: '1px',
+                     borderBottom: '1px solid #E5E5E5'
+                  }}
+               />
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Network className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Service Discovery & Organization</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             As you add more microservices or modules, Skyhook helps organize them. Built-in service discovery means new services can find each other without custom wiring, even as the ecosystem grows complex.
-                          </p>
-                       </div>
-                    </div>
-                 </div>
-              </FadeIn>
-           </div>
+            {/* How It Works Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-12 md:pt-24 pb-12">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     How It Works
+                  </h2>
 
-           {/* Right Column / Diagram */}
-           <FadeIn delay={0.2} direction="up" className="lg:pt-16">
-              <BlueprintCard className="bg-surface min-h-[500px] flex items-center justify-center">
-                 <div className="text-center space-y-6 opacity-70">
-                     <div className="font-mono text-xs uppercase tracking-widest">Multi-Cluster Federation</div>
-                     <svg width="300" height="200" viewBox="0 0 300 200" className="mx-auto stroke-ink-primary fill-none">
-                        {/* Cluster A */}
-                        <rect x="20" y="40" width="80" height="120" strokeWidth="1" />
-                        <text x="60" y="30" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">US-EAST</text>
-                         <rect x="30" y="50" width="20" height="20" strokeWidth="1" />
-                         <rect x="60" y="50" width="20" height="20" strokeWidth="1" />
-                         <rect x="30" y="80" width="20" height="20" strokeWidth="1" />
-                         <rect x="60" y="80" width="20" height="20" strokeWidth="1" />
+                  {/* Bento Grid - 4 items in 2x2 grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 self-stretch">
+                     {bentoItems.map((item, index) => (
+                        <div
+                           key={index}
+                           className="flex flex-col items-start gap-2.5 self-stretch rounded-xl border border-[#E5E5E5]"
+                           style={{
+                              padding: '20px',
+                              background: '#FFFFFF'
+                           }}
+                        >
+                           {/* Image Container */}
+                           <div
+                              className="flex items-center flex-shrink-0 self-stretch"
+                              style={{
+                                 height: '177px',
+                                 padding: '17.928px 162.937px 17.928px 16px'
+                              }}
+                           >
+                              <img src={item.image} alt={item.title} className="h-auto" />
+                           </div>
 
-                        {/* Cluster B */}
-                        <rect x="200" y="40" width="80" height="120" strokeWidth="1" />
-                        <text x="240" y="30" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">EU-WEST</text>
-                         <rect x="210" y="50" width="20" height="20" strokeWidth="1" />
-                         <rect x="240" y="50" width="20" height="20" strokeWidth="1" />
-                         <rect x="210" y="80" width="20" height="20" strokeWidth="1" />
-                         <rect x="240" y="80" width="20" height="20" strokeWidth="1" />
+                           {/* Text Content */}
+                           <div className="flex flex-col items-start gap-3 self-stretch">
+                              <h3
+                                 className="text-[#101927] font-semibold leading-normal"
+                                 style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                              >
+                                 {item.title}
+                              </h3>
+                              <p
+                                 className="text-[#445166] font-normal"
+                                 style={{
+                                    fontFamily: '"DM Sans"',
+                                    fontSize: '16px',
+                                    lineHeight: '140%'
+                                 }}
+                              >
+                                 {item.description}
+                              </p>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
-                        {/* Connection */}
-                        <path d="M100 100 L200 100" strokeWidth="1" strokeDasharray="4 4" />
-                        <circle cx="150" cy="100" r="15" fill="white" strokeWidth="1" />
-                        <path d="M145 100 L155 100 M150 95 L150 105" strokeWidth="2" />
-                     </svg>
-                 </div>
-              </BlueprintCard>
-           </FadeIn>
-        </div>
+            {/* Features Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-6 pb-6">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     Features
+                  </h2>
 
-        {/* Features Grid */}
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeIn direction="up">
-              <BlueprintCard title="Automatic Pod Autoscaling">
-                <div className="flex items-start gap-3 mb-4">
-                  <ArrowUpRight className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Leverage Kubernetes autoscaling to handle varying workloads. Define metrics (CPU, memory, or custom metrics) for your services, and Skyhook will automatically increase or decrease the number of pods to maintain performance.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Multi-Region Deployments">
-                <div className="flex items-start gap-3 mb-4">
-                  <Globe className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Run your application closer to your users by deploying in multiple geographic regions. Skyhook supports configuring deployments in different regions and routing users accordingly, improving latency and redundancy for global scale.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Usage Analytics">
-                <div className="flex items-start gap-3 mb-4">
-                  <Server className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Track growth with built-in metrics on resource usage and application performance. Identify which services are nearing capacity or which times of day see peak traffic. These insights help with capacity planning and optimizing costs as you scale up.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-        </FadeInStagger>
+                  {/* Features Grid - 2 rows of 3 */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 self-stretch">
+                     {features.map((feature, index) => (
+                        <div
+                           key={index}
+                           className="flex items-start gap-2.5 self-stretch rounded-xl w-full md:w-[428.667px]"
+                           style={{
+                              padding: '30px 20px',
+                              background: '#F6FAFF'
+                           }}
+                        >
+                           <div className="flex flex-col items-start gap-4 flex-1 self-stretch">
+                              {/* Icon */}
+                              <img src={feature.icon} alt={feature.title} className="w-auto h-auto" />
 
-         <FadeIn direction="up" className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12">
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Easy Cluster Expansion</h4>
-                <p className="text-ink-secondary text-sm">When you need more compute power, add nodes to your cluster or attach a new cluster. Skyhook can deploy to multiple clusters from one control plane, allowing for hybrid or multi-cloud growth without changing your workflow.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Extensible Architecture</h4>
-                <p className="text-ink-secondary text-sm">Skyhook is Kubernetes-native, meaning you can plug in custom operators, service meshes, or other CNCF ecosystem tools as you grow. The platform won’t box you in – it works with the broader cloud-native ecosystem.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Governance at Scale</h4>
-                <p className="text-ink-secondary text-sm">Manage growing complexity with features like policy enforcement and auditing. Ensure that even as your team and infrastructure expand, everything stays compliant and under control through unified policies and logs.</p>
-             </div>
-        </FadeIn>
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {feature.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '16px' }}
+                                 >
+                                    {feature.description}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
+            {/* CTA Section */}
+            <CTA />
+         </div>
       </div>
-    </div>
-  );
+   );
 }

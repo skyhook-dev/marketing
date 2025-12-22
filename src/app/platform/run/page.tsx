@@ -1,194 +1,243 @@
 import { Metadata } from "next";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { Badge } from "@/components/ui/Badge";
-import { Play, Activity, ShieldCheck, RefreshCw, Network, Lock, Server, Scale } from "lucide-react";
-import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Run",
-  description: "Run production workloads on Kubernetes with Skyhook. Health checks, resource management, networking, and security policies out of the box.",
+   title: "Run",
+   description: "Run production workloads on Kubernetes with Skyhook. Health checks, resource management, networking, and security policies out of the box.",
 };
 
+const bentoItems = [
+   {
+      image: "/images/platform/run/run-illus-1.svg",
+      title: "Kubernetes Orchestration",
+      description: "Skyhook creates Kubernetes resources on the cluster. Kubernetes schedules your pods on available nodes, optimizing resource usage."
+   },
+   {
+      image: "/images/platform/run/run-illus-2.svg",
+      title: "Health Management",
+      description: "Configure health checks (readiness and liveness probes). Kubernetes monitors app health and automatically restarts failed containers."
+   },
+   {
+      image: "/images/platform/run/run-illus-3.svg",
+      title: "Scaling & Load Balancing",
+      description: "Distribute traffic across multiple instances using Kubernetes Services. Define autoscaling policies to add or remove replicas based on demand."
+   },
+   {
+      image: "/images/platform/run/run-illus-5.svg",
+      title: "Secure Separation",
+      description: "Each service runs in its own isolated environment with enforced CPU, memory, and network limits using Kubernetes security best practices."
+   }
+];
+
+const features = [
+   {
+      icon: "/images/platform/run/run-icon-1.svg",
+      title: "Self-Healing",
+      description: "If a container crashes or a node goes offline, it will restart or reschedule automatically. Your services recover from failures without human intervention."
+   },
+   {
+      icon: "/images/platform/run/run-icon-2.svg",
+      title: "Traffic Management",
+      description: "Built-in load balancing ensures even distribution of requests. Compatible with Istio, Linkerd, or any service mesh tool you choose."
+   },
+   {
+      icon: "/images/platform/run/run-icon-3.svg",
+      title: "Secrets & ConfigMaps",
+      description: "Manage configuration and secrets securely. Inject configs or sensitive values via Kubernetes Secrets and ConfigMaps at runtime."
+   },
+   {
+      icon: "/images/platform/run/run-icon-4.svg",
+      title: "High Availability",
+      description: "Deployments spread across multiple nodes for resilience. Your app instances remain available even during node maintenance or outages."
+   },
+   {
+      icon: "/images/platform/run/run-icon-5.svg",
+      title: "Resource Quotas & Limits",
+      description: "Set CPU and memory limits for each application. Kubernetes enforces these at runtime for predictable performance."
+   },
+   {
+      icon: "/images/platform/run/run-icon-6.svg",
+      title: "Rolling Maintenance",
+      description: "Perform cluster or application maintenance with minimal disruption using rolling updates coordinated by Kubernetes controllers."
+   }
+];
+
 export default function RunPage() {
-  return (
-    <div className="min-h-screen bg-background py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header - Above fold: Blur In */}
-        <FadeIn direction="blur-in">
-          <div className="mb-20">
-            <Badge variant="accent" className="mb-6">
-              <Play className="w-4 h-4" />
-              Platform Feature
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-              Run with Skyhook
-            </h1>
-            <p className="text-xl text-ink-secondary max-w-3xl leading-relaxed">
-              Keep your applications healthy, performant, and secure once they’re deployed. Skyhook’s Kubernetes-native runtime ensures your containers are managed by battle-tested orchestration logic – from automatic restarts on failure to intelligent load balancing. Get the reliability and resilience of Kubernetes without the manual overhead.
-            </p>
-          </div>
-        </FadeIn>
+   return (
+      <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+         {/* Background Decoration */}
+         <div
+            className="absolute z-0 pointer-events-none"
+            style={{
+               width: '2529.492px',
+               height: '1026.095px',
+               transform: 'rotate(17.015deg)',
+               borderRadius: '2529.492px',
+               background: '#2D7AFF',
+               filter: 'blur(302px)',
+               top: '-220px',
+               left: '50%',
+               marginLeft: '-1265px',
+               opacity: '0.1'
+            }}
+         />
+         <div className="relative z-10">
+            {/* Hero Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-48 pb-0">
+               <div className="flex flex-col lg:flex-row items-start gap-10">
+                  {/* Left Side */}
+                  <div className="flex flex-col items-start gap-3 flex-1">
+                     <h1
+                        className="text-[#101927] font-semibold leading-[120%] text-[36px] md:text-[60px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Run with Skyhook
+                     </h1>
+                     <p
+                        className="text-[#445166] font-normal leading-normal text-[18px] md:text-[20px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Keep your applications healthy, performant, and secure once they're deployed. Get the reliability and resilience of Kubernetes without the manual overhead.
+                     </p>
 
-        {/* How It Works - Below fold: Slide Up */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-           <div className="space-y-12">
-              <FadeIn direction="up">
-                 <h2 className="text-3xl font-bold text-ink-primary mb-8">How It Works</h2>
-                 <div className="space-y-8">
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Server className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Kubernetes Orchestration</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Skyhook creates Kubernetes resources (Deployments, Pods, Services, etc.) on the cluster. Kubernetes schedules your pods on available nodes, taking into account resource needs and optimizing binpacking.
-                          </p>
-                       </div>
-                    </div>
+                     {/* CTAs */}
+                     <div className="flex gap-4 mt-4">
+                        <Button href="/demo">Get a demo</Button>
+                        <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+                     </div>
+                  </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Activity className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Health Management</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Each service can be configured with health checks (readiness and liveness probes). Skyhook will use these to let Kubernetes monitor the app’s health. If a container fails or becomes unresponsive, Kubernetes will mark it unhealthy and restart it or replace it automatically.
-                          </p>
-                       </div>
-                    </div>
+                  {/* Right Side - Image */}
+                  <div className="flex items-center justify-center">
+                     <img
+                        src="/images/platform/run/run-header.svg"
+                        alt="Run Header"
+                        className="h-auto"
+                     />
+                  </div>
+               </div>
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Scale className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Scaling & Load Balancing</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             The platform distributes traffic across multiple instances of your service using Kubernetes Services or Ingress. You can also define autoscaling policies so the system adds or removes replicas based on demand.
-                          </p>
-                       </div>
-                    </div>
+            {/* Line separator */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
+               <div
+                  style={{
+                     width: '100%', maxWidth: '1310px',
+                     height: '0',
+                     strokeWidth: '1px',
+                     borderBottom: '1px solid #E5E5E5'
+                  }}
+               />
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <ShieldCheck className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Secure Separation</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Each service runs in its own isolated environment, enforcing limits on CPU, memory, and network as you specified. Skyhook uses Kubernetes security best practices out of the box.
-                          </p>
-                       </div>
-                    </div>
+            {/* How It Works Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-12 md:pt-24 pb-12">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     How It Works
+                  </h2>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <RefreshCw className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Continuous Monitoring</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             The runtime constantly collects metrics and status from your applications. Skyhook surfaces this information (like CPU usage, memory, restart counts) in the dashboard. This means you always know how your services are performing in real time.
-                          </p>
-                       </div>
-                    </div>
-                 </div>
-              </FadeIn>
-           </div>
+                  {/* Bento Grid - Only 4 items, so 2x2 grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 self-stretch">
+                     {bentoItems.map((item, index) => (
+                        <div
+                           key={index}
+                           className="flex flex-col items-start gap-2.5 self-stretch rounded-xl border border-[#E5E5E5]"
+                           style={{
+                              padding: '20px',
+                              background: '#FFFFFF'
+                           }}
+                        >
+                           {/* Image Container */}
+                           <div
+                              className="flex items-center flex-shrink-0 self-stretch"
+                              style={{
+                                 height: '177px',
+                                 padding: '17.928px 162.937px 17.928px 16px'
+                              }}
+                           >
+                              <img src={item.image} alt={item.title} className="h-auto" />
+                           </div>
 
-           {/* Right Column / Diagram */}
-           <FadeIn delay={0.2} direction="up" className="lg:pt-16">
-              <BlueprintCard className="bg-surface min-h-[500px] flex items-center justify-center">
-                 <div className="text-center space-y-6 opacity-70">
-                     <div className="font-mono text-xs uppercase tracking-widest">Run Loop</div>
-                     <svg width="250" height="250" viewBox="0 0 250 250" className="mx-auto stroke-ink-primary fill-none">
-                        <circle cx="125" cy="125" r="100" strokeWidth="2" strokeDasharray="10 5" className="animate-spin-slow origin-center" />
-                        
-                        <g transform="translate(125, 125)">
-                            <rect x="-20" y="-20" width="40" height="40" strokeWidth="2" fill="white" />
-                            <text x="0" y="5" textAnchor="middle" fontSize="10" fontFamily="monospace" stroke="none" fill="black">K8S</text>
-                        </g>
+                           {/* Text Content */}
+                           <div className="flex flex-col items-start gap-3 self-stretch">
+                              <h3
+                                 className="text-[#101927] font-semibold leading-normal"
+                                 style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                              >
+                                 {item.title}
+                              </h3>
+                              <p
+                                 className="text-[#445166] font-normal"
+                                 style={{
+                                    fontFamily: '"DM Sans"',
+                                    fontSize: '16px',
+                                    lineHeight: '140%'
+                                 }}
+                              >
+                                 {item.description}
+                              </p>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
-                        {/* Orbiting elements */}
-                        <g transform="translate(125, 25)">
-                            <circle r="15" fill="white" strokeWidth="1"/>
-                            <path d="M-5 0 L0 5 L5 -5" strokeWidth="2" />
-                        </g>
+            {/* Features Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-6 pb-6">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     Features
+                  </h2>
 
-                         <g transform="translate(225, 125)">
-                            <circle r="15" fill="white" strokeWidth="1"/>
-                            <rect x="-5" y="-5" width="10" height="10" strokeWidth="1" />
-                        </g>
-                        
-                        <g transform="translate(125, 225)">
-                            <circle r="15" fill="white" strokeWidth="1"/>
-                            <path d="M-5 0 L5 0 M0 -5 L0 5" strokeWidth="2" />
-                        </g>
+                  {/* Features Grid - 2 rows of 3 */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 self-stretch">
+                     {features.map((feature, index) => (
+                        <div
+                           key={index}
+                           className="flex items-start gap-2.5 self-stretch rounded-xl w-full md:w-[428.667px]"
+                           style={{
+                              padding: '30px 20px',
+                              background: '#F6FAFF'
+                           }}
+                        >
+                           <div className="flex flex-col items-start gap-4 flex-1 self-stretch">
+                              {/* Icon */}
+                              <img src={feature.icon} alt={feature.title} className="w-auto h-auto" />
 
-                        <g transform="translate(25, 125)">
-                            <circle r="15" fill="white" strokeWidth="1"/>
-                            <circle r="5" strokeWidth="1" />
-                        </g>
-                     </svg>
-                     <p className="text-xs font-mono text-ink-secondary">Reconciling Desired State...</p>
-                 </div>
-              </BlueprintCard>
-           </FadeIn>
-        </div>
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {feature.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '16px' }}
+                                 >
+                                    {feature.description}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
-        {/* Features Grid */}
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeIn direction="up">
-              <BlueprintCard title="Self-Healing">
-                <div className="flex items-start gap-3 mb-4">
-                  <RefreshCw className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     If a container crashes or a node goes offline, the container will restart or reschedule on another node automatically. Your services recover from failures without human intervention.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Traffic Management">
-                <div className="flex items-start gap-3 mb-4">
-                  <Network className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Built-in load balancing ensures even distribution of requests. You can also implement advanced traffic control (like network policies or service mesh integration) since everything runs on standard Kubernetes – it’s compatible with Istio, Linkerd, or any tool you choose to add.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Secrets & ConfigMaps">
-                <div className="flex items-start gap-3 mb-4">
-                  <Lock className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Manage configuration and secrets securely. Skyhook lets you inject configs or sensitive values (API keys, credentials) via Kubernetes Secrets and ConfigMaps, so they are available to the app at runtime but not baked into images or code.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-        </FadeInStagger>
-
-         <FadeIn direction="up" className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12">
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">High Availability</h4>
-                <p className="text-ink-secondary text-sm">Deployments can be spread across multiple nodes for resilience. Even during node maintenance or outages, your app instances remain available on other nodes.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Resource Quotas & Limits</h4>
-                <p className="text-ink-secondary text-sm">Prevent any single service from hogging resources. Set CPU and memory limits for each application; Kubernetes will enforce these at runtime. This means more predictable performance and no noisy-neighbor issues.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Rolling Maintenance</h4>
-                <p className="text-ink-secondary text-sm">Perform cluster or application maintenance with minimal disruption. For example, update the base image or apply security patches using rolling updates. Skyhook coordinates these changes using Kubernetes controllers to avoid downtime.</p>
-             </div>
-        </FadeIn>
-
+            {/* CTA Section */}
+            <CTA />
+         </div>
       </div>
-    </div>
-  );
+   );
 }
