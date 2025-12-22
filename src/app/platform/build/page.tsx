@@ -1,181 +1,296 @@
 import { Metadata } from "next";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { Badge } from "@/components/ui/Badge";
-import { Box, GitBranch, Container, Settings, FileText, Zap, Layers, ShieldCheck } from "lucide-react";
-import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Build",
-  description: "Build container images from your code with Skyhook. Automated CI pipelines, multi-architecture builds, and secure image registries for Kubernetes deployments.",
+   title: "Build",
+   description: "Build container images from your code with Skyhook. Automated CI pipelines, multi-architecture builds, and secure image registries for Kubernetes deployments.",
 };
 
+const bentoItems = [
+   {
+      image: "/images/platform/build/build-illus-1.svg",
+      title: "Connect Your Repo",
+      description: "Link your Git repository (GitHub, GitLab, etc.) to Skyhook. Commits can automatically trigger the build pipeline."
+   },
+   {
+      image: "/images/platform/build/build-illus-2.svg",
+      title: "Containerized Build Process",
+      description: "Skyhook ensures the process end-to-end: compile code, run tests, and package your application with consistency across environments."
+   },
+   {
+      image: "/images/platform/build/build-illus-3.svg",
+      title: "Flexible Build Configuration",
+      description: "Use your own Dockerfile or use the Skyhook defaults. Customize environment variables and dependencies as needed."
+   },
+   {
+      image: "/images/platform/build/build-illus-4.svg",
+      title: "Optimized Artifacts",
+      description: "The pipeline produces an OCI-compliant container image ready for deployment. Built images can be pushed to your preferred registry."
+   },
+   {
+      image: "/images/platform/build/build-illus-5.svg",
+      title: "Feedback & Logs",
+      description: "Developers get immediate feedback. Real-time logs and notifications inform you of success or failure."
+   }
+];
+
+const features = [
+   {
+      icon: "/images/platform/build/build-icon-1.svg",
+      title: "Bulletproof CI",
+      description: "The system can run multiple builds in parallel, auto-scaling build agents to meet your team's demand."
+   },
+   {
+      icon: "/images/platform/build/build-icon-2.svg",
+      title: "Layer Caching",
+      description: "Intelligent caching speeds up repeat builds by reusing unchanged layers. This dramatically cuts down build times for iterative development."
+   },
+   {
+      icon: "/images/platform/build/build-icon-3.svg",
+      title: "Security Scanning",
+      description: "Integrate container scanning tools in the pipeline. Easily plug in vulnerability scanners or linters without modifying your base environment."
+   },
+   {
+      icon: "/images/platform/build/build-icon-4.svg",
+      title: "Multi-Language Support",
+      description: "Build applications in Node, Python, Java, Go, or any language. If it can run in a container, Skyhook can build it."
+   },
+   {
+      icon: "/images/platform/build/build-icon-5.svg",
+      title: "Configuration as Code",
+      description: "Define build steps and environment in a YAML config. Your build process lives alongside your code, versioned and auditable."
+   },
+   {
+      icon: "/images/platform/build/build-icon-6.svg",
+      title: "Artifact Management",
+      description: "Store build outputs and track build history. Every build is tagged and timestamped, making it easy to trace which code went into which image."
+   }
+];
+
 export default function BuildPage() {
-  return (
-    <div className="min-h-screen bg-background py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header - Above fold: Blur In */}
-        <FadeIn direction="blur-in">
-          <div className="mb-20">
-            <Badge variant="accent" className="mb-6">
-              <Box className="w-4 h-4" />
-              Platform Feature
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-              Build with Skyhook
-            </h1>
-            <p className="text-xl text-ink-secondary max-w-3xl leading-relaxed">
-              Take your code from repository to container image with unmatched speed and reliability. Leverage a Kubernetes-native pipeline that scales on demand, so every commit triggers a consistent build in an isolated environment. By automating builds, Skyhook ensures reproducible results and quick feedback for your developers.
-            </p>
-          </div>
-        </FadeIn>
+   return (
+      <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+         {/* Background Decoration */}
+         <div
+            className="absolute z-0 pointer-events-none"
+            style={{
+               width: '2529.492px',
+               height: '1026.095px',
+               transform: 'rotate(17.015deg)',
+               borderRadius: '2529.492px',
+               background: '#2D7AFF',
+               filter: 'blur(302px)',
+               top: '-220px',
+               left: '50%',
+               marginLeft: '-1265px',
+               opacity: '0.1'
+            }}
+         />
+         <div className="relative z-10">
+            {/* Hero Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-48 pb-0">
+               <div className="flex flex-col lg:flex-row items-start gap-10">
+                  {/* Left Side */}
+                  <div className="flex flex-col items-start gap-3 flex-1">
+                     <h1
+                        className="text-[#101927] font-semibold leading-[120%] text-[36px] md:text-[60px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Build with Skyhook
+                     </h1>
+                     <p
+                        className="text-[#445166] font-normal leading-normal text-[18px] md:text-[20px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Take your code from repository to container image with unmatched speed and reliability. Leverage a Kubernetes-native pipeline that scales on demand.
+                     </p>
 
-        {/* How It Works - Below fold: Slide Up */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-           <div className="space-y-12">
-              <FadeIn direction="up">
-                 <h2 className="text-3xl font-bold text-ink-primary mb-8">How It Works</h2>
-                 <div className="space-y-8">
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <GitBranch className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Connect Your Repo</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Link your Git repository (GitHub, GitLab, etc.) to Skyhook. Commits can automatically trigger the build pipeline.
-                          </p>
-                       </div>
-                    </div>
+                     {/* CTAs */}
+                     <div className="flex gap-4 mt-4">
+                        <Button href="/demo">Get a demo</Button>
+                        <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+                     </div>
+                  </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Box className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Containerized Build Process</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Skyhook ensures the process end-to-end: compile code, run tests, and package your application with consistency across environments.
-                          </p>
-                       </div>
-                    </div>
+                  {/* Right Side - Image */}
+                  <div className="flex items-center justify-center">
+                     <img
+                        src="/images/platform/build/build-header.svg"
+                        alt="Build Header"
+                        className="h-auto"
+                     />
+                  </div>
+               </div>
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Settings className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Flexible Build Configuration</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Use your own Dockerfile or use the Skyhook defaults. Customize environment variables and dependencies as needed, since Skyhook supports any language or framework that runs in a container.
-                          </p>
-                       </div>
-                    </div>
+            {/* Line separator */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
+               <div
+                  style={{
+                     width: '100%', maxWidth: '1310px',
+                     height: '0',
+                     strokeWidth: '1px',
+                     borderBottom: '1px solid #E5E5E5'
+                  }}
+               />
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Container className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Optimized Artifacts</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             The pipeline produces an OCI-compliant container image (and other artifacts if configured) ready for deployment. Built images can be pushed to your preferred registry or stored securely within the platform for the Deploy stage.
-                          </p>
-                       </div>
-                    </div>
+            {/* How It Works Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-12 md:pt-24 pb-12">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     How It Works
+                  </h2>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <FileText className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Feedback & Logs</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Developers get immediate feedback. Real-time logs and notifications inform you of success or failure. If something goes wrong, detailed logs in the web UI or CLI make troubleshooting straightforward.
-                          </p>
-                       </div>
-                    </div>
-                 </div>
-              </FadeIn>
-           </div>
+                  {/* Bento Grid */}
+                  <div className="flex flex-col items-start gap-5 self-stretch h-auto md:h-[755px]">
+                     <div className="flex flex-col md:flex-row gap-5 self-stretch">
+                        {/* First 3 boxes */}
+                        {bentoItems.slice(0, 3).map((item, index) => (
+                           <div
+                              key={index}
+                              className="flex flex-col items-start gap-2.5 self-stretch rounded-xl border border-[#E5E5E5] w-full md:w-[423.333px]"
+                              style={{
+                                 padding: '20px',
+                                 background: '#FFFFFF'
+                              }}
+                           >
+                              {/* Image Container */}
+                              <div
+                                 className="flex items-center flex-shrink-0 self-stretch"
+                                 style={{
+                                    height: '177px',
+                                    padding: '17.928px 162.937px 17.928px 16px'
+                                 }}
+                              >
+                                 <img src={item.image} alt={item.title} className="h-auto" />
+                              </div>
 
-           {/* Right Column / Diagram */}
-           <FadeIn delay={0.2} direction="up" className="lg:pt-16">
-              <BlueprintCard className="bg-surface min-h-[500px] p-8">
-                 <div className="flex flex-col gap-4 h-full">
-                    <div className="flex items-center justify-between border-b border-border pb-4">
-                       <span className="font-mono font-bold text-sm">BUILD_PIPELINE_STATUS</span>
-                       <span className="bg-green-100 text-green-700 px-2 py-0.5 text-xs border border-green-200 font-mono">RUNNING</span>
-                    </div>
-                    <div className="font-mono text-xs text-ink-secondary space-y-2">
-                       <p>{`> git clone https://github.com/skyhook/demo-app`}</p>
-                       <p>{`> docker build -t demo-app:latest .`}</p>
-                       <p className="text-ink-primary">{`[+] Building 1.4s (8/8) FINISHED`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [internal] load build definition from Dockerfile`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [internal] load metadata for docker.io/library/node:18`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [1/5] FROM docker.io/library/node:18@sha256:xyz`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [2/5] WORKDIR /app`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [3/5] COPY package*.json ./`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [4/5] RUN npm install`}</p>
-                       <p className="pl-4 text-gray-500">{`=> [5/5] COPY . .`}</p>
-                       <p>{`> docker push registry.skyhook.io/demo-app:latest`}</p>
-                       <p className="text-green-600 font-bold">{`Build successful!`}</p>
-                    </div>
-                 </div>
-              </BlueprintCard>
-           </FadeIn>
-        </div>
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {item.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal"
+                                    style={{
+                                       fontFamily: '"DM Sans"',
+                                       fontSize: '16px',
+                                       lineHeight: '140%'
+                                    }}
+                                 >
+                                    {item.description}
+                                 </p>
+                              </div>
+                           </div>
+                        ))}
+                     </div>
 
-        {/* Features Grid */}
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeIn direction="up">
-              <BlueprintCard title="Bulletproof CI">
-                <div className="flex items-start gap-3 mb-4">
-                  <Zap className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     The system can run multiple builds in parallel, auto-scaling build agents to meet your team’s demand.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Layer Caching">
-                <div className="flex items-start gap-3 mb-4">
-                  <Layers className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Intelligent caching speeds up repeat builds by reusing unchanged layers (for example, skipping steps when dependencies haven’t changed). This dramatically cuts down build times for iterative development.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Security Scanning">
-                <div className="flex items-start gap-3 mb-4">
-                  <ShieldCheck className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     (Optional) Integrate container scanning tools in the pipeline. Since builds are containerized, you can easily plug in vulnerability scanners or linters without modifying your base environment.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-        </FadeInStagger>
+                     <div className="flex flex-col md:flex-row gap-5 self-stretch">
+                        {/* Last 2 boxes */}
+                        {bentoItems.slice(3, 5).map((item, index) => (
+                           <div
+                              key={index}
+                              className="flex flex-col items-start gap-2.5 self-stretch rounded-xl border border-[#E5E5E5] flex-1"
+                              style={{
+                                 padding: '20px',
+                                 background: '#FFFFFF'
+                              }}
+                           >
+                              {/* Image Container */}
+                              <div
+                                 className="flex items-center flex-shrink-0 self-stretch"
+                                 style={{
+                                    height: '177px',
+                                    padding: '17.928px 162.937px 17.928px 16px'
+                                 }}
+                              >
+                                 <img src={item.image} alt={item.title} className="h-auto" />
+                              </div>
 
-        <FadeIn direction="up" className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12">
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Multi-Language Support</h4>
-                <p className="text-ink-secondary text-sm">Build applications in Node, Python, Java, Go, or any language. If it can run in a container, Skyhook can build it. No specialized or proprietary config required.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Configuration as Code</h4>
-                <p className="text-ink-secondary text-sm">Define build steps and environment in a YAML config, or stick with convention over configuration for simple cases. Your build process lives alongside your code, versioned and auditable.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Artifact Management</h4>
-                <p className="text-ink-secondary text-sm">Store build outputs (images, binaries, reports) and track build history. Every build is tagged and timestamped, making it easy to trace which code went into which image.</p>
-             </div>
-        </FadeIn>
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {item.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal"
+                                    style={{
+                                       fontFamily: '"DM Sans"',
+                                       fontSize: '16px',
+                                       lineHeight: '140%'
+                                    }}
+                                 >
+                                    {item.description}
+                                 </p>
+                              </div>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+               </div>
+            </div>
 
+            {/* Features Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-6 pb-6">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     Features
+                  </h2>
+
+                  {/* Features Grid - 2 rows of 3 */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 self-stretch">
+                     {features.map((feature, index) => (
+                        <div
+                           key={index}
+                           className="flex items-start gap-2.5 self-stretch rounded-xl w-full md:w-[428.667px]"
+                           style={{
+                              padding: '30px 20px',
+                              background: '#F6FAFF'
+                           }}
+                        >
+                           <div className="flex flex-col items-start gap-4 flex-1 self-stretch">
+                              {/* Icon */}
+                              <img src={feature.icon} alt={feature.title} className="w-auto h-auto" />
+
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {feature.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '16px' }}
+                                 >
+                                    {feature.description}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
+
+            {/* CTA Section */}
+            <CTA />
+         </div>
       </div>
-    </div>
-  );
+   );
 }
