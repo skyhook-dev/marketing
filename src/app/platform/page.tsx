@@ -1,160 +1,128 @@
-"use client";
 
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
+import { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
-import { Box, Layers, Play, TrendingUp, Activity, Sparkles, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { CTA } from "@/components/CTA";
 import { ValuePropsGrid } from "@/components/shared/ValuePropsGrid";
+import { SDLCPipeline } from "@/components/home/SDLCPipeline";
+import { WhatIsSkyhook } from "@/components/platform/WhatIsSkyhook";
 
-const features = [
-  {
-    id: "build",
-    title: "Build",
-    icon: Box,
-    href: "/platform/build",
-    description: "Take your code from repository to container image with unmatched speed and reliability."
-  },
-  {
-    id: "deploy",
-    title: "Deploy",
-    icon: Layers,
-    href: "/platform/deploy",
-    description: "Release your applications in a fast, repeatable, and worry-free process."
-  },
-  {
-    id: "run",
-    title: "Run",
-    icon: Play,
-    href: "/platform/run",
-    description: "Keep your applications healthy, performant, and secure once they’re deployed."
-  },
-  {
-    id: "grow",
-    title: "Grow",
-    icon: TrendingUp,
-    href: "/platform/grow",
-    description: "Seamlessly scale your infrastructure and processes."
-  },
-  {
-    id: "observe",
-    title: "Observe",
-    icon: Activity,
-    href: "/platform/observe",
-    description: "Monitor, trace, and troubleshoot your applications with ease."
-  }
-];
+export const metadata: Metadata = {
+  title: "Platform",
+  description: "A Kubernetes platform that’s all set. Today",
+};
 
 export default function PlatformPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="py-24 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-            Great devOps, <br />
-            <span className="text-ink-secondary">ready to roll</span>
-          </h1>
-          <p className="text-xl text-ink-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            {"A Kubernetes platform that's all set. Today Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed."}
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button href="/demo">Get a demo</Button>
-          </div>
-        </div>
-      </section>
-
-      {/* What is Skyhook? */}
-      <section className="py-24 bg-surface border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary mb-6">
-                What is Skyhook?
-              </h2>
-              <div className="space-y-6 text-lg text-ink-secondary leading-relaxed">
-                <p>
-                  Skyhook is all the automation and work you would do to deliver a kubernetes-based platform, available immediately, right in your cloud, on your terms, together with a developer interface.
-                </p>
-                <p>
-                  {"It's a modern k8s-based internal developer platform that implements best practices and golden paths, by orchestrating the best-of-breed open source and enterprise tools in the industry."}
-                </p>
-              </div>
-            </div>
-             {/* Platform Architecture */}
-            <div className="rounded-lg overflow-hidden shadow-lg border border-border">
-              <img
-                src="/images/heroes/hero.png"
-                alt="Skyhook Platform Architecture"
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Skyhook? */}
-      <ValuePropsGrid
-        subtitle={"It's easy to try, easy to get running and doesn't present the lock-in risk that's inherent to PaaS or non-Kubernetes platforms."}
+    <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+      {/* Background Decoration */}
+      <div
+        className="absolute z-0 pointer-events-none"
+        style={{
+          width: '2529.492px',
+          height: '1026.095px',
+          transform: 'rotate(17.015deg)',
+          borderRadius: '2529.492px',
+          background: '#2D7AFF',
+          filter: 'blur(302px)',
+          top: '-220px',
+          left: '50%',
+          marginLeft: '-1265px',
+          opacity: '0.1'
+        }}
       />
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-32 md:pt-48 pb-12">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            <div className="flex flex-col items-start gap-6 flex-1 text-left">
+              {/* Small Title */}
+              <span className="text-[#445166] font-medium text-lg md:text-xl tracking-wide">
+                Great devOps, ready to roll
+              </span>
 
-      {/* Our platform covers the entire SDLC */}
-      <section className="py-24 bg-surface border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink-primary">
-              Our platform covers the entire SDLC
-            </h2>
-          </div>
+              {/* Title */}
+              <h1
+                className="text-[#101927] font-semibold leading-[110%] text-[36px] md:text-[60px]"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                A Kubernetes platform that’s all set. Today
+              </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <Link key={feature.id} href={feature.href} className="group">
-                   <div className="h-full bg-background border border-border p-6 hover:border-accent transition-colors shadow-sm hover:shadow-md">
-                      <div className="w-12 h-12 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                        <Icon className="w-6 h-6 text-ink-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold text-ink-primary mb-2 flex items-center gap-2">
-                        {feature.title}
-                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-accent" />
-                      </h3>
-                      <p className="text-sm text-ink-secondary">
-                        {feature.description}
-                      </p>
-                   </div>
-                </Link>
-              );
-            })}
+              {/* Subtitle */}
+              <p
+                className="text-[#445166] font-normal leading-normal max-w-xl text-lg md:text-xl"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                Skyhook supports all your internal developer platform needs, from platform set-up through migration and large scale deployments. It’s the DevOps automation you’ve always needed.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex gap-4 mt-2">
+                <Button href="/demo">Get a demo</Button>
+                <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+              </div>
+            </div>
+
+            {/* Header Image */}
+            <div className="flex-1 flex justify-center items-center">
+              <img src="/images/for-dev/Dev-image.svg" alt="Platform" className="w-full h-auto" />
+            </div>
           </div>
         </div>
-      </section>
 
-       {/* Additional Sections */}
-       <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              <div>
-                 <h3 className="text-2xl font-bold text-ink-primary mb-4">Easy to get started and to migrate from</h3>
-                 <p className="text-lg text-ink-secondary leading-relaxed">
-                   It’s easy to start using Skyhook and it’s also easy to stop using it since there is no PaaS lock-in.
-                 </p>
-              </div>
-              <div>
-                 <div className="flex items-center gap-3 mb-4">
-                    <Sparkles className="w-6 h-6 text-accent" />
-                    <h3 className="text-2xl font-bold text-ink-primary">AI-ready</h3>
-                 </div>
-                 <p className="text-lg text-ink-secondary leading-relaxed mb-6">
-                   Skyhook’s platform is set up to provide the right context to be used by your MCP server, so you can set up ai-driven developer self-service quickly and easily.
-                 </p>
-                 <Link href="/platform/ai-ready" className="text-accent font-medium hover:underline flex items-center gap-1">
-                    Learn more about AI-Ready <ArrowRight className="w-4 h-4" />
-                 </Link>
-              </div>
-           </div>
+        {/* What is Skyhook */}
+        <WhatIsSkyhook />
+
+        {/* Why Choose Skyhook */}
+        <ValuePropsGrid className="!bg-transparent" />
+
+        {/* SDLC */}
+        <div className="bg-transparent">
+          <SDLCPipeline
+            title="Our platform covers the entire SDLC"
+            subtitle=""
+          />
         </div>
-       </section>
+
+        {/* Easy to get started */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 py-12">
+          <div className="bg-[#F6FAFF] rounded-2xl p-12 md:p-24 text-center">
+            <div className="max-w-4xl mx-auto flex flex-col gap-6">
+              <h2
+                className="text-[#101927] font-semibold leading-[110%] text-[30px] md:text-[40px]"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                Easy to get started and to migrate from
+              </h2>
+              <p className="text-[#445166] text-lg md:text-xl leading-relaxed">
+                It’s easy to start using Skyhook and it’s also easy to stop using it since there is no PaaS lock-in.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* AI-ready */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 py-12 md:py-12 md:py-24">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1 flex flex-col gap-6 items-start text-left">
+              <h2
+                className="text-[#101927] font-semibold leading-[110%] text-[32px] md:text-[50px]"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                AI-ready
+              </h2>
+              <p className="text-[#445166] text-lg md:text-xl leading-relaxed">
+                Skyhook’s platform is set up to provide the right context to be used by your MCP server, so you can set up ai-driven developer self-service quickly and easily.
+              </p>
+            </div>
+            <div className="flex-1 flex justify-center">
+              <img src="/images/platform/ai agent/ai-agent-1.svg" alt="AI Ready" className="h-auto" />
+            </div>
+          </div>
+        </div>
+
+        <CTA />
+      </div>
     </div>
   );
 }

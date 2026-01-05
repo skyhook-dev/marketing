@@ -21,26 +21,27 @@ type NavSection = {
 };
 
 const navMap: Record<string, NavSection> = {
-  // platform: {
-  //   label: "Platform",
-  //   items: [
-  //     { name: "AI Ready", href: "/platform/ai-ready", icon: "/images/navbar icons/ai-ready-nav.svg" },
-  //     { name: "Build", href: "/platform/build", icon: "/images/navbar icons/build-nav.svg" },
-  //     { name: "Deploy", href: "/platform/deploy", icon: "/images/navbar icons/deploy-nav.svg" },
-  //     { name: "Run", href: "/platform/run", icon: "/images/navbar icons/run-nav.svg" },
-  //     { name: "Grow", href: "/platform/grow", icon: "/images/navbar icons/grow-nav.svg" },
-  //     { name: "Observe", href: "/platform/observe", icon: "/images/navbar icons/observe-nav.svg" },
-  //   ]
-  // },
-  // solutions: {
-  //   label: "Solutions",
-  //   items: [
-  //     { name: "Preview Environments", href: "/solutions/preview-environments", icon: "/images/navbar icons/preview-nav.svg" },
-  //     { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: "/images/navbar icons/rollout-nav.svg" },
-  //     { name: "Service Catalog", href: "/solutions/service-catalog", icon: "/images/navbar icons/catalog-nav.svg" },
-  //     { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: "/images/navbar icons/scaling-nav.svg" },
-  //   ]
-  // },
+  platform: {
+    label: "Platform",
+    items: [
+      { name: "Platform", href: "/platform", icon: "/images/navbar icons/platform-nav.svg" },
+      { name: "AI Ready", href: "/platform/ai-ready", icon: "/images/navbar icons/ai-ready-nav.svg" },
+      { name: "Build", href: "/platform/build", icon: "/images/navbar icons/build-nav.svg" },
+      { name: "Deploy", href: "/platform/deploy", icon: "/images/navbar icons/deploy-nav.svg" },
+      { name: "Run", href: "/platform/run", icon: "/images/navbar icons/run-nav.svg" },
+      { name: "Grow", href: "/platform/grow", icon: "/images/navbar icons/grow-nav.svg" },
+      { name: "Observe", href: "/platform/observe", icon: "/images/navbar icons/observe-nav.svg" },
+    ]
+  },
+  solutions: {
+    label: "Solutions",
+    items: [
+      { name: "Preview Environments", href: "/solutions/preview-environments", icon: "/images/navbar icons/preview-nav.svg" },
+      { name: "Rollout Strategies", href: "/solutions/rollout-strategies", icon: "/images/navbar icons/rollout-nav.svg" },
+      { name: "Service Catalog", href: "/solutions/service-catalog", icon: "/images/navbar icons/catalog-nav.svg" },
+      { name: "Auto-Scaling", href: "/solutions/auto-scaling", icon: "/images/navbar icons/scaling-nav.svg" },
+    ]
+  },
   resources: {
     label: "Resources",
     items: [
@@ -73,7 +74,7 @@ export function Nav() {
           "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-[width,height,top,border-radius]",
           scrolled
             ? "top-0 w-full md:top-4 md:w-[calc(100%-2rem)] md:max-w-6xl rounded-none md:rounded-2xl glass-strong border-b md:border border-border shadow-lg backdrop-blur-xl h-16"
-            : "top-0 w-full glass-subtle border-b border-transparent h-20"
+            : "top-0 w-full bg-transparent backdrop-blur-none border-b border-transparent h-20"
         )}
         onMouseLeave={() => setActiveDropdown(null)}
       >
