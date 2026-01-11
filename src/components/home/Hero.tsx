@@ -19,7 +19,7 @@ export function Hero() {
                   <span className="text-[#445166] md:text-ink-secondary">PaaS simplicity.</span>
                 </h1>
                 <p className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
-                  The production-grade platform you&apos;d build yourself if you had the time - deployed on your cloud in minutes. No lock-in.
+                  The production-grade Internal Developer Platform you&apos;d build yourself if you had the time - deployed on your cloud in minutes. No lock-in.
                 </p>
               </div>
             </FadeIn>
