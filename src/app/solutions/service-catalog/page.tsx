@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { Badge } from "@/components/ui/Badge";
-import { Book, Layout, Laptop } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/CTA";
 import { ValueProps } from "@/components/home/ValueProps";
-import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
   title: "Service Catalog",
@@ -12,80 +10,94 @@ export const metadata: Metadata = {
 
 export default function ServiceCatalogPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        
-        {/* Hero - Above fold: Blur In */}
-        <FadeIn direction="blur-in">
-          <div className="mb-20 text-center">
-            <Badge variant="accent" className="mb-6">
-              <Book className="w-4 h-4" />
-              Solution
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-               Internal developer platform
+    <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+      {/* Background Decoration */}
+      <div
+        className="absolute z-0 pointer-events-none"
+        style={{
+          width: '2529.492px',
+          height: '1026.095px',
+          transform: 'rotate(17.015deg)',
+          borderRadius: '2529.492px',
+          background: '#2D7AFF',
+          filter: 'blur(302px)',
+          top: '-220px',
+          left: '50%',
+          marginLeft: '-1265px',
+          opacity: '0.1'
+        }}
+      />
+      <div className="relative z-10">
+        {/* Hero Section - Text Only */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-48 pb-12">
+          <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
+            <h1
+              className="text-[#101927] font-semibold leading-[120%] text-[36px] md:text-[60px]"
+              style={{ fontFamily: '"DM Sans"' }}
+            >
+              Internal developer platform
             </h1>
-             <h2 className="text-2xl md:text-3xl text-ink-primary mb-6">
-              An internal developer portal and platform, all in one
-            </h2>
-            <p className="text-xl text-ink-secondary max-w-3xl mx-auto leading-relaxed">
-              Skyhook is your kubernetes-based platform. Its developer interface turns Skyhook into an internal developer portal too.
+            <p
+              className="text-[#445166] font-normal leading-normal text-[18px] md:text-[20px]"
+              style={{ fontFamily: '"DM Sans"' }}
+            >
+              An internal developer portal and platform, all in one. Skyhook is your kubernetes-based platform. Its developer interface turns Skyhook into an internal developer portal too.
             </p>
-          </div>
-        </FadeIn>
 
-        {/* Content - Below fold: Slide Up */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-center">
-            <FadeIn direction="up" className="space-y-8">
-                <h2 className="text-3xl font-bold text-ink-primary">An effortless platform and an interface too</h2>
-                <p className="text-lg text-ink-secondary leading-relaxed">
-                    Skyhook’s basic setup delivers a kubernetes platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow.
-                </p>
-                
-                <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                         <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                            <Layout className="w-5 h-5 text-ink-primary" />
-                         </div>
-                         <div>
-                             <h3 className="text-xl font-bold text-ink-primary mb-1">A great developer experience</h3>
-                             <p className="text-ink-secondary">Create an interface that delivers self-service actions that are abstracted, standards-compliant and follow the right golden paths.</p>
-                         </div>
-                    </div>
-                     <div className="flex items-start gap-4">
-                         <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                            <Laptop className="w-5 h-5 text-ink-primary" />
-                         </div>
-                         <div>
-                             <h3 className="text-xl font-bold text-ink-primary mb-1">Robust microservice catalog</h3>
-                             <p className="text-ink-secondary">Skyhook provides both the actual underlying platform and the interface, saving the weeks or months it takes to build them.</p>
-                         </div>
-                    </div>
-                </div>
-            </FadeIn>
-            
-             <FadeIn direction="up" delay={0.2}>
-               <BlueprintCard className="bg-surface min-h-[300px] flex items-center justify-center p-8">
-                  <img 
-                      src="/images/service_catalog.svg" 
-                      alt="Service Catalog Interface"
-                      className="w-full h-auto shadow-sm"
-                  />
-              </BlueprintCard>
-            </FadeIn>
+            {/* CTAs */}
+            <div className="flex gap-4 mt-2 justify-center w-full">
+              <Button href="/demo">Get a demo</Button>
+              <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+            </div>
+          </div>
         </div>
 
-        <FadeIn direction="up">
-          <div className="mb-24 bg-surface border border-border p-12 shadow-hard text-center">
-               <h2 className="text-3xl font-bold text-ink-primary mb-6">What makes us different</h2>
-               <p className="text-lg text-ink-secondary leading-relaxed max-w-4xl mx-auto">
-                  Skyhook’s basic setup delivers a platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow. It’s a kubernetes platform that’s ready to roll, without the lock-in of PaaS.
-               </p>
+        {/* Line separator */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
+          <div
+            style={{
+              width: '100%', maxWidth: '1310px',
+              height: '0',
+              strokeWidth: '1px',
+              borderBottom: '1px solid #E5E5E5'
+            }}
+          />
+        </div>
+
+        {/* Section 1 - Text Left, Image Right */}
+        <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 py-12 md:py-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-[102px]">
+            {/* Left Side */}
+            <div className="flex w-full lg:w-[532px] flex-col items-start gap-5">
+              <h2
+                className="text-[#101927] font-semibold leading-[110%] text-[32px] md:text-[50px]"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                An effortless platform and an interface too
+              </h2>
+              <p
+                className="text-[#445166] font-normal leading-normal text-[16px] md:text-[18px]"
+                style={{ fontFamily: '"DM Sans"' }}
+              >
+                Skyhook’s basic setup delivers a kubernetes platform that’s made of the best dev tools you need, saving you the toil to connect and configure them. We’re also flexible enough to support any change you can imagine, so that you can customize as you grow.
+              </p>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src="/images/solutions/service-catalog/catalog-1.svg"
+                alt="Service Catalog"
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
           </div>
-        </FadeIn>
+        </div>
+
+        <ValueProps />
+        {/* CTA Section */}
+        <CTA />
       </div>
-      
-      <ValueProps />
     </div>
   );
 }

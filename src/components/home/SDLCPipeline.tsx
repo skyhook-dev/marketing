@@ -63,7 +63,15 @@ const steps = [
   }
 ];
 
-export function SDLCPipeline() {
+type SDLCPipelineProps = {
+  title?: string;
+  subtitle?: string;
+};
+
+export function SDLCPipeline({
+  title = "Powering the software development lifecycle, together",
+  subtitle = "Scale your applications with zero infrastructure friction and full observability."
+}: SDLCPipelineProps) {
   const [activeStep, setActiveStep] = useState(steps[0]);
 
   return (
@@ -73,10 +81,10 @@ export function SDLCPipeline() {
           {/* Header */}
           <div className="flex flex-col items-start md:items-center gap-3 mb-10">
             <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] text-left md:text-center leading-[120%] tracking-normal max-w-[875px]">
-              Powering the software development lifecycle, together
+              {title}
             </h2>
             <p className="text-[16px] md:text-[18px] font-normal text-[#445166] text-left md:text-center leading-normal">
-              Scale your applications with zero infrastructure friction and full observability.
+              {subtitle}
             </p>
           </div>
 

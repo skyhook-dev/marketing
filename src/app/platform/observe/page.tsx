@@ -1,176 +1,246 @@
+
 import { Metadata } from "next";
-import { BlueprintCard } from "@/components/ui/BlueprintCard";
-import { Badge } from "@/components/ui/Badge";
-import { Activity, FileText, Bell, Eye, BarChart, Shield } from "lucide-react";
-import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Observe",
-  description: "Monitor your Kubernetes applications with Skyhook. Centralized logging, metrics, tracing, and alerting to keep your services healthy and performant.",
+   title: "Observe",
+   description: "Monitor your Kubernetes applications with Skyhook. Centralized logging, metrics, tracing, and alerting to keep your services healthy and performant.",
 };
 
+// Bento Data
+const bentoItems = [
+   {
+      image: "/images/platform/observe/observe-illus-1.svg",
+      title: "Centralized Logging",
+      description: "Skyhook aggregates logs from all your application pods. View real-time streaming logs in the web console or CLI, filtered by service or severity."
+   },
+   {
+      image: "/images/platform/observe/observe-illus-2.svg",
+      title: "Metrics & Dashboards",
+      description: "Collect key metrics from Kubernetes and your containers (CPU, memory, requests). View on intuitive dashboards to see service performance at a glance."
+   },
+   {
+      image: "/images/platform/observe/observe-illus-3.svg",
+      title: "Alerts & Notifications",
+      description: "Define thresholds for critical metrics or error rates. Integrate with alerting systems to notify your team when something’s amiss."
+   },
+   {
+      image: "/images/platform/observe/observe-illus-4.svg",
+      title: "Audit and History",
+      description: "Every deployment, configuration change, and alert is recorded. Get a complete audit trail for debugging and compliance."
+   }
+];
+
+// Features Data
+const features = [
+   {
+      icon: "/images/platform/observe/observe-icon-1.svg",
+      title: "Live Log Stream",
+      description: "Access stdout/stderr logs from all pods in real time. Search and filter logs by keywords or service name to quickly locate errors."
+   },
+   {
+      icon: "/images/platform/observe/observe-icon-2.svg",
+      title: "Custom Metrics Support",
+      description: "Expose custom business or application metrics via endpoints. Skyhook scrapes and displays these alongside system metrics."
+   },
+   {
+      icon: "/images/platform/observe/observe-icon-3.svg",
+      title: "Third-Party Integration",
+      description: "Pipe data to external systems using standard protocols. Send logs to ELK or metrics to Datadog with straightforward integration."
+   },
+   {
+      icon: "/images/platform/observe/observe-icon-4.svg",
+      title: "Built-in Monitoring Stack",
+      description: "Pre-integrated monitoring stack gathering container and node metrics automatically for instant observability out-of-the-box."
+   },
+   {
+      icon: "/images/platform/observe/observe-icon-5.svg",
+      title: "Alert Rules Engine",
+      description: "Flexible rules engine to define alert conditions. Configure notifications to Slack, Email, or PagerDuty."
+   },
+   {
+      icon: "/images/platform/observe/observe-icon-6.svg",
+      title: "Secure and Compliant",
+      description: "Telemetry data is transmitted securely. Role-based access ensures sensitive logs are only visible to authorized personnel."
+   }
+];
+
 export default function ObservePage() {
-  return (
-    <div className="min-h-screen bg-background py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header - Above fold: Blur In */}
-        <FadeIn direction="blur-in">
-          <div className="mb-20">
-            <Badge variant="accent" className="mb-6">
-              <Activity className="w-4 h-4" />
-              Platform Feature
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-ink-primary mb-6">
-              Observe with Skyhook
-            </h1>
-            <p className="text-xl text-ink-secondary max-w-3xl leading-relaxed">
-              Skyhook has built-in observability from day one, so you can monitor, trace, and troubleshoot your applications with ease. Through a single pane of glass, you get live logs, metrics, and health checks for all your services. Skyhook’s Kubernetes-native approach means it taps into standard observability tools without proprietary lock-in.
-            </p>
-          </div>
-        </FadeIn>
+   return (
+      <div className="min-h-screen bg-background relative overflow-hidden -mt-16">
+         {/* Background Decoration */}
+         <div
+            className="absolute z-0 pointer-events-none"
+            style={{
+               width: '2529.492px',
+               height: '1026.095px',
+               transform: 'rotate(17.015deg)',
+               borderRadius: '2529.492px',
+               background: '#2D7AFF',
+               filter: 'blur(302px)',
+               top: '-220px',
+               left: '50%',
+               marginLeft: '-1265px',
+               opacity: '0.1'
+            }}
+         />
+         <div className="relative z-10">
+            {/* Hero Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-32 md:pt-48 pb-0">
+               <div className="flex flex-col lg:flex-row items-start gap-10">
+                  {/* Left Side */}
+                  <div className="flex flex-col items-start gap-3 flex-1">
+                     <h1
+                        className="text-[#101927] font-semibold leading-[120%] text-[36px] md:text-[60px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Observe with Skyhook
+                     </h1>
+                     <p
+                        className="text-[#445166] font-normal leading-normal text-[18px] md:text-[20px]"
+                        style={{ fontFamily: '"DM Sans"' }}
+                     >
+                        Skyhook has built-in observability from day one. Monitor, trace, and troubleshoot your applications with ease through a single pane of glass.
+                     </p>
 
-        {/* How It Works - Below fold: Slide Up */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-           <div className="space-y-12">
-              <FadeIn direction="up">
-                 <h2 className="text-3xl font-bold text-ink-primary mb-8">How It Works</h2>
-                 <div className="space-y-8">
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <FileText className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Centralized Logging</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Skyhook aggregates logs from all your application pods. View real-time streaming logs in the web console or CLI, filtered by service or severity.
-                          </p>
-                       </div>
-                    </div>
+                     {/* CTAs */}
+                     <div className="flex gap-4 mt-4">
+                        <Button href="/demo">Get a demo</Button>
+                        <Button href="https://app.skyhook.io" variant="secondary" external>Start deploying</Button>
+                     </div>
+                  </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <BarChart className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Metrics & Dashboards</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             The platform collects key metrics from Kubernetes and your containers (CPU, memory, requests, etc.). It presents these on intuitive dashboards so you can see at a glance how each service is performing.
-                          </p>
-                       </div>
-                    </div>
+                  {/* Right Side - Image */}
+                  <div className="flex items-center justify-center">
+                     <img
+                        src="/images/platform/observe/observe-header.svg"
+                        alt="Observe Header"
+                        className="w-full h-auto"
+                     />
+                  </div>
+               </div>
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Bell className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Alerts & Notifications</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Define thresholds for critical metrics or error rates. Skyhook can integrate with alerting systems to notify your team when something’s amiss.
-                          </p>
-                       </div>
-                    </div>
+            {/* Line separator */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0">
+               <div
+                  style={{
+                     width: '100%', maxWidth: '1310px',
+                     height: '0',
+                     strokeWidth: '1px',
+                     borderBottom: '1px solid #E5E5E5'
+                  }}
+               />
+            </div>
 
-                    <div className="flex gap-4">
-                       <div className="w-10 h-10 bg-surface border border-border rounded-lg shadow-hard flex items-center justify-center flex-shrink-0">
-                          <Shield className="w-5 h-5 text-ink-primary" />
-                       </div>
-                       <div>
-                          <h3 className="text-xl font-bold text-ink-primary mb-2">Audit and History</h3>
-                          <p className="text-ink-secondary leading-relaxed">
-                             Every deployment, configuration change, and alert is recorded. Get an audit trail, so you can review who changed what and when. This is crucial for debugging complex issues or satisfying compliance requirements in regulated industries.
-                          </p>
-                       </div>
-                    </div>
-                 </div>
-              </FadeIn>
-           </div>
+            {/* How It Works Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-12 md:pt-24 pb-12">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     How It Works
+                  </h2>
 
-           {/* Right Column / Diagram */}
-           <FadeIn delay={0.2} direction="up" className="lg:pt-16">
-              <BlueprintCard className="bg-surface min-h-[500px] flex items-center justify-center">
-                 <div className="text-center space-y-6 opacity-70">
-                     <div className="font-mono text-xs uppercase tracking-widest">Observability Pipeline</div>
-                     <svg width="280" height="200" viewBox="0 0 280 200" className="mx-auto stroke-ink-primary fill-none">
-                        {/* Pods */}
-                        <rect x="20" y="50" width="30" height="30" strokeWidth="1" />
-                        <rect x="20" y="100" width="30" height="30" strokeWidth="1" />
-                        <text x="35" y="150" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">PODS</text>
-                        
-                        {/* Aggregator */}
-                        <rect x="100" y="60" width="40" height="60" strokeWidth="1" />
-                        <text x="120" y="140" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">COLLECTOR</text>
+                  {/* Bento Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 self-stretch">
+                     {bentoItems.map((item, index) => (
+                        <div
+                           key={index}
+                           className="flex flex-col items-start gap-2.5 self-stretch rounded-xl border border-[#E5E5E5]"
+                           style={{
+                              padding: '20px',
+                              background: '#FFFFFF'
+                           }}
+                        >
+                           {/* Image Container */}
+                           <div
+                              className="flex items-center flex-shrink-0 self-stretch"
+                              style={{
+                                 height: '177px',
+                                 padding: '17.928px 162.937px 17.928px 16px'
+                              }}
+                           >
+                              <img src={item.image} alt={item.title} className="h-auto" />
+                           </div>
 
-                        {/* Dashboard */}
-                        <rect x="200" y="40" width="60" height="40" strokeWidth="1" />
-                        <text x="230" y="95" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">METRICS</text>
+                           {/* Text Content */}
+                           <div className="flex flex-col items-start gap-3 self-stretch">
+                              <h3
+                                 className="text-[#101927] font-semibold leading-normal"
+                                 style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                              >
+                                 {item.title}
+                              </h3>
+                              <p
+                                 className="text-[#445166] font-normal"
+                                 style={{
+                                    fontFamily: '"DM Sans"',
+                                    fontSize: '16px',
+                                    lineHeight: '140%'
+                                 }}
+                              >
+                                 {item.description}
+                              </p>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
-                        {/* Logs */}
-                         <rect x="200" y="110" width="60" height="40" strokeWidth="1" />
-                        <text x="230" y="165" textAnchor="middle" fontSize="10" stroke="none" fill="currentColor">LOGS</text>
+            {/* Features Section */}
+            <div className="w-full md:w-[1310px] mx-auto px-4 md:px-0 pt-6 pb-6">
+               <div className="flex flex-col items-center gap-12 md:gap-[60px] self-stretch">
+                  <h2
+                     className="text-[#101927] text-center font-semibold leading-[120%] text-[32px] md:text-[50px]"
+                     style={{ fontFamily: '"DM Sans"' }}
+                  >
+                     Features
+                  </h2>
 
-                        {/* Connections */}
-                        <path d="M50 65 L100 90" strokeWidth="1" />
-                        <path d="M50 115 L100 90" strokeWidth="1" />
-                        <path d="M140 80 L200 60" strokeWidth="1" />
-                         <path d="M140 100 L200 130" strokeWidth="1" />
-                     </svg>
-                 </div>
-              </BlueprintCard>
-           </FadeIn>
-        </div>
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 self-stretch">
+                     {features.map((feature, index) => (
+                        <div
+                           key={index}
+                           className="flex items-start gap-2.5 self-stretch rounded-xl w-full md:w-[428.667px]"
+                           style={{
+                              padding: '30px 20px',
+                              background: '#F6FAFF'
+                           }}
+                        >
+                           <div className="flex flex-col items-start gap-4 flex-1 self-stretch">
+                              {/* Icon */}
+                              <img src={feature.icon} alt={feature.title} className="w-auto h-auto" />
 
-        {/* Features Grid */}
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeIn direction="up">
-              <BlueprintCard title="Live Log Stream">
-                <div className="flex items-start gap-3 mb-4">
-                  <FileText className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Access stdout/stderr logs from all pods in real time. Search and filter logs by keywords or service name. Developers can quickly locate error messages or exceptions without leaving the Skyhook interface.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Custom Metrics Support">
-                <div className="flex items-start gap-3 mb-4">
-                  <BarChart className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Expose custom business or application metrics via endpoints (for instance, using Prometheus client libraries). Skyhook will scrape and display these metrics, letting you monitor application-level KPIs alongside system metrics.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-            <FadeIn direction="up">
-              <BlueprintCard title="Third-Party Integration">
-                <div className="flex items-start gap-3 mb-4">
-                  <Eye className="w-5 h-5 text-ink-primary mt-1" />
-                  <p className="text-ink-secondary">
-                     Skyhook’s use of standard protocols means you can pipe data to external systems. Send logs to an ELK stack, or feed metrics into Datadog – the data is yours, and integration is straightforward.
-                  </p>
-                </div>
-              </BlueprintCard>
-            </FadeIn>
-        </FadeInStagger>
+                              {/* Text Content */}
+                              <div className="flex flex-col items-start gap-3 self-stretch">
+                                 <h3
+                                    className="text-[#101927] font-semibold leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '18px' }}
+                                 >
+                                    {feature.title}
+                                 </h3>
+                                 <p
+                                    className="text-[#445166] font-normal leading-normal"
+                                    style={{ fontFamily: '"DM Sans"', fontSize: '16px' }}
+                                 >
+                                    {feature.description}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
 
-         <FadeIn direction="up" className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12">
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Built-in Monitoring Stack</h4>
-                <p className="text-ink-secondary text-sm">Skyhook comes pre-integrated with a monitoring stack (built on popular open-source tools like Prometheus). It gathers container and node metrics automatically, so you have instant observability out-of-the-box.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Alert Rules Engine</h4>
-                <p className="text-ink-secondary text-sm">Use a flexible rules engine to define alert conditions. Configure notifications to Slack, Email, or PagerDuty to ensure the right people are notified at the right time.</p>
-             </div>
-             <div>
-                <h4 className="font-bold text-ink-primary mb-2">Secure and Compliant</h4>
-                <p className="text-ink-secondary text-sm">All telemetry data is transmitted securely and stored with best-practice retention policies. Role-based access ensures that sensitive logs (like user data in logs) are only visible to authorized personnel. These features help with compliance.</p>
-             </div>
-        </FadeIn>
-
+            {/* CTA Section */}
+            <CTA />
+         </div>
       </div>
-    </div>
-  );
+   );
 }
