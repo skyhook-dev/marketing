@@ -12,7 +12,7 @@ export function Hero() {
             <FadeIn>
               <div className="space-y-4 flex flex-col items-start text-left">
                 <h5 className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
-                  Stop building internal developer platforms.
+                  Ship like a team twice your size.
                 </h5>
                 <h1 className="text-[36px] md:text-6xl font-semibold tracking-tight leading-[120%] md:leading-[1.1] text-[#101927]">
                   Kubernetes power. <br />
