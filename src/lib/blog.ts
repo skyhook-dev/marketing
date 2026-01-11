@@ -10,6 +10,7 @@ export type BlogPost = {
   author: string;
   readTime: string;
   category: string;
+  tags: string[];
   image?: string;
   content: string;
 };
@@ -61,6 +62,7 @@ export function getAllBlogPosts(): BlogPost[] {
         author: data.author || "Skyhook Team",
         readTime: data.readTime || calculateReadTime(content),
         category: data.category || "Engineering",
+        tags: data.tags || [],
         image: data.image || null,
         excerpt: data.excerpt || cleanExcerpt(content),
         content,
@@ -90,6 +92,7 @@ export function getBlogPost(slug: string): BlogPost | undefined {
     author: data.author || "Skyhook Team",
     readTime: data.readTime || calculateReadTime(content),
     category: data.category || "Engineering",
+    tags: data.tags || [],
     image: data.image || null,
     excerpt: data.excerpt || cleanExcerpt(content),
     content,
