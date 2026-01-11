@@ -47,7 +47,7 @@ type ValuePropsGridProps = {
 
 export function ValuePropsGrid({
   title = "Why Choose Skyhook?",
-  subtitle = "Like an internal developer portal without the K8s platform setup",
+  subtitle,
   className = "",
 }: ValuePropsGridProps) {
   return (
@@ -60,9 +60,11 @@ export function ValuePropsGrid({
               <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] leading-[120%] text-left w-full">
                 {title}
               </h2>
-              <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal text-left w-full">
-                {subtitle}
-              </p>
+              {subtitle && (
+                <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal text-left w-full">
+                  {subtitle}
+                </p>
+              )}
             </div>
 
             {/* Grid */}
