@@ -15,10 +15,10 @@ export function PlatformApproach() {
           {/* Title and Subtitle Container */}
           <div className="flex flex-col items-center gap-10 max-w-[935px] mx-auto mb-10">
             <h2 className="text-[30px] md:text-[50px] font-semibold text-[#101927] leading-[120%] text-center">
-              Instant developer platform with no lock-in or PaaS tradeoff
+              It&apos;s 2026. You don&apos;t have to compromise anymore.
             </h2>
             <p className="text-[16px] md:text-[18px] font-normal text-[#445166] leading-normal text-center">
-              You&apos;re one click away from the automation, infrastructure, rollout and dev tools you need. Deliver reusable, standardized actions and views, instantly and without the lock-in of Platform-as-a-Service.
+              We turned Kubernetes into the PaaS you always wanted. No lock-in, no limitations. Everything you need to ship faster - preview environments, canary deployments, monitoring and much more. Ready by tomorrow.
             </p>
           </div>
 
