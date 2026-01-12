@@ -59,6 +59,18 @@ export default function BlogPage() {
                     <p className="text-sm text-ink-secondary leading-relaxed line-clamp-3">
                       {post.excerpt}
                     </p>
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 text-xs font-mono bg-surface border border-border text-ink-secondary rounded"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <div className="text-sm font-medium text-ink-primary underline decoration-1 underline-offset-4">
                       Read more
                     </div>

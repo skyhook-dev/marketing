@@ -112,6 +112,18 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           <p className="text-base text-ink-secondary font-mono">
             By {post.author}
           </p>
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2 pt-4">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-xs font-mono bg-surface border border-border text-ink-secondary rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </header>
 
         {post.image && (
