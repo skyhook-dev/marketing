@@ -116,7 +116,7 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" ref={contentRef}>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" ref={contentRef}>
       {/* Main content */}
       <div className="min-w-0">
         {children}
@@ -126,7 +126,7 @@ export function BlogLayout({ children, headings }: { children: React.ReactNode; 
       {headings.length > 0 && (
         <aside
           ref={tocRef}
-          className="hidden xl:block fixed w-64 left-[calc(50%+24rem+3rem)]"
+          className="hidden xl:block fixed w-64 left-[calc(50%+28rem+3rem)]"
           style={{ top: `${tocTop}px` }}
         >
           <div className="border-b border-border pb-4 mb-4">

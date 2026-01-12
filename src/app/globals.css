@@ -565,6 +565,22 @@ body {
   color: var(--ink-primary);
 }
 
+/* Prose inline code styling (Tailwind typography) */
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):not(pre code) {
+  background-color: color-mix(in srgb, var(--color-accent) 8%, white);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+  color: var(--ink-primary);
+}
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):not(pre code)::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):not(pre code)::after {
+  content: none;
+}
+
 /* Progress bar animation */
 @keyframes progressBar {
   from {
