@@ -12,14 +12,14 @@ export function Hero() {
             <FadeIn>
               <div className="space-y-4 flex flex-col items-start text-left">
                 <h5 className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
-                  One-click Kubernetes Platform
+                  Ship like a team twice your size.
                 </h5>
                 <h1 className="text-[36px] md:text-6xl font-semibold tracking-tight leading-[120%] md:leading-[1.1] text-[#101927]">
-                  Developer Platform <br />
-                  <span className="text-[#445166] md:text-ink-secondary">without the hassle</span>
+                  Kubernetes power. <br />
+                  <span className="text-[#445166] md:text-ink-secondary">PaaS simplicity.</span>
                 </h1>
                 <p className="text-[16px] md:text-xl text-[#445166] md:text-ink-secondary max-w-lg leading-normal md:leading-relaxed">
-                  Build, run and release applications on a best-in-class platform. Skyhook automatically orchestrates, customizes and configures all the leading tools, and is as simple as checking a box.
+                  The production-grade Internal Developer Platform you&apos;d build yourself if you had the time - deployed on your cloud in minutes. No lock-in.
                 </p>
               </div>
             </FadeIn>

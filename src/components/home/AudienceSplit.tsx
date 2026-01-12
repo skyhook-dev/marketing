@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ChevronDown } from "lucide-react";
@@ -46,30 +46,44 @@ const devOpsDrawers = [
 ];
 
 const developersBullets = [
-  "A simple interface that meets developers where they are - CLI, API or UI.",
-  "Leverage the K8s ecosystem, from preview environments to canary deployments, without developer K8s expertise.",
-  "Set easy to follow golden paths, for best practices and standards alignment.",
+  "Deploy from CLI, API, or UI - whatever fits your workflow.",
+  "Preview environments, canary deployments, auto-scaling and much more - all the K8s ecosystem power, none of the complexity.",
+  "Golden paths that let you move fast without breaking things.",
 ];
+
+const ROTATION_INTERVAL = 10000; // 10 seconds
 
 export function AudienceSplit() {
   const [openDrawer, setOpenDrawer] = useState<DrawerId>("platform");
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-rotate drawers every 10 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startRotation = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
       setOpenDrawer(current => {
         const currentIndex = devOpsDrawers.findIndex(d => d.id === current);
         const nextIndex = (currentIndex + 1) % devOpsDrawers.length;
         return devOpsDrawers[nextIndex].id;
       });
-    }, 10000);
-
-    return () => clearInterval(interval);
+    }, ROTATION_INTERVAL);
   }, []);
+
+  // Auto-rotate drawers
+  useEffect(() => {
+    startRotation();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [startRotation]);
 
   const toggleDrawer = (id: DrawerId) => {
     if (openDrawer !== id) {
       setOpenDrawer(id);
+      startRotation(); // Reset timer when user clicks
     }
   };
 
@@ -97,7 +111,7 @@ export function AudienceSplit() {
 
               {/* Subtitle */}
               <p className="text-[16px] lg:text-[18px] font-normal text-[#445166] leading-normal mb-5">
-                Like an internal developer portal without the K8s platform setup
+                No waiting on DevOps. No tickets. Just deploy.
               </p>
 
               {/* Bullets */}

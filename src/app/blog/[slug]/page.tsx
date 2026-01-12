@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm font-medium text-ink-secondary hover:text-ink-primary transition-colors"
@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       </div>
 
       <article className="pt-6">
-        <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center mb-10">
+        <header className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center mb-10">
           <div className="space-y-2 text-xs uppercase tracking-[0.3em] text-ink-secondary">
             <span>{post.category}</span>
             <span className="mx-2">•</span>
@@ -127,13 +127,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         </header>
 
         {post.image && (
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-            <div className="border border-border shadow-hard">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div className="border border-border shadow-hard aspect-video overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
