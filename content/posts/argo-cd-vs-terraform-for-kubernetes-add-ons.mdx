@@ -5,8 +5,8 @@ author: Skyhook Team
 category: Engineering
 readTime: 6 min read
 image: /images/blog/argo-cd-vs-terraform.webp
+excerpt: "Hands-on comparison of Argo CD and Terraform for managing Kubernetes add-ons. Clear guidance on day 1 versus day 2, drift handling, upgrades, multi-cluster, and a proven hybrid workflow."
 ---
-**Meta description:** Hands-on comparison of Argo CD and Terraform for managing Kubernetes add-ons. Clear guidance on day 1 versus day 2, drift handling, upgrades, multi-cluster, and a proven hybrid workflow that many teams adopt.
 
 ## Why this matters
 
@@ -157,24 +157,13 @@ Skyhook ships with the hybrid model built in.
 
 ### Day 2 and beyond
 
-- Skyhook installs and wires Argo CD automatically.
-- From the Skyhook UI you pick add-ons such as cert-manager, Argo Rollouts, Loki, and others, and the platform opens a PR with the matching manifests in your repo.
-- Updates, rollbacks, drift repair, and multi-cluster fan-out happen through Argo CD. Skyhook provides a single dashboard for health, history, and controls.
+- Skyhook installs and configures Argo CD automatically - no manual YAML or Helm values to manage.
+- Select which clusters should run Argo CD from a single dashboard.
+- Browse a catalog of add-ons (cert-manager, Argo Rollouts, External Secrets, Loki, Prometheus, and more) and enable them per cluster.
+- When you select an add-on, Skyhook opens a PR with the matching manifests in your repo - you approve, it deploys.
+- Updates, rollbacks, drift repair, and multi-cluster fan-out all happen through Argo CD under the hood. Skyhook surfaces health, sync status, and history in one place.
 
-### Setting up ArgoCD with Skyhook
-
-Deciding which clusters to install ArgoCD over:
-
-### Managing Addons with Skyhook
-
-Just choose the addons you’d like to install:
-
-### Managing Addons on Clusters with Skyhook
-
-As easy as clicking a checkbox:
-
-
-Result: you keep the power of Terraform and Argo CD, while avoiding the boilerplate and drift wars that usually come with a home-grown setup.
+The result: you get the power of Terraform for infrastructure and Argo CD for in-cluster operations, without the boilerplate and drift wars that come with wiring it all together yourself.
 
 ## Further reading
 
