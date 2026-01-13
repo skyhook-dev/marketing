@@ -10,6 +10,33 @@ export type ChangelogUpdate = {
 
 export const changelogUpdates: ChangelogUpdate[] = [
   {
+    label: "November 2025",
+    sections: [
+      {
+        title: "Features",
+        items: [
+          "**Kyverno Policies** — Added support for Kyverno-based policy guardrails.",
+          "**Self-Onboarding** — Improved self-onboarding flow to make getting started smoother and faster.",
+          "**Skyhook CLI v2** — Modernized CLI with new commands and a bunch of quality-of-life improvements.",
+          "**Enhanced Resource Viewer Tabs** — Better layout, selected columns, richer details rendering, plus sorting and filtering.",
+          '**Rich Demo Mode** — An enhanced "demo environment" experience to explore Skyhook (demo.skyhook.io).',
+        ],
+      },
+      {
+        title: "Minor Changes",
+        items: [
+          "**UI Polish** — Cluster View capacity display improvements, external IP display fixes, and various UI consistency/design tweaks.",
+        ],
+      },
+      {
+        title: "Bug Fixes",
+        items: [
+          "**Inputs Rendering** — Fixed cases where the input underline/line overlapped the text.",
+        ],
+      },
+    ],
+  },
+  {
     "label": "October 2025",
     "sections": [
       {
