@@ -5,6 +5,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -75,15 +76,17 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${dmMono.variable} antialiased bg-background text-foreground`}
       >
-        <SmoothScroll>
-          <div className="relative w-full overflow-x-hidden">
-            <Nav />
-            <main className="min-h-screen pt-16">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </SmoothScroll>
+        <PostHogProvider>
+          <SmoothScroll>
+            <div className="relative w-full overflow-x-hidden">
+              <Nav />
+              <main className="min-h-screen pt-16">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </SmoothScroll>
+        </PostHogProvider>
       </body>
     </html>
   );
