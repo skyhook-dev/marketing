@@ -12,7 +12,7 @@ export function Footer() {
           {/* Logo */}
           <Link href="/">
             <img
-              src="/images/brand/logotype-dark.svg"
+              src="/images/brand/logotype-dark-color.svg"
               alt="Skyhook"
               className="h-12 w-auto"
             />
@@ -89,11 +89,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-[#E5E5E5] pt-8 text-left">
+        {/* Copyright and Legal */}
+        <div className="border-t border-[#E5E5E5] pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <p className="text-sm text-ink-tertiary">
             &copy; {new Date().getFullYear()} Skyhook. All rights reserved.
           </p>
+          <div className="flex gap-6">
+            <Link href="/terms-and-conditions" className="text-sm text-ink-tertiary hover:text-ink-secondary">Terms of Service</Link>
+            <Link href="/privacy-policy" className="text-sm text-ink-tertiary hover:text-ink-secondary">Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

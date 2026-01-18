@@ -3,8 +3,8 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Skyhook",
-    url: "https://skyhook.io",
-    logo: "https://skyhook.io/logo.svg",
+    url: "https://www.skyhook.io",
+    logo: "https://www.skyhook.io/logo.svg",
     description: "The one-click Kubernetes platform. Build, deploy, and scale your applications without the DevOps complexity.",
     sameAs: [
       "https://github.com/skyhook-io",
@@ -26,7 +26,7 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Skyhook",
-    url: "https://skyhook.io",
+    url: "https://www.skyhook.io",
   };
 
   return (

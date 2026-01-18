@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://skyhook.io";
+  const baseUrl = "https://www.skyhook.io";
 
   // Static pages
   const staticPages = [
