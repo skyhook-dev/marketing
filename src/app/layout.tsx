@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     template: "%s | Skyhook",
   },
   description: "The one-click Kubernetes platform. Build, deploy, and scale your applications without the DevOps complexity.",
-  metadataBase: new URL("https://skyhook.io"),
+  metadataBase: new URL("https://www.skyhook.io"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://skyhook.io",
+    url: "https://www.skyhook.io",
     siteName: "Skyhook",
     title: "Skyhook | Kubernetes Internal Developer Platform",
     description: "The one-click Kubernetes platform. Build, deploy, and scale your applications without the DevOps complexity.",
