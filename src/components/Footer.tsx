@@ -19,7 +19,7 @@ export function Footer() {
           </Link>
 
           {/* Pages */}
-          <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-[85px]">
+          <div className="flex flex-row items-start gap-12 sm:gap-[85px]">
             {/* Company Column */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[#101927] font-['DM_Sans'] text-[18px] font-semibold leading-normal">Company</h4>
