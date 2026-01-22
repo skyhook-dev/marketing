@@ -1,9 +1,36 @@
 "use client";
 
+import { useEffect } from "react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
 
 export function DemoVideo() {
+  useEffect(() => {
+    function onArcadeIframeMessage(e: MessageEvent) {
+      if (e.origin !== "https://demo.arcade.software" || !e.isTrusted) return;
+      const arcadeIframe = document.querySelector(
+        `iframe[src*="${e.data.id}"]`
+      ) as HTMLIFrameElement | null;
+      if (!arcadeIframe || !arcadeIframe.contentWindow) return;
+      if (e.data.event === "arcade-init") {
+        arcadeIframe.contentWindow.postMessage(
+          { event: "register-popout-handler" },
+          "*"
+        );
+      }
+      if (e.data.event === "arcade-popout-open") {
+        arcadeIframe.style.position = "fixed";
+        arcadeIframe.style.zIndex = "9999999";
+      }
+      if (e.data.event === "arcade-popout-close") {
+        arcadeIframe.style.position = "absolute";
+        arcadeIframe.style.zIndex = "auto";
+      }
+    }
+    window.addEventListener("message", onArcadeIframeMessage);
+    return () => window.removeEventListener("message", onArcadeIframeMessage);
+  }, []);
+
   return (
     <section className="py-[25px] md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,21 +59,26 @@ export function DemoVideo() {
                 className="relative overflow-hidden bg-white rounded-[6px] w-full"
                 style={{
                   maxWidth: "1157.977px",
-                  aspectRatio: "1157.977 / 622.816",
                   boxShadow: "0px 9px 24px 0px rgba(45, 122, 255, 0.35)"
                 }}
               >
-                <video
-                  src="https://storage.googleapis.com/koala-site-video/koala-website-demo-v2-7.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="w-full h-full object-cover"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                <div style={{ position: "relative", paddingBottom: "calc(54.6958% + 41px)", height: 0, width: "100%" }}>
+                  <iframe
+                    src="https://demo.arcade.software/8j7FUsmHesI5fLyKTb5x?embed&embed_mobile=modal&embed_desktop=inline&show_copy_link=true"
+                    title="Product Overview"
+                    loading="lazy"
+                    allowFullScreen
+                    allow="clipboard-write"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      colorScheme: "light",
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
